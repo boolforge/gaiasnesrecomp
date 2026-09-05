@@ -1,0 +1,1047 @@
+{
+ "0": {
+  "halt": false,
+  "name": "GenHdmaSine",
+  "total_operand_bytes": 1
+ },
+ "1": {
+  "halt": false,
+  "name": "QueueHdma",
+  "total_operand_bytes": 5
+ },
+ "10": {
+  "halt": false,
+  "name": "WriteApuIo0",
+  "total_operand_bytes": 2
+ },
+ "100": {
+  "halt": false,
+  "name": "TickGravity",
+  "total_operand_bytes": 1
+ },
+ "101": {
+  "halt": false,
+  "name": "StageWorldMapMove",
+  "total_operand_bytes": 7
+ },
+ "102": {
+  "halt": false,
+  "name": "StageWorldMapChoice",
+  "total_operand_bytes": 6
+ },
+ "103": {
+  "halt": false,
+  "name": "StageWorldMapMoveIds",
+  "total_operand_bytes": 3
+ },
+ "104": {
+  "halt": false,
+  "name": "BranchIfOffscreen",
+  "total_operand_bytes": 3
+ },
+ "105": {
+  "halt": false,
+  "name": "HaltIfCounterGte",
+  "total_operand_bytes": 3
+ },
+ "106": {
+  "halt": false,
+  "name": "SetLinkedActorScript",
+  "total_operand_bytes": 3
+ },
+ "107": {
+  "halt": false,
+  "name": "PrintWideStringAlt",
+  "total_operand_bytes": 3
+ },
+ "108": {
+  "halt": false,
+  "name": "InitSpiral",
+  "total_operand_bytes": 3
+ },
+ "109": {
+  "halt": false,
+  "name": "SpiralStep",
+  "total_operand_bytes": 3
+ },
+ "11": {
+  "halt": false,
+  "name": "SolidHighHere",
+  "total_operand_bytes": 1
+ },
+ "12": {
+  "halt": false,
+  "name": "ClearLowHere",
+  "total_operand_bytes": 1
+ },
+ "128": {
+  "halt": false,
+  "name": "StageSpriteFrame",
+  "total_operand_bytes": 2
+ },
+ "129": {
+  "halt": false,
+  "name": "StageSpriteMoveX",
+  "total_operand_bytes": 3
+ },
+ "13": {
+  "halt": false,
+  "name": "SolidHighOffset",
+  "total_operand_bytes": 3
+ },
+ "130": {
+  "halt": false,
+  "name": "StageSpriteMoveY",
+  "total_operand_bytes": 3
+ },
+ "131": {
+  "halt": false,
+  "name": "StageSpriteMoveXY",
+  "total_operand_bytes": 4
+ },
+ "132": {
+  "halt": false,
+  "name": "StageSpriteLoop",
+  "total_operand_bytes": 3
+ },
+ "133": {
+  "halt": false,
+  "name": "StageSpriteLoopMoveX",
+  "total_operand_bytes": 4
+ },
+ "134": {
+  "halt": false,
+  "name": "StageSpriteLoopMoveY",
+  "total_operand_bytes": 4
+ },
+ "135": {
+  "halt": false,
+  "name": "StageSpriteLoopMoveXY",
+  "total_operand_bytes": 5
+ },
+ "136": {
+  "halt": false,
+  "name": "SetMetasprite",
+  "total_operand_bytes": 4
+ },
+ "137": {
+  "halt": false,
+  "name": "AnimOnce",
+  "total_operand_bytes": 1
+ },
+ "138": {
+  "halt": false,
+  "name": "AnimLoop",
+  "total_operand_bytes": 1
+ },
+ "139": {
+  "halt": false,
+  "name": "AnimOneFrame",
+  "total_operand_bytes": 1
+ },
+ "14": {
+  "halt": false,
+  "name": "ClearLowOffset",
+  "total_operand_bytes": 3
+ },
+ "140": {
+  "halt": false,
+  "name": "ContinueIfFrame",
+  "total_operand_bytes": 2
+ },
+ "141": {
+  "halt": false,
+  "name": "StageSprAndHitbox",
+  "total_operand_bytes": 2
+ },
+ "142": {
+  "halt": false,
+  "name": "SetPlayerBodySprite",
+  "total_operand_bytes": 2
+ },
+ "143": {
+  "halt": false,
+  "name": "StagePlayerSprite",
+  "total_operand_bytes": 2
+ },
+ "144": {
+  "halt": false,
+  "name": "StagePlayerMoveX",
+  "total_operand_bytes": 3
+ },
+ "145": {
+  "halt": false,
+  "name": "StagePlayerMoveY",
+  "total_operand_bytes": 3
+ },
+ "146": {
+  "halt": false,
+  "name": "StagePlayerMoveXY",
+  "total_operand_bytes": 4
+ },
+ "147": {
+  "halt": false,
+  "name": "AnimPlayerOnce",
+  "total_operand_bytes": 1
+ },
+ "148": {
+  "halt": false,
+  "name": "StagePlayerMoveXYWall",
+  "total_operand_bytes": 5
+ },
+ "149": {
+  "halt": false,
+  "name": "StagePlayerSpriteFromBank",
+  "total_operand_bytes": 1
+ },
+ "15": {
+  "halt": false,
+  "name": "SolidHighAbs",
+  "total_operand_bytes": 3
+ },
+ "150": {
+  "halt": false,
+  "name": "WallCheckCurrent",
+  "total_operand_bytes": 3
+ },
+ "151": {
+  "halt": false,
+  "name": "WallCheckNorth",
+  "total_operand_bytes": 3
+ },
+ "152": {
+  "halt": false,
+  "name": "WallCheckSouth",
+  "total_operand_bytes": 3
+ },
+ "153": {
+  "halt": false,
+  "name": "SpawnBefore",
+  "total_operand_bytes": 4
+ },
+ "154": {
+  "halt": false,
+  "name": "SpawnBeforeFlags",
+  "total_operand_bytes": 6
+ },
+ "155": {
+  "halt": false,
+  "name": "SpawnAfter",
+  "total_operand_bytes": 4
+ },
+ "156": {
+  "halt": false,
+  "name": "SpawnAfterFlags",
+  "total_operand_bytes": 6
+ },
+ "157": {
+  "halt": false,
+  "name": "SpawnAfterRel",
+  "total_operand_bytes": 8
+ },
+ "158": {
+  "halt": false,
+  "name": "SpawnAfterRelFlags",
+  "total_operand_bytes": 10
+ },
+ "159": {
+  "halt": false,
+  "name": "SpawnAfterAbs",
+  "total_operand_bytes": 8
+ },
+ "16": {
+  "halt": false,
+  "name": "ClearLowAbs",
+  "total_operand_bytes": 3
+ },
+ "160": {
+  "halt": false,
+  "name": "SpawnAfterAbsFlags",
+  "total_operand_bytes": 10
+ },
+ "161": {
+  "halt": false,
+  "name": "SpawnMarkedBefore",
+  "total_operand_bytes": 6
+ },
+ "162": {
+  "halt": false,
+  "name": "SpawnMarkedAfter",
+  "total_operand_bytes": 6
+ },
+ "163": {
+  "halt": false,
+  "name": "SpawnMarkedAfterAbs",
+  "total_operand_bytes": 10
+ },
+ "164": {
+  "halt": false,
+  "name": "SpawnMarkedAfterRel",
+  "total_operand_bytes": 8
+ },
+ "165": {
+  "halt": false,
+  "name": "SpawnLastRel",
+  "total_operand_bytes": 8
+ },
+ "166": {
+  "halt": false,
+  "name": "SpawnLastRelSpr",
+  "total_operand_bytes": 9
+ },
+ "167": {
+  "halt": false,
+  "name": "MarkDeath",
+  "total_operand_bytes": 1
+ },
+ "168": {
+  "halt": false,
+  "name": "KillPrev",
+  "total_operand_bytes": 1
+ },
+ "169": {
+  "halt": false,
+  "name": "KillNext",
+  "total_operand_bytes": 1
+ },
+ "17": {
+  "halt": false,
+  "name": "ClearAllHere",
+  "total_operand_bytes": 1
+ },
+ "170": {
+  "halt": false,
+  "name": "StageForceMoveX",
+  "total_operand_bytes": 2
+ },
+ "171": {
+  "halt": false,
+  "name": "StageForceMoveY",
+  "total_operand_bytes": 2
+ },
+ "172": {
+  "halt": false,
+  "name": "StageForceMoveXY",
+  "total_operand_bytes": 3
+ },
+ "173": {
+  "halt": false,
+  "name": "SetForceSW",
+  "total_operand_bytes": 2
+ },
+ "174": {
+  "halt": false,
+  "name": "SetForceNE",
+  "total_operand_bytes": 2
+ },
+ "175": {
+  "halt": false,
+  "name": "SetForceBoth",
+  "total_operand_bytes": 2
+ },
+ "176": {
+  "halt": false,
+  "name": "ForceMoveLastChild",
+  "total_operand_bytes": 3
+ },
+ "177": {
+  "halt": false,
+  "name": "ReloadForceMove",
+  "total_operand_bytes": 1
+ },
+ "178": {
+  "halt": false,
+  "name": "CollPrioritySetMax",
+  "total_operand_bytes": 1
+ },
+ "179": {
+  "halt": false,
+  "name": "CollPrioritySetMin",
+  "total_operand_bytes": 1
+ },
+ "18": {
+  "halt": false,
+  "name": "ClearHighAbs",
+  "total_operand_bytes": 3
+ },
+ "180": {
+  "halt": false,
+  "name": "CollPriorityClearMax",
+  "total_operand_bytes": 1
+ },
+ "181": {
+  "halt": false,
+  "name": "CollPriorityClearMin",
+  "total_operand_bytes": 1
+ },
+ "182": {
+  "halt": false,
+  "name": "SetSpritePriority",
+  "total_operand_bytes": 2
+ },
+ "183": {
+  "halt": false,
+  "name": "SetSpritePalette",
+  "total_operand_bytes": 2
+ },
+ "184": {
+  "halt": false,
+  "name": "ToggleHFlip",
+  "total_operand_bytes": 1
+ },
+ "185": {
+  "halt": false,
+  "name": "ToggleVFlip",
+  "total_operand_bytes": 1
+ },
+ "186": {
+  "halt": false,
+  "name": "ClearHFlip",
+  "total_operand_bytes": 1
+ },
+ "187": {
+  "halt": false,
+  "name": "SetHFlip",
+  "total_operand_bytes": 1
+ },
+ "188": {
+  "halt": false,
+  "name": "AddPosition",
+  "total_operand_bytes": 3
+ },
+ "189": {
+  "halt": false,
+  "name": "RunBg3Script",
+  "total_operand_bytes": 4
+ },
+ "19": {
+  "halt": false,
+  "name": "BranchIfSolid",
+  "total_operand_bytes": 3
+ },
+ "190": {
+  "halt": true,
+  "name": "DialogueOptions",
+  "total_operand_bytes": 5
+ },
+ "191": {
+  "halt": false,
+  "name": "PrintWideString",
+  "total_operand_bytes": 3
+ },
+ "192": {
+  "halt": false,
+  "name": "SetOnInteract",
+  "total_operand_bytes": 3
+ },
+ "193": {
+  "halt": false,
+  "name": "SetEntryContinue",
+  "total_operand_bytes": 1
+ },
+ "194": {
+  "halt": false,
+  "name": "SetEntryExit",
+  "total_operand_bytes": 1
+ },
+ "195": {
+  "halt": false,
+  "name": "SetEntryDelayExit",
+  "total_operand_bytes": 6
+ },
+ "196": {
+  "halt": true,
+  "name": "SetEntryExitNow",
+  "total_operand_bytes": 4
+ },
+ "197": {
+  "halt": true,
+  "name": "RestoreSavedPtr",
+  "total_operand_bytes": 1
+ },
+ "198": {
+  "halt": false,
+  "name": "SetSavedPtr",
+  "total_operand_bytes": 3
+ },
+ "199": {
+  "halt": true,
+  "name": "JumpScript",
+  "total_operand_bytes": 4
+ },
+ "2": {
+  "halt": false,
+  "name": "QueueDma",
+  "total_operand_bytes": 5
+ },
+ "20": {
+  "halt": false,
+  "name": "BranchIfSolidOffset",
+  "total_operand_bytes": 5
+ },
+ "200": {
+  "halt": false,
+  "name": "CallScript",
+  "total_operand_bytes": 3
+ },
+ "201": {
+  "halt": false,
+  "name": "CallScriptDeferred",
+  "total_operand_bytes": 3
+ },
+ "202": {
+  "halt": false,
+  "name": "LoopInit",
+  "total_operand_bytes": 2
+ },
+ "203": {
+  "halt": false,
+  "name": "LoopNext",
+  "total_operand_bytes": 1
+ },
+ "204": {
+  "halt": false,
+  "name": "SetFlagByte",
+  "total_operand_bytes": 2
+ },
+ "205": {
+  "halt": false,
+  "name": "SetFlagWord",
+  "total_operand_bytes": 3
+ },
+ "206": {
+  "halt": false,
+  "name": "ClearFlagByte",
+  "total_operand_bytes": 2
+ },
+ "207": {
+  "halt": false,
+  "name": "ClearFlagWord",
+  "total_operand_bytes": 3
+ },
+ "208": {
+  "halt": false,
+  "name": "BranchIfFlagByte",
+  "total_operand_bytes": 5
+ },
+ "209": {
+  "halt": false,
+  "name": "BranchIfFlagWord",
+  "total_operand_bytes": 6
+ },
+ "21": {
+  "halt": false,
+  "name": "BranchIfSolidNorth",
+  "total_operand_bytes": 3
+ },
+ "210": {
+  "halt": false,
+  "name": "ExitIfFlagByte",
+  "total_operand_bytes": 3
+ },
+ "211": {
+  "halt": false,
+  "name": "ExitIfFlagWord",
+  "total_operand_bytes": 4
+ },
+ "212": {
+  "halt": false,
+  "name": "GiveItem",
+  "total_operand_bytes": 4
+ },
+ "213": {
+  "halt": false,
+  "name": "RemoveItem",
+  "total_operand_bytes": 2
+ },
+ "214": {
+  "halt": false,
+  "name": "BranchIfNoItem",
+  "total_operand_bytes": 4
+ },
+ "215": {
+  "halt": false,
+  "name": "BranchIfEquipped",
+  "total_operand_bytes": 4
+ },
+ "216": {
+  "halt": false,
+  "name": "SetDungeonKillFlag",
+  "total_operand_bytes": 1
+ },
+ "217": {
+  "halt": true,
+  "name": "SwitchCase",
+  "total_operand_bytes": 5
+ },
+ "218": {
+  "halt": false,
+  "name": "WaitByte",
+  "total_operand_bytes": 2
+ },
+ "219": {
+  "halt": false,
+  "name": "WaitWord",
+  "total_operand_bytes": 3
+ },
+ "22": {
+  "halt": false,
+  "name": "BranchIfSolidSouth",
+  "total_operand_bytes": 3
+ },
+ "220": {
+  "halt": false,
+  "name": "PanCameraDown",
+  "total_operand_bytes": 1
+ },
+ "221": {
+  "halt": false,
+  "name": "PanCameraUp",
+  "total_operand_bytes": 1
+ },
+ "222": {
+  "halt": false,
+  "name": "PanCameraRight",
+  "total_operand_bytes": 1
+ },
+ "223": {
+  "halt": false,
+  "name": "PanCameraLeft",
+  "total_operand_bytes": 1
+ },
+ "224": {
+  "halt": true,
+  "name": "Die",
+  "total_operand_bytes": 1
+ },
+ "225": {
+  "halt": false,
+  "name": "RestoreSavedPtrFFFF",
+  "total_operand_bytes": 1
+ },
+ "226": {
+  "halt": false,
+  "name": "SetEntryContinueDeferred",
+  "total_operand_bytes": 4
+ },
+ "23": {
+  "halt": false,
+  "name": "BranchIfSolidWest",
+  "total_operand_bytes": 3
+ },
+ "24": {
+  "halt": false,
+  "name": "BranchIfSolidEast",
+  "total_operand_bytes": 3
+ },
+ "25": {
+  "halt": false,
+  "name": "MusicAndText",
+  "total_operand_bytes": 5
+ },
+ "26": {
+  "halt": false,
+  "name": "BranchIfSolidType",
+  "total_operand_bytes": 4
+ },
+ "27": {
+  "halt": false,
+  "name": "BranchIfSolidTypeNorth",
+  "total_operand_bytes": 4
+ },
+ "28": {
+  "halt": false,
+  "name": "BranchIfSolidTypeSouth",
+  "total_operand_bytes": 4
+ },
+ "29": {
+  "halt": false,
+  "name": "BranchIfSolidTypeWest",
+  "total_operand_bytes": 4
+ },
+ "3": {
+  "halt": false,
+  "name": "QueueHdmaChannel",
+  "total_operand_bytes": 6
+ },
+ "30": {
+  "halt": false,
+  "name": "BranchIfSolidTypeEast",
+  "total_operand_bytes": 4
+ },
+ "31": {
+  "halt": false,
+  "name": "BranchIfNotOnGridline",
+  "total_operand_bytes": 3
+ },
+ "32": {
+  "halt": false,
+  "name": "BranchIfActorNear",
+  "total_operand_bytes": 5
+ },
+ "33": {
+  "halt": false,
+  "name": "BranchIfPlayerNear",
+  "total_operand_bytes": 4
+ },
+ "34": {
+  "halt": false,
+  "name": "MoveToward",
+  "total_operand_bytes": 3
+ },
+ "35": {
+  "halt": false,
+  "name": "RngByte",
+  "total_operand_bytes": 1
+ },
+ "36": {
+  "halt": false,
+  "name": "RngMod",
+  "total_operand_bytes": 2
+ },
+ "37": {
+  "halt": false,
+  "name": "SetTilePos",
+  "total_operand_bytes": 3
+ },
+ "38": {
+  "halt": false,
+  "name": "QueueMapChange",
+  "total_operand_bytes": 9
+ },
+ "39": {
+  "halt": false,
+  "name": "WaitWhileOffscreen",
+  "total_operand_bytes": 2
+ },
+ "4": {
+  "halt": false,
+  "name": "StartMusic",
+  "total_operand_bytes": 2
+ },
+ "40": {
+  "halt": false,
+  "name": "BranchIfPlayerAt",
+  "total_operand_bytes": 7
+ },
+ "41": {
+  "halt": false,
+  "name": "BranchIfActorAt",
+  "total_operand_bytes": 8
+ },
+ "42": {
+  "halt": false,
+  "name": "BranchOnPlayerX",
+  "total_operand_bytes": 9
+ },
+ "43": {
+  "halt": false,
+  "name": "BranchOnPlayerY",
+  "total_operand_bytes": 9
+ },
+ "44": {
+  "halt": false,
+  "name": "BranchNearerAxis",
+  "total_operand_bytes": 5
+ },
+ "45": {
+  "halt": false,
+  "name": "DirToPlayer",
+  "total_operand_bytes": 1
+ },
+ "46": {
+  "halt": false,
+  "name": "DirToPlayerFrom",
+  "total_operand_bytes": 3
+ },
+ "47": {
+  "halt": false,
+  "name": "BranchIfDirToPlayer",
+  "total_operand_bytes": 4
+ },
+ "48": {
+  "halt": false,
+  "name": "BranchIfDirToPlayerFrom",
+  "total_operand_bytes": 6
+ },
+ "49": {
+  "halt": false,
+  "name": "BranchOnPlayerFacing",
+  "total_operand_bytes": 11
+ },
+ "5": {
+  "halt": false,
+  "name": "FadeThenStartMusic",
+  "total_operand_bytes": 2
+ },
+ "50": {
+  "halt": false,
+  "name": "StageBgChange",
+  "total_operand_bytes": 2
+ },
+ "51": {
+  "halt": false,
+  "name": "ApplyBgChange",
+  "total_operand_bytes": 1
+ },
+ "52": {
+  "halt": false,
+  "name": "StageBgChangeFromDeathIdx",
+  "total_operand_bytes": 1
+ },
+ "53": {
+  "halt": false,
+  "name": "CardinalToPlayer",
+  "total_operand_bytes": 1
+ },
+ "54": {
+  "halt": false,
+  "name": "PaletteRestart",
+  "total_operand_bytes": 1
+ },
+ "55": {
+  "halt": false,
+  "name": "PaletteStart",
+  "total_operand_bytes": 2
+ },
+ "56": {
+  "halt": false,
+  "name": "PaletteStartLoop",
+  "total_operand_bytes": 3
+ },
+ "57": {
+  "halt": false,
+  "name": "PaletteStep",
+  "total_operand_bytes": 1
+ },
+ "58": {
+  "halt": false,
+  "name": "PaletteStepLoop",
+  "total_operand_bytes": 1
+ },
+ "59": {
+  "halt": false,
+  "name": "SpawnThinkerParam",
+  "total_operand_bytes": 5
+ },
+ "6": {
+  "halt": false,
+  "name": "PlaySoundCh2",
+  "total_operand_bytes": 2
+ },
+ "60": {
+  "halt": false,
+  "name": "SpawnThinker",
+  "total_operand_bytes": 4
+ },
+ "61": {
+  "halt": false,
+  "name": "KillThinker",
+  "total_operand_bytes": 1
+ },
+ "62": {
+  "halt": false,
+  "name": "WaitUntilButton",
+  "total_operand_bytes": 3
+ },
+ "63": {
+  "halt": false,
+  "name": "WaitUntilNoButton",
+  "total_operand_bytes": 3
+ },
+ "64": {
+  "halt": false,
+  "name": "BranchIfButton",
+  "total_operand_bytes": 5
+ },
+ "65": {
+  "halt": false,
+  "name": "BranchIfNoButton",
+  "total_operand_bytes": 5
+ },
+ "66": {
+  "halt": false,
+  "name": "SetSolidAbs",
+  "total_operand_bytes": 4
+ },
+ "67": {
+  "halt": false,
+  "name": "SnapToGrid",
+  "total_operand_bytes": 1
+ },
+ "68": {
+  "halt": false,
+  "name": "BranchIfPlayerInRelTiles",
+  "total_operand_bytes": 7
+ },
+ "69": {
+  "halt": false,
+  "name": "BranchIfPlayerInAbsTiles",
+  "total_operand_bytes": 7
+ },
+ "7": {
+  "halt": false,
+  "name": "PlaySoundCh1",
+  "total_operand_bytes": 2
+ },
+ "70": {
+  "halt": false,
+  "name": "CopyPosToPrev",
+  "total_operand_bytes": 1
+ },
+ "71": {
+  "halt": false,
+  "name": "CopyPosToNext",
+  "total_operand_bytes": 1
+ },
+ "72": {
+  "halt": false,
+  "name": "GetPlayerFacing",
+  "total_operand_bytes": 1
+ },
+ "73": {
+  "halt": false,
+  "name": "BranchIfBodyNe",
+  "total_operand_bytes": 4
+ },
+ "74": {
+  "halt": false,
+  "name": "ResumeAfterSnap",
+  "total_operand_bytes": 1
+ },
+ "75": {
+  "halt": false,
+  "name": "DrawMetatileAbs",
+  "total_operand_bytes": 4
+ },
+ "76": {
+  "halt": false,
+  "name": "DrawMetatileHere",
+  "total_operand_bytes": 2
+ },
+ "77": {
+  "halt": false,
+  "name": "WorldMapStream3",
+  "total_operand_bytes": 3
+ },
+ "78": {
+  "halt": false,
+  "name": "WorldMapStream4",
+  "total_operand_bytes": 3
+ },
+ "79": {
+  "halt": false,
+  "name": "AdhocVramDma",
+  "total_operand_bytes": 8
+ },
+ "8": {
+  "halt": false,
+  "name": "PlaySoundBoth",
+  "total_operand_bytes": 3
+ },
+ "80": {
+  "halt": false,
+  "name": "CopyPalette",
+  "total_operand_bytes": 7
+ },
+ "81": {
+  "halt": false,
+  "name": "Decompress",
+  "total_operand_bytes": 7
+ },
+ "82": {
+  "halt": false,
+  "name": "StageMove",
+  "total_operand_bytes": 4
+ },
+ "83": {
+  "halt": false,
+  "name": "TickMove",
+  "total_operand_bytes": 1
+ },
+ "84": {
+  "halt": false,
+  "name": "SetAnimScratch",
+  "total_operand_bytes": 4
+ },
+ "85": {
+  "halt": false,
+  "name": "ResetSpriteInit",
+  "total_operand_bytes": 4
+ },
+ "86": {
+  "halt": false,
+  "name": "LoadSpriteAnimGlobal",
+  "total_operand_bytes": 1
+ },
+ "87": {
+  "halt": false,
+  "name": "SetDeathCallback",
+  "total_operand_bytes": 4
+ },
+ "88": {
+  "halt": false,
+  "name": "SetHitCallback",
+  "total_operand_bytes": 3
+ },
+ "89": {
+  "halt": false,
+  "name": "SetDodgeCallback",
+  "total_operand_bytes": 3
+ },
+ "9": {
+  "halt": false,
+  "name": "WriteApuIo1",
+  "total_operand_bytes": 2
+ },
+ "90": {
+  "halt": false,
+  "name": "SetCollideCallback",
+  "total_operand_bytes": 3
+ },
+ "91": {
+  "halt": false,
+  "name": "OrActorFlags",
+  "total_operand_bytes": 3
+ },
+ "92": {
+  "halt": false,
+  "name": "AndActorFlags",
+  "total_operand_bytes": 3
+ },
+ "93": {
+  "halt": false,
+  "name": "BranchIfBehindWall",
+  "total_operand_bytes": 3
+ },
+ "94": {
+  "halt": false,
+  "name": "SetExtraCallback",
+  "total_operand_bytes": 3
+ },
+ "95": {
+  "halt": false,
+  "name": "InitSineHdma",
+  "total_operand_bytes": 4
+ },
+ "96": {
+  "halt": false,
+  "name": "TickSineHdma",
+  "total_operand_bytes": 3
+ },
+ "97": {
+  "halt": false,
+  "name": "BindSineHdma",
+  "total_operand_bytes": 5
+ },
+ "98": {
+  "halt": false,
+  "name": "BranchIfSolidNibbleNe",
+  "total_operand_bytes": 4
+ },
+ "99": {
+  "halt": false,
+  "name": "InitGravity",
+  "total_operand_bytes": 4
+ }
+}

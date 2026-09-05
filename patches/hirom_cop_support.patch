@@ -1,0 +1,138 @@
+diff --git a/recompiler/snes65816.py b/recompiler/snes65816.py
+index cf9a0ed..5bc58f0 100644
+--- a/recompiler/snes65816.py
++++ b/recompiler/snes65816.py
+@@ -428,6 +428,33 @@ def opcode_table() -> dict:
+     return _OPCODES
+ 
+ 
++# Optional, per-game COP-operand-width table. None by default: every
++# existing call site (7, as of this writing, none of which pass this
++# in) and every currently-shipped game is completely unaffected unless
++# something explicitly calls set_game_cop_table() first.
++#
++# Real hardware treats COP ($02) as a fixed 2-byte software interrupt,
++# and that IS what every currently-shipped snesrecomp game (all LoROM,
++# none of which use COP for anything) needs. Illusion of Gaia (HiROM)
++# repurposes it as a 209-command scripting dispatch, id byte = the
++# byte after $02, variable total length per id. Sourced from
++# Azarem/gaia-iog-baserom's us/copdef.json, cross-checked against
++# GaiaLabs' own extraction source (gaia-core src/rom/extraction/cop.ts
++# + src/types/addressing.ts) for the byte-width of each operand kind.
++# Deliberately excludes the 6/209 commands whose `halt` flag means
++# control flow does not fall through afterward — those still hit the
++# pre-existing fixed-length/poison path unchanged, rather than risk a
++# wrong guess about how to represent "this terminates" here.
++_GAME_COP_TABLE: Optional[dict] = None
++
++
++def set_game_cop_table(table: Optional[dict]) -> None:
++    """Opt in (or explicitly opt back out with None) to per-game COP
++    operand-width decoding. See _GAME_COP_TABLE above."""
++    global _GAME_COP_TABLE
++    _GAME_COP_TABLE = table
++
++
+ def decode_insn(data: bytes, offset: int, pc: int, bank: int,
+                 m: int = 1, x: int = 1) -> Optional[Insn]:
+     """Decode one 65816 instruction. Returns None on unknown opcode."""
+@@ -445,6 +472,16 @@ def decode_insn(data: bytes, offset: int, pc: int, bank: int,
+         delta = v - 256 if v >= 128 else v
+         return (pc + 2 + delta) & 0xFFFF
+ 
++    if op == 0x02 and _GAME_COP_TABLE:
++        cop_id = b(1)
++        entry = _GAME_COP_TABLE.get(cop_id)
++        if entry is not None:
++            # id byte itself + its declared operand bytes; never the
++            # generic fixed-2 default, and never the IMM m/x-dependent
++            # word() path below (this is not an accumulator load).
++            length = 1 + entry["total_operand_bytes"]
++            return Insn((bank << 16) | pc, op, mnem, mode, cop_id, length)
++
+     if   mode == REL:              operand = rel8()
+     elif mode == REL16:
+         raw = word()
+diff --git a/recompiler/v2/program_analysis.py b/recompiler/v2/program_analysis.py
+index e789afc..9609dc1 100644
+--- a/recompiler/v2/program_analysis.py
++++ b/recompiler/v2/program_analysis.py
+@@ -19,6 +19,19 @@ import heapq
+ import json
+ from typing import Callable, Iterable, Mapping, Optional, Tuple
+ 
++import sys
++import pathlib
++
++# Same defensive sys.path setup as decoder.py, so this module can also
++# be imported standalone (e.g. from tests) without relying on decoder.py
++# having already run first in this process.
++_THIS_DIR = pathlib.Path(__file__).resolve().parent
++_RECOMPILER_DIR = _THIS_DIR.parent
++if str(_RECOMPILER_DIR) not in sys.path:
++    sys.path.insert(0, str(_RECOMPILER_DIR))
++
++import snes65816  # noqa: E402
++
+ from snes65816 import INDIR_X
+ 
+ from .decoder import FunctionDecodeGraph
+@@ -295,7 +308,19 @@ def summarize_decode_graph(
+                      insn.length, tuple(
+                          (s.pc, s.m, s.x) for s in decoded.successors)))
+ 
++        # A COP whose id byte (already captured as insn.operand — see
++        # decode_insn) is a known, non-halting, game-declared opcode is
++        # real code, correctly length-adjusted upstream, not a decode
++        # fault: don't poison it. snes65816._GAME_COP_TABLE is None
++        # for every game that never calls set_game_cop_table(), so
++        # this changes nothing unless something opted in.
++        cop_table = snes65816._GAME_COP_TABLE
++        is_known_safe_cop = (
++            insn.mnem == "COP" and cop_table
++            and cop_table.get(insn.operand) is not None
++        )
+         if (insn.mnem in ("BRK", "COP")
++                and not is_known_safe_cop
+                 and site not in graph.data_region_exec_pcs):
+             poison_reasons.add(f"{insn.mnem.lower()}_at_{site:06X}")
+ 
+diff --git a/tools/v2_analyze.py b/tools/v2_analyze.py
+index 3fad687..ea111ea 100644
+--- a/tools/v2_analyze.py
++++ b/tools/v2_analyze.py
+@@ -30,6 +30,7 @@ from snes65816 import (  # noqa: E402
+     is_rom_address,
+     load_rom,
+     rom_offset,
++    set_game_cop_table,
+     set_rom_mapping,
+     vector_table_offset,
+ )
+@@ -970,8 +971,26 @@ def main() -> int:
+         "--all-cfg-roots", action="store_true",
+         help="migration diagnostic: treat every func declaration as a root; "
+              "the default correctly treats func as a boundary only")
++    parser.add_argument(
++        "--game-cop-table", default=None,
++        help="opt-in only: path to a JSON object mapping COP id byte "
++             "(decimal string key) to {\"total_operand_bytes\": N, "
++             "\"halt\": bool}, for games that repurpose COP as a custom "
++             "multi-byte scripting opcode (e.g. Illusion of Gaia). "
++             "Absent by default -- every other game's decode and poison "
++             "classification is bit-for-bit unaffected by this flag's "
++             "existence when it is not passed.")
+     args = parser.parse_args()
+ 
++    if args.game_cop_table:
++        cop_table_raw = json.loads(
++            pathlib.Path(args.game_cop_table).read_text())
++        # JSON object keys are always strings; the decoder looks these up
++        # by the raw integer id byte it just decoded.
++        set_game_cop_table(
++            {int(k): v for k, v in cop_table_raw.items()
++             if not v.get("halt")})
++
+     rom = load_rom(args.rom)
+     parsed = _load_cfgs(pathlib.Path(args.cfg_dir))
+     manifest, helpers, inline_args = build_manifest(
