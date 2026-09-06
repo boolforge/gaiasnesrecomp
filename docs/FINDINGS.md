@@ -176,3 +176,51 @@ solid would be exactly the shortcut this project set out not to take.
 The honest next step is the same one SMW's own history describes:
 individually diagnosing specific BRK sites as they're hit, not a
 single sweeping correction.
+
+## Pointer-table dispatch validation (investigated further; no cfg change resulted)
+
+Gaia's own data catalogs 14 `&Code`/`&&Code`-typed parts — data tables
+whose entries are pointers to code (e.g. `cop_table_008485` +
+`cop_table2_008585`, 110 + 99 = 209 entries, one per COP command).
+Resolving these directly against the ROM was tried as a way to either
+confirm existing `func` coverage or discover legitimately missing
+entries.
+
+**A real bug was caught and fixed in the process.** An early pass used
+`file_offset = bank*0x8000 + (offset-0x8000)` to map a Gaia address to
+a raw ROM byte. That's wrong for a linear HiROM file — verified against
+the one byte range with independent ground truth (the SNES header
+itself, previously confirmed at raw file offset `0xFFC0` by matching
+the exact title string): the wrong formula pointed at 0x7FC0 (garbage
+bytes), the correct one — `file_offset = bank*0x10000 + offset` — lands
+exactly on `ILLUSION OF GAIA USA`. This bug never touched `bridge.py`
+or the shipped cfg/patch (neither reads raw ROM bytes), only a few
+exploratory checks earlier in this investigation. Both affected checks
+were rerun:
+- The BRK "repetitive padding" hypothesis, previously reported as
+  5.6% (59/1,050) of sites, is **0% with correct bytes** — even
+  weaker support than already reported, not stronger. The other two
+  BRK checks (concentration-in-functions, distance-to-declared-end)
+  never depended on this formula and are unaffected.
+- The cop dispatch tables, re-resolved correctly: **all 209/209**
+  entries across both tables land exactly on a cataloged
+  `cop_handler_*` part start. Clean, complete confirmation that the
+  id-dispatch model is right, and that parts.json already independently
+  catalogs every handler these tables reference.
+
+With correct bytes, resolving all 14 tables (1,133 total entries):
+389 already match a cataloged `Code` part exactly (sound, redundant
+with existing cfg); 185 land inside some *other*, non-Code part
+(ambiguous — could be legitimate shared sub-entry points, could be a
+per-table encoding difference not yet understood; not added without
+more evidence); 16 matched no cataloged part at all. Checked those 16
+against the actual ROM bytes before adding anything: all but 2 are
+literal `$FF` fill (unused/default table slots, not code), so they
+were **not** added as `func` entries — that would have been adding
+fabricated boundaries on the strength of a coincidence, exactly what
+this project is trying not to do.
+
+**Net result of this pass: no new cfg entries, no AOT/LLE change** —
+but real validation of the existing bridge's soundness, a real bug
+fixed before it could mislead anything downstream, and 185 legitimately
+open questions recorded rather than guessed at.
