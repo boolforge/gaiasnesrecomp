@@ -247,3 +247,29 @@ unaffected.
 |---|---|---|---|
 | Previous | 1,074 (45.1%) | 1,310 | 2,384 |
 | Now | **1,212 (50.8%)** | 1,173 | 2,385 |
+
+## This round: no new fix found (reported honestly, not smoothed over)
+
+Two more leads checked for the BRK/M-X problem, both genuine, neither
+panned out:
+
+1. **snesrecomp's own tooling for this exact problem** —
+   `tools/cfg_override_mode_crosscheck.py` — exists, but is hardcoded
+   to cross-reference SMWDisX, an independent, human-maintained Super
+   Mario World disassembly, to manually verify claimed M/X states.
+   That's the maintainer's own real process for this class of
+   ambiguity: cross-check against independent human-vetted ground
+   truth, not pure automated inference. There is no equivalent
+   independent disassembly of Illusion of Gaia to cross-check against
+   the same way, so this tool doesn't transfer as-is.
+2. **`us/labels.json`'s `$`-prefixed values** (134 of 402 entries,
+   e.g. `"32893": "$1"`) — hoped these might be per-instruction
+   width-state hints. Traced to gaia-core's own `DbLabel` type
+   (`{location, label}`) and found the code path that would explain
+   this file's actual current format is commented out in
+   `src/database/root.ts`. Can't respons`ibly claim a meaning for
+   this field beyond what's shown — flagged as unresolved rather than
+   guessed at.
+
+No cfg or patch change this round. AOT/LLE unchanged at 50.8%/49.2%
+(1,212/2,385).
