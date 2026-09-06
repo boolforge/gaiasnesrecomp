@@ -25,9 +25,12 @@ letting its analyzer guess.
   format, plus a small, opt-in patch to snesrecomp's decoder that
   teaches it this game's COP dispatch table.
 - **Isn't:** a disassembler, a decompiler, or a fork of either
-  upstream project. It reads GaiaLabs' already-published JSON and
+  upstream project. It reads GaiaLabs' already-published data and
   writes files in snesrecomp's already-documented cfg grammar. No ROM
   bytes, game text, or generated C are redistributed from this repo.
+  `mx_facts.json` and `cfg/*.cfg` are derived facts (byte sizes,
+  addresses, boolean width flags) about the ROM's structure, not the
+  ROM's own content.
 - **Isn't (yet):** a working port. No runtime, no generated C game
   logic beyond what snesrecomp's own analyzer produces from the cfg,
   no build. See `docs/FINDINGS.md` for exactly how far the analysis
@@ -83,17 +86,13 @@ the regression tests this claim is based on, not just an assertion.
 
 ## Status
 
-Analysis/bridge stage. The COP-dispatch fix is implemented and
-regression-tested (see `docs/FINDINGS.md`); with it, 45.1% of
-Illusion of Gaia's cataloged functions classify as cleanly
-statically-recompilable (AOT-eligible), up from 22.0% before it — a
-real, measured improvement, not a projection. For comparison, Super
-Mario World's own floor after nine months of dedicated work is 96.9%,
-so there is real, honestly-acknowledged distance left, most of it
-currently attributed to accumulator/index-width mistracking (BRK-
-related) that this repo has investigated but not yet fixed — see
-"BRK poisoning" in `docs/FINDINGS.md` for exactly what was ruled out
-and why a fix isn't included yet rather than guessed at.
+Analysis/bridge stage. With the COP-dispatch fix and the M-state
+facts derived from GaiaPacker's own real disassembly output (see
+`docs/FINDINGS.md`), **55.7% of Illusion of Gaia's cataloged
+functions classify as cleanly statically-recompilable (AOT-eligible)**
+(1,360/2,443), up from 22.0% at the start of this project — real,
+measured, regression-tested against seven other games on the
+framework each time, not a projection.
 
 No runtime, no generated-and-verified C game logic, and no build
 exist yet. That is the natural next stage, following the same pattern

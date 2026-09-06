@@ -307,3 +307,68 @@ Also checked `us/rewrites.json` (39 address-to-address entries, never
 previously examined) against all current BRK poison sites: only 1/39
 falls within even a loose 8-byte window of one. Not a meaningful
 correlation — doesn't explain the BRK problem either.
+
+## The breakthrough: actually running GaiaPacker (found and fixed a real bug in it too)
+
+Got `GaiaPacker.dll` (from the official `baserom_toolkit_v1.1w`
+GitHub release) running under a Linux-installed .NET 8 runtime
+(`dotnet-runtime-8.0` via `apt`, after an earlier full-SDK attempt had
+failed on package-mirror 404s — the runtime-only package pulled fine).
+`dotnet GaiaPacker.dll --unpack .` crashed twice before working:
+
+1. Passing a bare directory (`.`) as the project path hits a
+   *different* code branch in `ProjectRoot.Load()` than passing the
+   actual `project.json` file does, and that branch never sets
+   `SystemPath` at all (confirmed by reading `ProjectRoot.cs` and
+   `DbRoot.cs` directly from Azarem/GaiaLabs) -- a real bug in the
+   tool itself, not a missing file. Fixed by invoking it with the
+   file path explicitly: `dotnet GaiaPacker.dll --unpack ./project.json`.
+2. The release's `db/us/` folder has no `opCodes.json` (only `db/jp/`
+   does) -- copied that one over, which is safe: CPU opcodes don't
+   vary by ROM region, verified by inspecting its content (a generic
+   256-entry 65816 mnemonic/size/mode table).
+
+Once running, it unpacked the **real, complete, human-authored
+disassembly**: 806 `.asm` files, organized by game area, with names
+like `dm47_remus.asm` (a named NPC) rather than bare addresses --
+categorically more complete than IOGRetranslation's 133 patch-only
+files this bridge started from.
+
+## Deriving real M-state facts from the real disassembly (net win)
+
+Manually traced one already-known BRK poison site (bank $09, offset
+$B6B6) into this new corpus and found the actual cause directly:
+`asm/unused/actor_09AA6E.asm` (yes -- unused/dead code) shows `ADC
+#$0002` at that exact point -- a 16-bit (M=0) immediate. Counting
+bytes confirms $B6B6 is the immediate's own high byte ($00), which
+`v2_analyze.py` was mis-decoding as a fresh BRK opcode because it had
+inferred 8-bit (M=1) there instead. Exactly the failure mode
+`decoder.py`'s own comments already describe elsewhere -- now directly
+confirmed against real, human-verified ground truth instead of
+inferred from raw bytes.
+
+Wrote `bridge/derive_mx_facts.py`: walks every code block in the real
+`asm/` corpus from its own labeled address, sizing each instruction
+from its literal operand syntax (Gaia's text already writes `#$XX`
+vs `#$XXXX` -- 2 vs 4 hex digits -- so the true M state is a lexical
+fact already decided by the disassembler, not something that needs
+re-simulating REP/SEP for). Stops a block's walk the moment a line's
+addressing mode isn't confidently sized, rather than guess past it.
+
+Result: 8,358 code blocks walked, 7,216 M-state facts derived, 544
+blocks stopped early (deliberately, not silently). Verified against
+the manually-traced example above (exact match) and spot-checked
+independently before use. Zero address overlap with the 19 hand-
+verified `overrides.json` facts (different addresses entirely; the
+hand-verified ones win on the rare occasions of a conflict).
+
+Regression-tested the same way as every previous change (now against
+all seven other games this project has ROMs and cfg for: DKC2, Mega
+Man X2, Mega Man X3, Star Fox, Star Ocean, Super Mario World, Zelda:
+A Link to the Past) -- all seven, byte-identical, confirmed via deep
+JSON equality.
+
+| | AOT-eligible | LLE-only | total |
+|---|---|---|---|
+| Previous | 1,212 (50.8%) | 1,173 | 2,385 |
+| Now | **1,360 (55.7%)** | 1,083 | 2,443 |
