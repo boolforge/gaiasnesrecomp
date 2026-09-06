@@ -1,5 +1,5 @@
 diff --git a/recompiler/snes65816.py b/recompiler/snes65816.py
-index cf9a0ed..5bc58f0 100644
+index cf9a0ed..d499b6f 100644
 --- a/recompiler/snes65816.py
 +++ b/recompiler/snes65816.py
 @@ -428,6 +428,33 @@ def opcode_table() -> dict:
@@ -36,7 +36,7 @@ index cf9a0ed..5bc58f0 100644
  def decode_insn(data: bytes, offset: int, pc: int, bank: int,
                  m: int = 1, x: int = 1) -> Optional[Insn]:
      """Decode one 65816 instruction. Returns None on unknown opcode."""
-@@ -445,6 +472,16 @@ def decode_insn(data: bytes, offset: int, pc: int, bank: int,
+@@ -445,6 +472,22 @@ def decode_insn(data: bytes, offset: int, pc: int, bank: int,
          delta = v - 256 if v >= 128 else v
          return (pc + 2 + delta) & 0xFFFF
  
@@ -44,15 +44,34 @@ index cf9a0ed..5bc58f0 100644
 +        cop_id = b(1)
 +        entry = _GAME_COP_TABLE.get(cop_id)
 +        if entry is not None:
-+            # id byte itself + its declared operand bytes; never the
-+            # generic fixed-2 default, and never the IMM m/x-dependent
-+            # word() path below (this is not an accumulator load).
 +            length = 1 + entry["total_operand_bytes"]
-+            return Insn((bank << 16) | pc, op, mnem, mode, cop_id, length)
++            # A halt-flagged command genuinely does not fall through
++            # (GaiaLabs' own cop.ts marks the position right after it
++            # as a fresh branch target). Reported as mnem='COP_HALT'
++            # -- a name that exists nowhere else in this codebase and
++            # that only this exact opt-in path can ever produce -- so
++            # decoder.py's existing _TERMINATORS check (see there)
++            # stops tracing past it, the same way it already does for
++            # RTS/RTL/BRK/etc.
++            mnem_out = "COP_HALT" if entry.get("halt") else mnem
++            return Insn((bank << 16) | pc, op, mnem_out, mode, cop_id, length)
 +
      if   mode == REL:              operand = rel8()
      elif mode == REL16:
          raw = word()
+diff --git a/recompiler/v2/decoder.py b/recompiler/v2/decoder.py
+index 4ab8450..582e32b 100644
+--- a/recompiler/v2/decoder.py
++++ b/recompiler/v2/decoder.py
+@@ -769,7 +769,7 @@ class FunctionDecodeGraph:
+ 
+ 
+ # Mnemonics with no fall-through successor.
+-_TERMINATORS = frozenset({'RTS', 'RTL', 'RTI', 'STP', 'WAI', 'BRK'})
++_TERMINATORS = frozenset({'RTS', 'RTL', 'RTI', 'STP', 'WAI', 'BRK', 'COP_HALT'})
+ 
+ # Mnemonics with two successors: fall-through AND taken-branch target.
+ _COND_BRANCHES = frozenset({'BPL', 'BMI', 'BVC', 'BVS', 'BCC', 'BCS', 'BNE', 'BEQ'})
 diff --git a/recompiler/v2/program_analysis.py b/recompiler/v2/program_analysis.py
 index e789afc..9609dc1 100644
 --- a/recompiler/v2/program_analysis.py
@@ -98,7 +117,7 @@ index e789afc..9609dc1 100644
              poison_reasons.add(f"{insn.mnem.lower()}_at_{site:06X}")
  
 diff --git a/tools/v2_analyze.py b/tools/v2_analyze.py
-index 3fad687..ea111ea 100644
+index 3fad687..567aa33 100644
 --- a/tools/v2_analyze.py
 +++ b/tools/v2_analyze.py
 @@ -30,6 +30,7 @@ from snes65816 import (  # noqa: E402
@@ -109,7 +128,7 @@ index 3fad687..ea111ea 100644
      set_rom_mapping,
      vector_table_offset,
  )
-@@ -970,8 +971,26 @@ def main() -> int:
+@@ -970,8 +971,25 @@ def main() -> int:
          "--all-cfg-roots", action="store_true",
          help="migration diagnostic: treat every func declaration as a root; "
               "the default correctly treats func as a boundary only")
@@ -130,8 +149,7 @@ index 3fad687..ea111ea 100644
 +        # JSON object keys are always strings; the decoder looks these up
 +        # by the raw integer id byte it just decoded.
 +        set_game_cop_table(
-+            {int(k): v for k, v in cop_table_raw.items()
-+             if not v.get("halt")})
++            {int(k): v for k, v in cop_table_raw.items()})
 +
      rom = load_rom(args.rom)
      parsed = _load_cfgs(pathlib.Path(args.cfg_dir))

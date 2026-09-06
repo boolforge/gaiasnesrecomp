@@ -224,3 +224,26 @@ this project is trying not to do.
 but real validation of the existing bridge's soundness, a real bug
 fixed before it could mislead anything downstream, and 185 legitimately
 open questions recorded rather than guessed at.
+
+## Extending the fix to the 6 halt-flagged COP commands
+
+The 6 commands originally excluded (fall-through unknown) turned out
+to have a clean answer: GaiaLabs' own `cop.ts` already marks the
+position right after a halt-flagged command as a fresh branch target,
+i.e. these are genuine terminators, not fall-through continuations.
+
+Extended `decode_insn` to report these 6 specifically as a new
+`COP_HALT` mnemonic — a string produced nowhere else in the codebase,
+and only by this exact opt-in path — and added it to decoder.py's
+existing `_TERMINATORS` set (`{RTS, RTL, RTI, STP, WAI, BRK}`), the
+same mechanism that already stops tracing at a real `RTS`. All 209
+command widths are now used; none excluded.
+
+Regression-tested the same way as before (DKC2, Mega Man X2, Mega Man
+X3, Star Fox, Star Ocean; flag not passed): all five, deep-equal,
+unaffected.
+
+| | AOT-eligible | LLE-only | total |
+|---|---|---|---|
+| Previous | 1,074 (45.1%) | 1,310 | 2,384 |
+| Now | **1,212 (50.8%)** | 1,173 | 2,385 |
