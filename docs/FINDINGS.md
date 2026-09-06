@@ -273,3 +273,37 @@ panned out:
 
 No cfg or patch change this round. AOT/LLE unchanged at 50.8%/49.2%
 (1,212/2,385).
+
+## Actually checking for a missed "developer tool" (asked to verify this directly)
+
+Checked all three real candidates rather than asserting from memory:
+
+1. **gaia-core itself** — `package.json` has no `bin` entry at all;
+   `main` points at a compiled library module. It's meant to be
+   imported by other TypeScript code, not run from a shell. There is
+   no CLI here to have missed.
+2. **IOGRetranslation's own `npm run extract` / `npm run rebuild`** —
+   these are real, and would be the more authoritative path if
+   usable. Read `scripts/seed-init.ts` directly: it constructs
+   `new PrismaPg({ connectionString: process.env.DATABASE_URL })` —
+   this tooling's actual mode of operation is to read/write GaiaLabs'
+   live Postgres/Supabase database. No `DATABASE_URL` (or any
+   database credential) has been provided in this project, only a
+   GitHub token, so this can't run here. This isn't a workaround
+   being avoided — it's the tool's real, documented dependency.
+3. **GaiaLabs' C# `GaiaPacker`** — would need a .NET runtime. Checked
+   directly rather than assuming: `dotnet-sdk-8.0` is listed by
+   `apt-cache` but every package file 404s when actually fetched from
+   the reachable Ubuntu mirrors. Not installable in this environment,
+   confirmed by a real failed install attempt, not a guess.
+
+If whoever runs this bridge next has real `DATABASE_URL` credentials
+for GaiaLabs' own database, `npm run extract` in an IOGRetranslation
+checkout is very likely a better foundation than this repo's current
+`parts.json`-only approach — that's a genuine, specific, actionable
+next step, not a hedge.
+
+Also checked `us/rewrites.json` (39 address-to-address entries, never
+previously examined) against all current BRK poison sites: only 1/39
+falls within even a loose 8-byte window of one. Not a meaningful
+correlation — doesn't explain the BRK problem either.
