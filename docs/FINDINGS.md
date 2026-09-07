@@ -601,3 +601,20 @@ magnitude here is small (0.2 points on these three banks), so the
 either way, but the specific directional claim ("underestimate,
 conservative") should not have been asserted without checking it
 first, and is retracted here rather than left standing.
+
+## Handoff: concrete next steps, in priority order
+
+1. Bisect the `--all-cfg-roots` performance ceiling (known: 3,433
+   roots completes under 250s, 8,184 roots times out at 280s+) to get
+   a trustworthy single-run whole-ROM number instead of the per-bank
+   sum (78.0%).
+2. `unproven_call`/`unproven_callee_exit` reasons were never
+   root-caused the way COP and the M-state facts were -- next
+   biggest untouched category.
+3. `actor_def`/`thinker_def` groups beyond the ones already resolved
+   via the real corpus migration may still hold gains if
+   `gaia-iog-baserom` ever publishes a `cop-dispatch.md`-equivalent
+   for them.
+4. The 6 halt-flagged COP commands and the `*` (WBank) sigil in
+   `derive_mx_facts.py` remain deliberately unhandled -- no verified
+   byte-size/fallthrough source found yet for either.
