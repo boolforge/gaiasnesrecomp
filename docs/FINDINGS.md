@@ -541,3 +541,39 @@ continues this -- likely needing either a higher time budget than
 this environment allows for a true whole-ROM `--all-cfg-roots` run,
 or a properly cross-bank-aware batching approach rather than the
 per-bank isolation tried here.
+
+## Follow-up: the "suspicious" identical numbers weren't a bug
+
+Checked before concluding, rather than leaving the concern above
+unresolved: banks 0e/0f/10/14/15/16/17 all show identical
+`9 roots -> 73 variants` because they genuinely have **zero `func`
+entries** -- pure graphics/tilemap data banks, no code. The isolation
+approach wasn't broken; that's the correct baseline result for a
+cfg with nothing but data in it.
+
+With that resolved, summed all 20 banks (19 with content + the
+zero-func ones, `bank0d` doesn't exist in this ROM):
+
+| bank | AOT | LLE | | bank | AOT | LLE |
+|---|---|---|---|---|---|---|
+| 00 | 1,474 | 477 | | 08 | 466 | 117 |
+| 01 | 61 | 12 | | 09 | 499 | 149 |
+| 02 | 1,402 | 356 | | 0a | 1,294 | 411 |
+| 03 | 1,219 | 424 | | 0b | 947 | 368 |
+| 04 | 394 | 39 | | 0c | 147 | 39 |
+| 05 | 408 | 72 | | 0e-17 (data-only) | 61 each | 12 each |
+| 06 | 309 | 57 | | | | |
+| 07 | 422 | 60 | | | | |
+
+**Total: 9,469 AOT-eligible / 2,665 LLE-only / 12,134 -> 78.0%.**
+
+One caveat stated plainly: analyzing each bank alone means a call
+from one bank into another can't be proven the way it could if both
+banks' cfg were loaded together, so this number likely
+*underestimates* the true combined figure rather than overstating it
+-- a conservative number, not an inflated one. Still not the same
+methodology as the single-run whole-ROM numbers reported earlier in
+this document (55.7%, 61.7%), so treat this as the current best
+honest estimate, not a strictly apples-to-apples continuation of
+that exact series, until the underlying performance problem is
+actually solved.

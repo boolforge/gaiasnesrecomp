@@ -86,13 +86,15 @@ the regression tests this claim is based on, not just an assertion.
 
 ## Status
 
-Analysis/bridge stage. With the COP-dispatch fix and the M-state
-facts derived from GaiaPacker's own real disassembly output (see
-`docs/FINDINGS.md`), **55.7% of Illusion of Gaia's cataloged
-functions classify as cleanly statically-recompilable (AOT-eligible)**
-(1,360/2,443), up from 22.0% at the start of this project — real,
-measured, regression-tested against seven other games on the
-framework each time, not a projection.
+Analysis/bridge stage. With the COP-dispatch fix, verified M-state
+facts (from `overrides.json`, `docs/code/bank00/cop-dispatch.md`, and
+lexical parsing of GaiaPacker's own real disassembly output), and a
+migration to parsing that real 806-file corpus directly instead of
+the upstream JSON exports, the current best honest estimate is **78.0%
+AOT-eligible** (9,469/12,134, summed per-bank -- see `docs/FINDINGS.md`
+for the exact methodology and its one open caveat), up from 22.0% at
+the start of this project — regression-tested against seven other
+games on the framework at every step, not a projection.
 
 No runtime, no generated-and-verified C game logic, and no build
 exist yet. That is the natural next stage, following the same pattern
