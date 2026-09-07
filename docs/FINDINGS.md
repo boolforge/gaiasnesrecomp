@@ -434,3 +434,27 @@ current, but `bridge/bridge.py` itself has not been updated to read
 `blocks.json` and will fail (`FileNotFoundError`) if run against a
 fresh clone. Flagging this rather than leaving it to be discovered
 later.
+
+## blocks.json migration: investigated, deliberately NOT done yet
+
+Checked what actually replaced `parts.json`'s leaf data. It's not a
+rename -- the schema changed shape. Old `struct`-typed leaves (2,142
+`Code`, 2,605 `WideString`, etc.) are mostly gone; the new dominant
+types are `actor_def` (655) and `thinker_def` (58), which didn't
+exist as leaf categories before.
+
+Checked one directly rather than assume what it contains: `actor_def
+actor_00D0D1` (72 bytes) starts `00 00 20 AC AA 09 A5 16 38 E9...` --
+looks like a short header (maybe 2-3 bytes) followed by genuine,
+plausible 65816 code (`JSR`, `ORA`, `SBC`, `CMP`, `RTL`...) in the
+same span. Mixed content, not cleanly Code or Data.
+
+Blindly treating `actor_def`/`thinker_def` spans as one or the other
+would misclassify real code as inert data or vice versa across 713
+entries -- exactly the kind of guess this project has avoided
+elsewhere. Not migrating `bridge.py` to `blocks.json` until this is
+understood properly (where the header/code split actually falls).
+The existing `cfg/` output (built from the last-known-good
+`parts.json` before its removal) remains what's checked in and is
+still current; this is flagged as real, open debt, not silently
+patched over.
