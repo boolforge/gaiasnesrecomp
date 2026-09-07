@@ -27,6 +27,7 @@ from collections import defaultdict
 
 LABEL_RE = re.compile(r'^([A-Za-z_][A-Za-z0-9_]*)_([0-9A-Fa-f]{6})\s*\{')
 COP_RE = re.compile(r'^COP\s*\[([0-9A-Fa-f]{2})\]')
+_DEBUG_SAMPLES = []
 
 ACC_MNEMONICS = {'LDA', 'ADC', 'AND', 'CMP', 'EOR', 'ORA', 'SBC', 'BIT'}
 IDX_MNEMONICS = {'LDX', 'LDY', 'CPX', 'CPY'}
@@ -43,12 +44,12 @@ IMPLIED_MNEMONICS = {
 # resolved per-line since size depends on hex-digit count observed.
 _IMM_RE = re.compile(r'^#\$([0-9A-Fa-f]+)\b')
 _LONG_RE = re.compile(r'^\$[0-9A-Fa-f]{6}\b')
-_ABS_IDX_LONG_RE = re.compile(r'^\$[0-9A-Fa-f]{6},[XY]\b')
+_ABS_IDX_LONG_RE = re.compile(r'^\$[0-9A-Fa-f]{6},\s*[XY]\b')
 _ABS_RE = re.compile(r'^\$[0-9A-Fa-f]{4}\b')
 _DP_RE = re.compile(r'^\$[0-9A-Fa-f]{2}\b')
 _IND_LONG_DP_RE = re.compile(r'^\[\$[0-9A-Fa-f]{2}\](,Y)?\b')
-_IND_ABS_RE = re.compile(r'^\(\$[0-9A-Fa-f]{4}(,X)?\)\b')
-_IND_DP_RE = re.compile(r'^\(\$[0-9A-Fa-f]{2}(,X)?\)(,Y)?\b')
+_IND_ABS_RE = re.compile(r'^\(\$[0-9A-Fa-f]{4}(,\s*X)?\)\b')
+_IND_DP_RE = re.compile(r'^\(\$[0-9A-Fa-f]{2}(,\s*X)?\)(,\s*Y)?\b')
 _LABEL_OPERAND_RE = re.compile(r'^\$?&?@?[A-Za-z_][A-Za-z0-9_]*\b')
 
 
@@ -97,6 +98,18 @@ def line_size(mnem: str, rest: str, m_state: "int|None", cop_table: dict):
         if mnem in IDX_MNEMONICS:
             return size, None  # reveals X, not tracked in this pass
         return size, None
+    # `#$&label` -- an immediate load of a 2-byte Offset value (verified
+    # sigil size, gaia-core src/types/addressing.ts): same shape as a
+    # 4-hex-digit immediate, so it reveals M=0 the same way. `*`
+    # (WBank) has no confirmed byte size anywhere in gaia-core's
+    # source, so it is deliberately left unhandled here rather than
+    # guessed -- the walk just stops at that line, same as any other
+    # unparseable shape.
+    im_label = re.match(r'^#\$&[A-Za-z_]', rest)
+    if im_label and mnem in ACC_MNEMONICS:
+        return 3, 0
+    if im_label:
+        return 3, None
     if _LONG_RE.match(rest) or _ABS_IDX_LONG_RE.match(rest):
         return 4, None
     if _IND_LONG_DP_RE.match(rest):
@@ -157,6 +170,8 @@ def walk_asm_dir(asm_dir: pathlib.Path, cop_table: dict):
                 result = line_size(mnem, rest, None, cop_table)
                 if result is None:
                     stopped_early += 1
+                    if len(_DEBUG_SAMPLES) < 30:
+                        _DEBUG_SAMPLES.append(f'{mnem} {rest}')
                     break
                 size, revealed_m = result
                 if revealed_m is not None:

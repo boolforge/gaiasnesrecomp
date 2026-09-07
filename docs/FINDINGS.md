@@ -397,3 +397,40 @@ update (replaced by `blocks.json` + a much smaller `names.json`).
 This bridge's cfg was already generated before the removal, so it's
 unaffected for now, but `bridge/bridge.py` needs updating to read
 `blocks.json` directly next time it's regenerated from a fresh clone.
+
+## Two small parser fixes to derive_mx_facts.py (honest small gain)
+
+Found two gaps while re-checking the 544 blocks that stopped early:
+1. `#$&label` / `#$*label` -- an immediate operand can be a sigil-
+   prefixed label reference, not just raw hex. `&` (Offset, verified
+   2-byte) is now handled the same as a 4-hex-digit immediate (reveals
+   M=0). `*` (WBank) has no confirmed byte size anywhere in gaia-core's
+   source, so it's still left unparsed rather than guessed.
+2. Indexed addressing written with a space (`($01, X)`, `$1000, Y`) --
+   3,472 occurrences in the corpus use this spacing and weren't
+   matching the tighter `,X`/`,Y` regexes. Fixed to tolerate optional
+   whitespace.
+
+Result: 7,216 -> 7,576 derived facts, 544 -> 422 early-stopped blocks.
+Regenerated cfg, regression-checked against SMW again (identical).
+
+| | AOT-eligible | LLE-only | total |
+|---|---|---|---|
+| Previous | 1,554 (61.7%) | 965 | 2,519 |
+| Now | 1,555 (61.7%) | 964 | 2,519 |
+
+Honest note: barely moved the number. Worth fixing regardless (dead
+weight in the parser, and more correct data is its own justification),
+but the earlier `cop-dispatch.md` fact was a far bigger lever than
+this. Recorded plainly rather than rounded up.
+
+## Known debt: `bridge.py` still depends on the now-removed `parts.json`
+
+`gaia-iog-baserom` deleted `us/parts.json` upstream (replaced by
+`blocks.json` + a smaller `names.json`). This session's cfg updates
+were applied by patching the already-generated `cfg/*.cfg` files
+directly rather than regenerating from scratch, so today's output is
+current, but `bridge/bridge.py` itself has not been updated to read
+`blocks.json` and will fail (`FileNotFoundError`) if run against a
+fresh clone. Flagging this rather than leaving it to be discovered
+later.
