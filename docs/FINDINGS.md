@@ -618,3 +618,13 @@ first, and is retracted here rather than left standing.
 4. The 6 halt-flagged COP commands and the `*` (WBank) sigil in
    `derive_mx_facts.py` remain deliberately unhandled -- no verified
    byte-size/fallthrough source found yet for either.
+
+## Performance ceiling: narrowed, not yet found
+
+Bisection point tested: banks 00+02+03+0a combined (4,801 forced
+roots) -- completed within 280s. Combined with the earlier data
+points (3,433 roots: completes; 8,184 roots: times out past 280s),
+the real ceiling in this environment is somewhere in roughly the
+4,801-8,184 root range. Not narrowed further this round (budget);
+next bisection point should add roughly half the remaining banks
+(e.g. +0b+09, ~6,275 roots) to keep closing the gap.
