@@ -489,3 +489,55 @@ this project keeps avoiding. Still deferred. Whoever picks this up
 next should pull `docs/code/actor-management.md`-style analysis for
 these specific groups if `gaia-iog-baserom` publishes one, the same
 way `cop-dispatch.md` resolved COP cleanly.
+
+## Migrated to parsing the real corpus directly (resolves the actor_def ambiguity cleanly)
+
+Rather than chase `gaia-iog-baserom`'s JSON schema through a second
+change (parts.json removed, blocks.json's leaf shape changed), wrote
+`bridge/extract_from_asm_corpus.py`: applies this project's original,
+already-verified label/block-detection rule (a label opens `{` for
+code or `[` for data -- Gaia's own syntax, not a guess) directly
+against GaiaPacker's real 806-file `--unpack` output.
+
+This resolved last round's open question outright. The real corpus
+shows, for the address that prompted the whole investigation:
+```
+head_00D0D1 [ h_actor < #00, #00, #20 > ]   ; 3 bytes, data
+func_00D0D4 { LDY $player_actor; ... }      ; separate code block
+```
+Two distinct, correctly-typed entries -- exactly what
+`blocks.json`'s newer `actor_def` schema had merged into one
+ambiguous 72-byte span. Confirms the earlier caution (not guessing a
+blanket header size) was the right call, and confirms the real
+disassembly is a better foundation than either JSON export at this
+point.
+
+Coverage jump: 2,142 code / 1,041 data entries (old `parts.json`) ->
+**8,184 code / 7,295 data entries** (real corpus, all 806 files).
+
+## Hit a real performance wall at this scale -- reported, not hidden
+
+`--all-cfg-roots` against the full new cfg (8,184 forced roots) did
+not complete in 280 seconds (explicit timeout, not assumed slow).
+The default reachability mode still runs fine and fast. Tried
+analyzing each bank's cfg in isolation as a workaround: bank00 (the
+largest, self-contained COP-dispatch bank) completed cleanly --
+**1,474 AOT-eligible / 477 LLE-only of 1,951 (75.6%)** -- a genuinely
+promising signal. But several other banks returned identical,
+suspicious numbers in isolation (`9 roots -> 73 variants` for six
+different banks in a row), almost certainly an artifact of losing
+cross-bank reference context when a bank is analyzed alone rather
+than a real result.
+
+**Not reporting a new whole-ROM percentage this round.** Summing the
+per-bank numbers anyway would produce a headline figure built on a
+methodology I already have direct evidence is unreliable for at
+least some banks -- exactly the kind of number this project has
+avoided manufacturing everywhere else. The honest state: real,
+substantial structural improvement (confirmed), a promising signal
+in the bank most worth trusting (bank00, self-contained), and an
+open, now-documented performance/methodology problem for whoever
+continues this -- likely needing either a higher time budget than
+this environment allows for a true whole-ROM `--all-cfg-roots` run,
+or a properly cross-bank-aware batching approach rather than the
+per-bank isolation tried here.
