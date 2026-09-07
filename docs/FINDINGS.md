@@ -458,3 +458,34 @@ The existing `cfg/` output (built from the last-known-good
 `parts.json` before its removal) remains what's checked in and is
 still current; this is flagged as real, open debt, not silently
 patched over.
+
+## actor_def / thinker_def header split: checked, mixed evidence, not implemented
+
+Tried to resolve last round's open question -- does `actor_def` split
+into a fixed header (h_actor = 3 bytes per `structs.json`) plus code,
+the same way COP handlers had a clean, documented convention?
+
+- First sample (`actor_00D0D1`) looked consistent with a 3-byte header
+  before clean-decoding code.
+- Second, adjacent sample (`actor_00D119`) starts with the *identical*
+  46 bytes as the first, then diverges -- not what a 3-byte-header-
+  then-distinct-code model predicts. Checked byte-for-byte, not
+  eyeballed: confirmed identical for 46 bytes, first difference at
+  byte 46 exactly.
+- Third sample (`actor_00D161`, only 9 bytes long) doesn't decode
+  cleanly as code at all under the 3-byte-header assumption.
+- `thinker_def` fared better: `h_thinker` = 2 bytes, and three
+  consecutive samples show a shared 2-byte prefix (`$00 $08`) followed
+  by content that varies instance-to-instance in a small, plausible
+  way (a `COP $37`-based pattern where one embedded byte differs by
+  exactly the increment you'd expect between similar effect
+  instances). Suggestive, not confirmed.
+
+Net: real uncertainty for `actor_def` (not just "haven't checked
+yet" -- actively contradictory evidence once more than one sample was
+checked), softer support for `thinker_def`. Implementing a blanket
+header-strip for either right now would be exactly the kind of guess
+this project keeps avoiding. Still deferred. Whoever picks this up
+next should pull `docs/code/actor-management.md`-style analysis for
+these specific groups if `gaia-iog-baserom` publishes one, the same
+way `cop-dispatch.md` resolved COP cleanly.
