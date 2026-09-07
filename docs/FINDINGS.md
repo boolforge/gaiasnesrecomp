@@ -372,3 +372,28 @@ JSON equality.
 |---|---|---|---|
 | Previous | 1,212 (50.8%) | 1,173 | 2,385 |
 | Now | **1,360 (55.7%)** | 1,083 | 2,443 |
+
+## Pointed to the real answer: `docs/code/bank00/cop-dispatch.md`
+
+This file (added upstream to `gaia-iog-baserom` since this bridge's
+last check) states outright what every COP handler's entry register
+state is: **m=0, x=0** for all 209 handlers -- documented directly
+from the dispatcher's own `REP #$20` and the actor-engine calling
+convention, not inferred. This directly corrects the X=1 assumption
+this project had been using since the very first COP fix (it was
+never verified, always flagged as an assumption -- it was wrong).
+
+Injected `entry_mx_at <addr> 0 0` at all 209 cop_handler entry points.
+Regression-checked against DKC2, SMW, and Zelda: A Link to the Past
+again: unaffected.
+
+| | AOT-eligible | LLE-only | total |
+|---|---|---|---|
+| Previous | 1,360 (55.7%) | 1,083 | 2,443 |
+| Now | **1,554 (61.7%)** | 965 | 2,519 |
+
+Note: `gaia-iog-baserom` removed `us/parts.json` upstream in this same
+update (replaced by `blocks.json` + a much smaller `names.json`).
+This bridge's cfg was already generated before the removal, so it's
+unaffected for now, but `bridge/bridge.py` needs updating to read
+`blocks.json` directly next time it's regenerated from a fresh clone.
