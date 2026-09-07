@@ -577,3 +577,27 @@ this document (55.7%, 61.7%), so treat this as the current best
 honest estimate, not a strictly apples-to-apples continuation of
 that exact series, until the underlying performance problem is
 actually solved.
+
+## Correction: the "conservative underestimate" claim above was tested, and it's wrong
+
+Didn't leave that as an assertion -- checked it. Combined the three
+largest banks (00+02+03) into one cfg dir and ran them together
+(3,433 forced roots; completed in under 250s, so the performance
+ceiling is somewhere between this and the full 8,184-root run, not
+an immediate wall):
+
+| | AOT-eligible | LLE-only | AOT % |
+|---|---|---|---|
+| Summed separately | 4,095 | 1,257 | 76.5% |
+| Analyzed together | 3,908 | 1,213 | 76.3% |
+
+Combined is very slightly *lower*, not higher -- the opposite
+direction from what was claimed. Best explanation: a cross-bank call
+that looks merely "unproven" in isolation can turn into active
+propagated poison once the real (and sometimes messy) target content
+is actually visible, not just resolved cleanly as hoped. The
+magnitude here is small (0.2 points on these three banks), so the
+78.0% whole-ROM estimate is probably in the right neighborhood
+either way, but the specific directional claim ("underestimate,
+conservative") should not have been asserted without checking it
+first, and is retracted here rather than left standing.
