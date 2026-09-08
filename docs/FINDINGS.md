@@ -652,3 +652,27 @@ combinatorially with *connectivity*, not raw root count. Total func
 count was the wrong metric to bisect on from the start -- flagging
 this so the next bisection (if pursued) targets connectivity/edge
 density between bank groups instead of just adding banks by size.
+
+## unproven_call root cause found (30% of cases), attempted fix did NOT work
+
+Root-caused a real pattern: sampled `unproven_call` demands and found
+targets like `pc24=8641014` (0x83D9F6) -- bank $83, which folds to
+bank $03 under HiROM's canonical-bank rule. Checked: `func_03D9F6
+d9f6 end:da00` already exists in `bank03.cfg`. Confirmed this is
+widespread, not a one-off: 105 of 353 demands (30%) across all
+current `unproven_call` nodes target a bank >= $80.
+
+Tried the obvious fix: generated `bank80.cfg`-`bank8c.cfg` as direct
+mirrors of `bank00.cfg`-`bank0c.cfg` (same func/data declarations,
+mirrored bank number) and re-ran. **Did not help** -- checked the
+exact node that motivated this (`00804C`) directly rather than trust
+the aggregate percentage, and it's still `unproven_call` with the
+identical reason string. The analyzer evidently doesn't treat a
+declared func at the mirrored bank as satisfying a demand on the
+original bank's call site; whatever proves call-target safety here
+needs the banks canonicalized *before* that comparison, not just
+present as separate cfg entries. That's a decoder/program_analysis
+change, not a cfg-only one -- same category of risk this project has
+already declined to take on blind for the COP halt-flag/BRK cases,
+so not attempted further this round. Reverted the mirror cfg files
+(would have been dead weight in the repo).
