@@ -776,3 +776,38 @@ All copied verbatim -- nothing invented or inferred. Not yet wired
 into `bridge.py`'s cfg output (there's no codegen stage to feed yet),
 but ready as `symbols.json` for whenever that stage exists, rather
 than left to be re-collected from scratch later.
+
+## Ordering hypothesis narrowed further, root architectural cause identified (not fixed)
+
+Tested the "just needs more cfg loaded" theory directly: `00804C` is
+still unproven in the 7,258-root run too, even though `03D9F6` and
+`03DABB` (its full dependency chain) were already loaded and analyzed
+in that same run. Rules out missing data as the cause.
+
+Read `_solve_exit_equation_sccs`'s own docstring precisely: it's
+scoped to *closed mutually-recursive* components (`A -> B -> A`
+cycles) specifically, and explicitly states "unknown external edges
+keep the whole component unpublished." The chain in question
+(`00804C -> 03D9F6 -> 03DABB`) isn't a cycle at all -- it's a plain
+linear dependency, which shouldn't need this cyclic-SCC machinery to
+resolve at all under a correct topological pass (resolve the
+callee-less end first, then work backward).
+
+Best-supported remaining hypothesis: the analysis is a single forward
+pass over roots in whatever order they're declared/discovered, not a
+true fixed point that revisits an earlier conclusion once later
+information becomes available -- so if `00804C` happens to get
+checked before `03DABB` has been resolved (even though `03DABB` *is*
+resolved by the end of the same run), the caller's check fails
+permanently rather than being retried. Not confirmed by reading the
+actual traversal-order code (would need to trace root-processing
+order through `program_analysis.py`/`decoder.py` directly, not yet
+done), but it's now a specific, testable claim rather than a vague
+one.
+
+Fixing this for real means either genuine multi-pass iteration or a
+proper dependency-ordered (topological) traversal in the core
+analysis loop -- a substantial, delicate change to code this project
+has consistently declined to touch without being able to fully
+verify safety, same as the BRK and halt-flag cases. Handing off the
+specific, narrowed hypothesis rather than a vague "investigate more."
