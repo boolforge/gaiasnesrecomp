@@ -642,3 +642,13 @@ tipped it over), so bank07 specifically may be disproportionately
 expensive rather than this being a pure root-count scaling issue.
 Worth checking what's structurally different about bank07 before
 assuming it's just size.
+
+Root cause hypothesis, checked rather than assumed: bank07 alone is
+small (369 funcs, 482 nodes, only 222 demands/edges) -- not
+inherently complex. So the slowdown isn't bank07's own size; it's
+that adding it connects previously-separate cross-bank call graphs
+together, and the combined graph's path exploration grows
+combinatorially with *connectivity*, not raw root count. Total func
+count was the wrong metric to bisect on from the start -- flagging
+this so the next bisection (if pursued) targets connectivity/edge
+density between bank groups instead of just adding banks by size.
