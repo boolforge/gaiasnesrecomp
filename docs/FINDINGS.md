@@ -723,3 +723,32 @@ lookups just confirmed correct, populated by a fixed-point process
 not yet located) is the actual remaining gap, or whether the target
 function's own decode is separately poisoned for an unrelated
 reason that would show up in its own node's `reasons` list first.
+
+## Actually traced the chain -- the high-bank correlation was a red herring
+
+Closed the loop rather than leaving it a suggestion. Checked the
+target node's own status: `03D9F6` (the callee `00804C` couldn't
+prove) is itself `unproven_call` -- to `03DABB`. Traced one more
+level: `03DABB` is `aot_eligible`, clean, no reasons.
+
+So the real shape is: a clean function (`03DABB`) whose proven exit
+state apparently isn't reaching its caller's (`03D9F6`) check, which
+in turn means *its* caller (`00804C`) can't prove through it either.
+This is a propagation/ordering question -- likely single-pass
+processing order rather than the multi-step SCC solver
+(`_solve_exit_equation_sccs`) actually needing more than one full
+invocation of `v2_analyze.py` to converge, feeding forward what the
+previous pass proved. Not confirmed which.
+
+**The 30%-high-bank-target correlation from two rounds ago was a red
+herring** -- these calls fail to prove because of chain/ordering
+effects that would affect same-bank calls too, not because of
+anything specific to bank aliasing. Correcting that causal claim
+explicitly rather than let a coincidental correlation stand as the
+explanation.
+
+Real next step for whoever continues: check whether running
+`v2_analyze.py` twice, feeding the first run's manifest back in
+somehow (no such flag currently exists -- would need one added, or
+confirmation this is what `v2_regen.py` already does), resolves
+chains like this one.
