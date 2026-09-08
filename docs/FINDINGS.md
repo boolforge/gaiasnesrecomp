@@ -752,3 +752,27 @@ Real next step for whoever continues: check whether running
 somehow (no such flag currently exists -- would need one added, or
 confirmation this is what `v2_regen.py` already does), resolves
 chains like this one.
+
+## Consolidated every naming source into symbols.json (for future codegen legibility)
+
+Requested explicitly: pull in every available name mechanically
+rather than leave future generated code full of raw addresses.
+`bridge/build_symbols.py` merges three sources this bridge hadn't
+used yet (the real asm corpus's own labels were already the primary
+naming source for everything emitted so far, so not duplicated
+here):
+
+- **221 named WRAM variables** from `fixups.json["mnemonics"]` (e.g.
+  `camera_offset_x` @ WRAM $1750) -- a different address space
+  (WRAM, not ROM) from everything else this bridge has named so far,
+  kept explicitly separate (`wram_offset` field) so nothing
+  downstream can conflate the two.
+- **413 ROM-address names** from `names.json`, mostly hardware
+  vectors and entry points (`ResetVector`, `NmiVector`, ...).
+- **228 named scenes/areas** from `scenes.json`, each with a slug and
+  human description (`south-cape` / "South Cape").
+
+All copied verbatim -- nothing invented or inferred. Not yet wired
+into `bridge.py`'s cfg output (there's no codegen stage to feed yet),
+but ready as `symbols.json` for whenever that stage exists, rather
+than left to be re-collected from scratch later.
