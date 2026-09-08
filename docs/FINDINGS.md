@@ -628,3 +628,8 @@ the real ceiling in this environment is somewhere in roughly the
 4,801-8,184 root range. Not narrowed further this round (budget);
 next bisection point should add roughly half the remaining banks
 (e.g. +0b+09, ~6,275 roots) to keep closing the gap.
+
+Full 8,184-root set retested directly: still times out at 280s
+(exit 124, same as the original finding). Ceiling is between 6,275
+(completes) and 8,184 (times out). Next step: bisect within that
+narrower range (e.g. +banks 01/04/05/06 for ~7,200 roots).
