@@ -676,3 +676,30 @@ change, not a cfg-only one -- same category of risk this project has
 already declined to take on blind for the COP halt-flag/BRK cases,
 so not attempted further this round. Reverted the mirror cfg files
 (would have been dead weight in the repo).
+
+## Correction: the "needs decoder-level bank canonicalization" claim was itself incomplete
+
+Checked before building on it. `decoder.py` already canonicalizes
+high-bank targets when looking up a callee's proven exit state
+(`decoder.py` ~line 1117: if a direct lookup misses and the target
+bank is `<0x40` or in `0x80-0xBF`, it retries via `target_pc24 ^
+0x800000`). So the mechanism I said was missing already exists --
+my diagnosis last round was itself wrong in the specific mechanism,
+even though the symptom (unresolved high-bank calls) is real.
+
+What that lookup actually depends on is `callee_exit_mx_modes` --
+the callee's *proven* exit register state, populated by whatever
+fixed-point pass orchestrates repeated decoder.py calls from
+`program_analysis.py`. No `while`/convergence loop is visible in
+decoder.py itself, meaning that orchestration lives in
+program_analysis.py and wasn't traced further this round. Most
+likely explanation, not yet confirmed: the callee's own exit state
+genuinely isn't provable yet at the point this caller is checked
+(ordering/convergence), rather than a missing canonicalization step.
+
+Not pursuing further this round -- this is real fixed-point-solver
+territory (the surrounding comment in decoder.py explicitly describes
+it replacing an earlier, less-sound heuristic), materially different
+from and riskier than the additive, opt-in COP fix. Recorded as a
+corrected, narrower diagnosis for whoever picks this up next, rather
+than left as the wrong claim from last round.
