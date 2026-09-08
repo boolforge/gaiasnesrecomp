@@ -703,3 +703,23 @@ it replacing an earlier, less-sound heuristic), materially different
 from and riskier than the additive, opt-in COP fix. Recorded as a
 corrected, narrower diagnosis for whoever picks this up next, rather
 than left as the wrong claim from last round.
+
+## Further correction: the mirroring infra is more complete than feared, mystery narrows
+
+Checked `_lorom_mirror_bank` in `tools/v2_analyze.py` directly (despite
+its name) rather than assume it's LoROM-specific and irrelevant: its
+actual logic (`bank ^ 0x80` for bank `<0x40` or in `0x80-0xBF`)
+correctly pairs $03<->$83, the exact case in question, and it's
+already used for `cfg`/`entry`/`sibling_entries` lookup in
+`decode_variant`. So this layer isn't the gap either.
+
+The remaining, narrower mystery: with that lookup infrastructure
+apparently correct, node `00804C` was still `unproven_call` in the
+mirror-cfg test two rounds ago. Not re-run this round (time) --
+whoever continues should re-test that exact node now that the
+mirror cfg files are confirmed reverted, with attention to whether
+`callee_exit_mx_modes` (a *different* dict from the `cfg`/`entry`
+lookups just confirmed correct, populated by a fixed-point process
+not yet located) is the actual remaining gap, or whether the target
+function's own decode is separately poisoned for an unrelated
+reason that would show up in its own node's `reasons` list first.
