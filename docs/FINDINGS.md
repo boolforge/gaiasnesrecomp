@@ -633,3 +633,12 @@ Full 8,184-root set retested directly: still times out at 280s
 (exit 124, same as the original finding). Ceiling is between 6,275
 (completes) and 8,184 (times out). Next step: bisect within that
 narrower range (e.g. +banks 01/04/05/06 for ~7,200 roots).
+
+Narrowed further: 7,258 roots completes; adding just bank07
+(7,621 roots) times out at 280s. Ceiling is now bracketed tightly:
+7,258-7,621 -- notably not linear with root count alone (jump from
+6,275->7,258 stayed fast; 7,258->7,621, a much smaller addition,
+tipped it over), so bank07 specifically may be disproportionately
+expensive rather than this being a pure root-count scaling issue.
+Worth checking what's structurally different about bank07 before
+assuming it's just size.
