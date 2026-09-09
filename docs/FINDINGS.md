@@ -855,3 +855,22 @@ bracketed as tight as 7,258 (completes) to 7,446 (times out), a
 `bank07.cfg` to find the exact function(s) responsible, which would
 turn this from "somewhere in ~370 functions" into an actual root
 cause rather than a range.
+
+## Performance cliff pinned to a 40-entry window in bank07
+
+Bisected down as far as reasonably proportionate: 79 entries into
+`bank07.cfg` completes fine (7,300 roots); 119 entries times out.
+The specific candidate window (addresses $078C12-$0795E4, a mix of
+`code_*` funcs and `data_region`s -- see the exact list committed
+in this diff) is now small enough to actually test individually
+rather than keep splitting further, which is where this stops for
+now. Concrete, bounded next step for whoever continues, not another
+open-ended range.
+
+Stopping the performance-ceiling thread here -- it was always in
+service of getting a trustworthy single-run whole-ROM number, and a
+188-then-40-entry window is a genuinely useful handoff. Returning
+focus to AOT-percentage-affecting work rather than continuing to
+narrow a number that, per the earlier combined-vs-separate test, is
+already known to land within about 0.2 points of the per-bank sum
+either way.
