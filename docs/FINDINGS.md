@@ -874,3 +874,51 @@ focus to AOT-percentage-affecting work rather than continuing to
 narrow a number that, per the earlier combined-vs-separate test, is
 already known to land within about 0.2 points of the per-bank sum
 either way.
+
+## The 03DABB mystery: actually resolved, not another guess
+
+Found it in the real corpus (`chunk_03BAE1.asm` -- missed earlier
+because the label is `sub_03DABB`, not `func_03DABB`). Its actual
+content:
+
+```
+sub_03DABB {
+    LDA $0648
+    BEQ code_03DAD0
+    DEC ; BEQ code_03DAF2
+    DEC ; BEQ code_03DAFA
+    DEC ; BEQ code_03DB20
+    DEC ; BNE code_03DACF
+    JMP $&code_03DBA4
+}
+code_03DACF { RTS }
+code_03DAD0 { ... }
+code_03DAF1 { RTS }
+```
+
+`sub_03DABB` is a multi-way branch dispatcher (decrement-and-test a
+value, branch to one of several labeled blocks), and its own literal
+last instruction on the fallthrough path is `JMP`, not `RTS`. The
+actual `RTS`s live in the separately-labeled blocks it branches to
+(`code_03DACF`, `code_03DAF1`, ...), which this bridge's extraction
+correctly treats as their own distinct `func` entries, since they
+are independently labeled `{ }` blocks in the source.
+
+So the real cause was never analyzer ordering, SCC handling, or
+convergence -- it's that Gaia's own hand-written disassembly
+sometimes splits one logical function's multiple exit paths across
+several consecutively-labeled blocks (a normal, legitimate hand-asm
+readability pattern), and this bridge's "one label = one independent
+function" extraction has no way to know that `code_03DACF`'s `RTS`
+is really the same logical unit's exit as `sub_03DABB`'s dispatcher.
+A caller's `JSR sub_03DABB` genuinely can't get a clean single "what
+state does this return in" answer from boundary-only extraction,
+because the true answer depends on which of several separately-typed
+sub-blocks actual execution reaches -- correct, conservative
+behavior given the input, not a bug anywhere in snesrecomp.
+
+Three retracted hypotheses across four rounds on one node, and the
+real answer turned out to be a genuine structural fact about the
+source material, not a fixable bug in either project. Recording the
+full, correct chain rather than stopping at a wrong-but-plausible
+answer, since that's the only version of this worth handing off.
