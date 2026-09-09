@@ -811,3 +811,34 @@ analysis loop -- a substantial, delicate change to code this project
 has consistently declined to touch without being able to fully
 verify safety, same as the BRK and halt-flag cases. Handing off the
 specific, narrowed hypothesis rather than a vague "investigate more."
+
+## Retraction: the single-pass hypothesis was wrong too -- read the actual loop
+
+Checked rather than left asserted. `tools/v2_analyze.py` (~line 846)
+has a genuine `while True` fixed-point loop, re-running the full
+`ProgramAnalyzer.analyze()` every round and accumulating
+`active_exit_modes` monotonically, with an explicit design comment:
+"a finite monotone lattice and therefore converges without an
+arbitrary game-sized round cap." This is real, deliberate iteration,
+not a single blind pass. Retracting last round's hypothesis.
+
+Checked the exact values instead of guessing further: `03D9F6`'s
+demand on `03DABB` wants exactly `{m:1, pc24:0x03DABB, x:1}`, and node
+`03DABB:M1X1` exists with precisely that key and `aot_eligible`,
+zero reasons. Every value matches -- no width or address mismatch.
+
+Current best (unconfirmed) explanation: a node being `aot_eligible`
+(its own bytes decode without poison) is different from having a
+*published caller-usable exit-mode fact* -- if `03DABB` doesn't
+actually end in a normal `RTS`/`RTL` (e.g. it tail-jumps elsewhere
+instead of returning), there may be no well-defined "state on return
+to caller" for it to publish at all, independent of its own code
+being perfectly fine. Wasn't able to confirm `03DABB`'s actual last
+instruction from the real corpus this round (name didn't match
+directly in a quick grep) -- next step for whoever continues is
+pinning that down before going further, rather than another guess.
+
+Closing this specific thread here: three consecutive hypotheses
+(bank aliasing, single-pass ordering, and now this) is a lot of
+turns on one node for a project this size. Recorded honestly, not
+padded into a false resolution.
