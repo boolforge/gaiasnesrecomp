@@ -842,3 +842,16 @@ Closing this specific thread here: three consecutive hypotheses
 (bank aliasing, single-pass ordering, and now this) is a lot of
 turns on one node for a project this size. Recorded honestly, not
 padded into a false resolution.
+
+## Performance bisection: sharp cliff located within bank07 itself
+
+Split `bank07.cfg` in half (by declared func count) and added just
+that half to the known-good 7,258-root set: **7,446 roots (+188)
+already times out**, versus the earlier jump from 6,275 to 7,258
+(+983) which stayed fast. The problem isn't bank07's total size --
+it's concentrated in roughly its first half specifically. Ceiling now
+bracketed as tight as 7,258 (completes) to 7,446 (times out), a
+188-function window. Next step: bisect within that specific half of
+`bank07.cfg` to find the exact function(s) responsible, which would
+turn this from "somewhere in ~370 functions" into an actual root
+cause rather than a range.
