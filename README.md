@@ -90,9 +90,9 @@ Analysis/bridge stage. With the COP-dispatch fix, verified M-state
 facts (from `overrides.json`, `docs/code/bank00/cop-dispatch.md`, and
 lexical parsing of GaiaPacker's own real disassembly output), and a
 migration to parsing that real 806-file corpus directly instead of
-the upstream JSON exports, the current best honest estimate is **78.0%
-AOT-eligible** (9,469/12,134, summed per-bank -- see `docs/FINDINGS.md`
-for the exact methodology and its one open caveat), up from 22.0% at
+the upstream JSON exports, the current best honest estimate is **74.7%
+AOT-eligible** (6,163/8,252, summed per-bank -- see `docs/FINDINGS.md`
+for the exact methodology, corrected downward from an earlier fragmented-boundary count), up from 22.0% at
 the start of this project — regression-tested against seven other
 games on the framework at every step, not a projection.
 
