@@ -922,3 +922,36 @@ real answer turned out to be a genuine structural fact about the
 source material, not a fixable bug in either project. Recording the
 full, correct chain rather than stopping at a wrong-but-plausible
 answer, since that's the only version of this worth handing off.
+
+## The fallthrough fix was correct, and the honest result is a LOWER percentage
+
+Generalized the `03DABB` finding: extended `extract_from_asm_corpus.py`
+to detect when a labeled code block has no real terminator (no
+`RTS`/`RTL`/`RTI`/`JMP`/`JML`/`BRA`/`BRL`/`STP`/`WAI` as its last
+instruction) and merges it with the next label into ONE `func` span,
+instead of declaring each labeled sub-block as its own independent,
+separately-provable function. This is real and common: **2,687 of
+8,184 labels (33%) were fallthrough-only**, folding total `func`
+declarations from 8,184 down to 5,497 genuinely independent entries.
+Verified against the known example first: `func_03D9F6` now correctly
+spans through both `code_03DA00` and `code_03DA03` to `end:da41`,
+while `sub_03DABB` (which has a real terminator, its trailing `JMP`)
+stays properly separate.
+
+Recomputed the full per-bank sum on this corrected cfg, same
+methodology as before, all 20 banks:
+
+**6,163 AOT-eligible / 2,089 LLE-only / 8,252 total = 74.7%.**
+
+That is *lower* than the 78.0% reported two rounds ago on the
+unmerged cfg. Reporting it exactly as it came out. The honest
+explanation: the old, fragmented boundaries were counting small,
+trivially-clean fallthrough snippets (like a 3-byte `STZ` block) as
+independently "AOT-eligible" units on their own, which inflated the
+percentage with fragments that were never real, independently
+callable functions in the first place. The new number reflects the
+game's actual function structure and is the more trustworthy of the
+two -- adopted as the new baseline going forward, not reverted to
+the higher-looking figure. Regression-checked against SMW again
+(unaffected -- this change is to the bridge's own extraction, not
+the snesrecomp patch).
