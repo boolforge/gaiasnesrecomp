@@ -1,3214 +1,66 @@
 {
- "rom_names": {
-  "008000": {
-   "bank": "00",
-   "name": "ResetVector",
-   "offset": "8000"
-  },
-  "008007": {
-   "bank": "00",
-   "name": "CopVector",
-   "offset": "8007"
-  },
-  "00800B": {
-   "bank": "00",
-   "name": "NmiVector",
-   "offset": "800B"
-  },
-  "00800F": {
-   "bank": "00",
-   "name": "IrqVector",
-   "offset": "800F"
-  },
-  "008013": {
-   "bank": "00",
-   "name": "IrqHandler",
-   "offset": "8013"
-  },
-  "008014": {
-   "bank": "00",
-   "name": "SystemInit",
-   "offset": "8014"
-  },
-  "00811E": {
-   "bank": "00",
-   "name": "UpdateFrame_Dialogue",
-   "offset": "811E"
-  },
-  "00817D": {
-   "bank": "00",
-   "name": "UpdateFrame_Render",
-   "offset": "817D"
-  },
-  "0081BC": {
-   "bank": "00",
-   "name": "UpdateFrame_Full",
-   "offset": "81BC"
-  },
-  "008206": {
-   "bank": "00",
-   "name": "UpdateHUD",
-   "offset": "8206"
-  },
-  "0082DE": {
-   "bank": "00",
-   "name": "UpdateFrameCounters",
-   "offset": "82DE"
-  },
-  "0082F8": {
-   "bank": "00",
-   "name": "NmiHandler",
-   "offset": "82F8"
-  },
-  "008387": {
-   "bank": "00",
-   "name": "UploadScrollRegisters",
-   "offset": "8387"
-  },
-  "0083D4": {
-   "bank": "00",
-   "name": "WriteBgScroll",
-   "offset": "83D4"
-  },
-  "008411": {
-   "bank": "00",
-   "name": "ExecuteVramDma",
-   "offset": "8411"
-  },
-  "008438": {
-   "bank": "00",
-   "name": "FillWramBlock",
-   "offset": "8438"
-  },
-  "00846C": {
-   "bank": "00",
-   "name": "wram_fill_constant",
-   "offset": "846C"
-  },
-  "00846D": {
-   "bank": "00",
-   "name": "CopDispatch",
-   "offset": "846D"
-  },
-  "008485": {
-   "bank": "00",
-   "name": "cop_dispatch_table",
-   "offset": "8485"
-  },
-  "00864B": {
-   "bank": "00",
-   "name": "cop_table_sentinel",
-   "offset": "864B"
-  },
-  "00864E": {
-   "bank": "00",
-   "name": "GenHdmaSine",
-   "offset": "864E"
-  },
-  "008689": {
-   "bank": "00",
-   "name": "QueueHdma",
-   "offset": "8689"
-  },
-  "0086A0": {
-   "bank": "00",
-   "name": "QueueDma",
-   "offset": "86A0"
-  },
-  "0086B7": {
-   "bank": "00",
-   "name": "QueueHdmaChannel",
-   "offset": "86B7"
-  },
-  "008714": {
-   "bank": "00",
-   "name": "StartMusic",
-   "offset": "8714"
-  },
-  "008749": {
-   "bank": "00",
-   "name": "FadeThenStartMusic",
-   "offset": "8749"
-  },
-  "00877E": {
-   "bank": "00",
-   "name": "PlaySoundCh2",
-   "offset": "877E"
-  },
-  "008792": {
-   "bank": "00",
-   "name": "PlaySoundCh1",
-   "offset": "8792"
-  },
-  "0087A6": {
-   "bank": "00",
-   "name": "PlaySoundBoth",
-   "offset": "87A6"
-  },
-  "0087B5": {
-   "bank": "00",
-   "name": "WriteApuIo1",
-   "offset": "87B5"
-  },
-  "0087C9": {
-   "bank": "00",
-   "name": "WriteApuIo0",
-   "offset": "87C9"
-  },
-  "0087DD": {
-   "bank": "00",
-   "name": "MusicAndText",
-   "offset": "87DD"
-  },
-  "008876": {
-   "bank": "00",
-   "name": "MarkSolidHere",
-   "offset": "8876"
-  },
-  "00888C": {
-   "bank": "00",
-   "name": "ClearSolidHere",
-   "offset": "888C"
-  },
-  "0088A2": {
-   "bank": "00",
-   "name": "MarkSolidOffset",
-   "offset": "88A2"
-  },
-  "0088C8": {
-   "bank": "00",
-   "name": "ClearSolidOffset",
-   "offset": "88C8"
-  },
-  "0088EE": {
-   "bank": "00",
-   "name": "MarkSolidAbs",
-   "offset": "88EE"
-  },
-  "008925": {
-   "bank": "00",
-   "name": "ClearSolidAbs",
-   "offset": "8925"
-  },
-  "00895C": {
-   "bank": "00",
-   "name": "ClearCollisionHere",
-   "offset": "895C"
-  },
-  "008975": {
-   "bank": "00",
-   "name": "ClearTypeAbs",
-   "offset": "8975"
-  },
-  "0089AC": {
-   "bank": "00",
-   "name": "BranchIfSolidHere",
-   "offset": "89AC"
-  },
-  "0089D3": {
-   "bank": "00",
-   "name": "BranchIfSolidOffset",
-   "offset": "89D3"
-  },
-  "008A22": {
-   "bank": "00",
-   "name": "BranchIfSolidNorth",
-   "offset": "8A22"
-  },
-  "008A4D": {
-   "bank": "00",
-   "name": "BranchIfSolidSouth",
-   "offset": "8A4D"
-  },
-  "008A78": {
-   "bank": "00",
-   "name": "BranchIfSolidWest",
-   "offset": "8A78"
-  },
-  "008AA3": {
-   "bank": "00",
-   "name": "BranchIfSolidEast",
-   "offset": "8AA3"
-  },
-  "008ACE": {
-   "bank": "00",
-   "name": "BranchIfTypeHere",
-   "offset": "8ACE"
-  },
-  "008B01": {
-   "bank": "00",
-   "name": "BranchIfTypeNorth",
-   "offset": "8B01"
-  },
-  "008B38": {
-   "bank": "00",
-   "name": "BranchIfTypeSouth",
-   "offset": "8B38"
-  },
-  "008B6F": {
-   "bank": "00",
-   "name": "BranchIfTypeWest",
-   "offset": "8B6F"
-  },
-  "008BA6": {
-   "bank": "00",
-   "name": "BranchIfTypeEast",
-   "offset": "8BA6"
-  },
-  "008BDD": {
-   "bank": "00",
-   "name": "BranchIfNotOnGridline",
-   "offset": "8BDD"
-  },
-  "008C19": {
-   "bank": "00",
-   "name": "BranchIfActorNear",
-   "offset": "8C19"
-  },
-  "008C26": {
-   "bank": "00",
-   "name": "BranchIfPlayerNear",
-   "offset": "8C26"
-  },
-  "008C6F": {
-   "bank": "00",
-   "name": "MoveToward",
-   "offset": "8C6F"
-  },
-  "008D25": {
-   "bank": "00",
-   "name": "ReadMultiplyResult",
-   "offset": "8D25"
-  },
-  "008D2A": {
-   "bank": "00",
-   "name": "ReadDivideResult",
-   "offset": "8D2A"
-  },
-  "008D33": {
-   "bank": "00",
-   "name": "MultiplyThenDivide",
-   "offset": "8D33"
-  },
-  "008D4D": {
-   "bank": "00",
-   "name": "InitSmoothMovement",
-   "offset": "8D4D"
-  },
-  "008DE6": {
-   "bank": "00",
-   "name": "SnapToGrid",
-   "offset": "8DE6"
-  },
-  "008E19": {
-   "bank": "00",
-   "name": "ResumeAfterSnap",
-   "offset": "8E19"
-  },
-  "008E36": {
-   "bank": "00",
-   "name": "StageMove",
-   "offset": "8E36"
-  },
-  "008EF1": {
-   "bank": "00",
-   "name": "HalveMovementDistance",
-   "offset": "8EF1"
-  },
-  "008F0D": {
-   "bank": "00",
-   "name": "TickMove",
-   "offset": "8F0D"
-  },
-  "008FDC": {
-   "bank": "00",
-   "name": "MovementVelocityCompute",
-   "offset": "8FDC"
-  },
-  "008FFC": {
-   "bank": "00",
-   "name": "RngByte",
-   "offset": "8FFC"
-  },
-  "00902B": {
-   "bank": "00",
-   "name": "RngMod",
-   "offset": "902B"
-  },
-  "00904E": {
-   "bank": "00",
-   "name": "SetTilePos",
-   "offset": "904E"
-  },
-  "009072": {
-   "bank": "00",
-   "name": "QueueMapChange",
-   "offset": "9072"
-  },
-  "0090CE": {
-   "bank": "00",
-   "name": "WaitWhileOffscreen",
-   "offset": "90CE"
-  },
-  "0090F4": {
-   "bank": "00",
-   "name": "BranchIfPlayerAt",
-   "offset": "90F4"
-  },
-  "0090FA": {
-   "bank": "00",
-   "name": "BranchIfActorAt",
-   "offset": "90FA"
-  },
-  "009135": {
-   "bank": "00",
-   "name": "BranchOnPlayerX",
-   "offset": "9135"
-  },
-  "00915F": {
-   "bank": "00",
-   "name": "BranchOnPlayerY",
-   "offset": "915F"
-  },
-  "009189": {
-   "bank": "00",
-   "name": "BranchNearerAxis",
-   "offset": "9189"
-  },
-  "0091B8": {
-   "bank": "00",
-   "name": "DirToPlayer",
-   "offset": "91B8"
-  },
-  "0091CC": {
-   "bank": "00",
-   "name": "CardinalToPlayer",
-   "offset": "91CC"
-  },
-  "009236": {
-   "bank": "00",
-   "name": "DirToPlayerFrom",
-   "offset": "9236"
-  },
-  "00926A": {
-   "bank": "00",
-   "name": "BranchIfDirToPlayer",
-   "offset": "926A"
-  },
-  "009299": {
-   "bank": "00",
-   "name": "BranchIfDirToPlayerFrom",
-   "offset": "9299"
-  },
-  "0092E8": {
-   "bank": "00",
-   "name": "BranchOnPlayerFacing",
-   "offset": "92E8"
-  },
-  "009317": {
-   "bank": "00",
-   "name": "StageBgChange",
-   "offset": "9317"
-  },
-  "009328": {
-   "bank": "00",
-   "name": "ApplyBgChange",
-   "offset": "9328"
-  },
-  "009352": {
-   "bank": "00",
-   "name": "StageBgChangeFromDeathIdx",
-   "offset": "9352"
-  },
-  "009361": {
-   "bank": "00",
-   "name": "PaletteRestart",
-   "offset": "9361"
-  },
-  "009364": {
-   "bank": "00",
-   "name": "PaletteStart",
-   "offset": "9364"
-  },
-  "009381": {
-   "bank": "00",
-   "name": "PaletteStartLoop",
-   "offset": "9381"
-  },
-  "0093AA": {
-   "bank": "00",
-   "name": "PaletteStep",
-   "offset": "93AA"
-  },
-  "0093CE": {
-   "bank": "00",
-   "name": "PaletteStepLoop",
-   "offset": "93CE"
-  },
-  "009400": {
-   "bank": "00",
-   "name": "SpawnThinkerParam",
-   "offset": "9400"
-  },
-  "00943C": {
-   "bank": "00",
-   "name": "SpawnThinker",
-   "offset": "943C"
-  },
-  "009443": {
-   "bank": "00",
-   "name": "KillThinker",
-   "offset": "9443"
-  },
-  "009485": {
-   "bank": "00",
-   "name": "WaitForButton",
-   "offset": "9485"
-  },
-  "0094AD": {
-   "bank": "00",
-   "name": "WaitForRelease",
-   "offset": "94AD"
-  },
-  "0094D5": {
-   "bank": "00",
-   "name": "BranchIfPressed",
-   "offset": "94D5"
-  },
-  "009501": {
-   "bank": "00",
-   "name": "BranchIfNotPressed",
-   "offset": "9501"
-  },
-  "00952F": {
-   "bank": "00",
-   "name": "SetCollisionAbs",
-   "offset": "952F"
-  },
-  "00956B": {
-   "bank": "00",
-   "name": "BranchIfPlayerInRelTiles",
-   "offset": "956B"
-  },
-  "0095EA": {
-   "bank": "00",
-   "name": "BranchIfPlayerInAbsTiles",
-   "offset": "95EA"
-  },
-  "009647": {
-   "bank": "00",
-   "name": "CopyPosToPrev",
-   "offset": "9647"
-  },
-  "00964C": {
-   "bank": "00",
-   "name": "CopyPosToNext",
-   "offset": "964C"
-  },
-  "00965E": {
-   "bank": "00",
-   "name": "GetPlayerFacing",
-   "offset": "965E"
-  },
-  "009668": {
-   "bank": "00",
-   "name": "BranchIfBodyNe",
-   "offset": "9668"
-  },
-  "009685": {
-   "bank": "00",
-   "name": "DrawMetatileAbs",
-   "offset": "9685"
-  },
-  "0096CA": {
-   "bank": "00",
-   "name": "DrawMetatileHere",
-   "offset": "96CA"
-  },
-  "009703": {
-   "bank": "00",
-   "name": "WorldMapStream3",
-   "offset": "9703"
-  },
-  "009774": {
-   "bank": "00",
-   "name": "WorldMapStream4",
-   "offset": "9774"
-  },
-  "0097EF": {
-   "bank": "00",
-   "name": "ParseMapEntry",
-   "offset": "97EF"
-  },
-  "009829": {
-   "bank": "00",
-   "name": "ResolveTileData",
-   "offset": "9829"
-  },
-  "0098A9": {
-   "bank": "00",
-   "name": "TileQueryGate",
-   "offset": "98A9"
-  },
-  "0098B8": {
-   "bank": "00",
-   "name": "AdhocVramDma",
-   "offset": "98B8"
-  },
-  "009930": {
-   "bank": "00",
-   "name": "CopyPalette",
-   "offset": "9930"
-  },
-  "00997B": {
-   "bank": "00",
-   "name": "Decompress",
-   "offset": "997B"
-  },
-  "0099BF": {
-   "bank": "00",
-   "name": "SetScratchPointer",
-   "offset": "99BF"
-  },
-  "0099DA": {
-   "bank": "00",
-   "name": "ResetSpriteState",
-   "offset": "99DA"
-  },
-  "0099F5": {
-   "bank": "00",
-   "name": "AdvanceSpriteAnim",
-   "offset": "99F5"
-  },
-  "009A67": {
-   "bank": "00",
-   "name": "SetDeathCallback",
-   "offset": "9A67"
-  },
-  "009A82": {
-   "bank": "00",
-   "name": "SetHitCallback",
-   "offset": "9A82"
-  },
-  "009A92": {
-   "bank": "00",
-   "name": "SetDodgeCallback",
-   "offset": "9A92"
-  },
-  "009AA2": {
-   "bank": "00",
-   "name": "SetCollideCallback",
-   "offset": "9AA2"
-  },
-  "009AB2": {
-   "bank": "00",
-   "name": "SetCustomCallback",
-   "offset": "9AB2"
-  },
-  "009AC2": {
-   "bank": "00",
-   "name": "OrExtraFlags",
-   "offset": "9AC2"
-  },
-  "009AD6": {
-   "bank": "00",
-   "name": "AndExtraFlags",
-   "offset": "9AD6"
-  },
-  "009AEA": {
-   "bank": "00",
-   "name": "BranchIfBehindWall",
-   "offset": "9AEA"
-  },
-  "009B41": {
-   "bank": "00",
-   "name": "BranchIfCollisionTypeNe",
-   "offset": "9B41"
-  },
-  "009B89": {
-   "bank": "00",
-   "name": "InitSineHdma",
-   "offset": "9B89"
-  },
-  "009C3A": {
-   "bank": "00",
-   "name": "TickSineHdma",
-   "offset": "9C3A"
-  },
-  "009C91": {
-   "bank": "00",
-   "name": "BindSineHdma",
-   "offset": "9C91"
-  },
-  "009CB4": {
-   "bank": "00",
-   "name": "InitGravity",
-   "offset": "9CB4"
-  },
-  "009CFA": {
-   "bank": "00",
-   "name": "TickGravity",
-   "offset": "9CFA"
-  },
-  "009D52": {
-   "bank": "00",
-   "name": "StageWorldMapMove",
-   "offset": "9D52"
-  },
-  "009D81": {
-   "bank": "00",
-   "name": "StageWorldMapChoice",
-   "offset": "9D81"
-  },
-  "009DA3": {
-   "bank": "00",
-   "name": "StageWorldMapMoveIds",
-   "offset": "9DA3"
-  },
-  "009DBD": {
-   "bank": "00",
-   "name": "BranchIfOffCamera",
-   "offset": "9DBD"
-  },
-  "009DEA": {
-   "bank": "00",
-   "name": "HaltIfMaxFrames",
-   "offset": "9DEA"
-  },
-  "009E06": {
-   "bank": "00",
-   "name": "SetLinkedEntryPtr",
-   "offset": "9E06"
-  },
-  "009E23": {
-   "bank": "00",
-   "name": "StageSpr",
-   "offset": "9E23"
-  },
-  "009E35": {
-   "bank": "00",
-   "name": "StageSprX",
-   "offset": "9E35"
-  },
-  "009E57": {
-   "bank": "00",
-   "name": "StageSprY",
-   "offset": "9E57"
-  },
-  "009E79": {
-   "bank": "00",
-   "name": "StageSprXY",
-   "offset": "9E79"
-  },
-  "009EAB": {
-   "bank": "00",
-   "name": "StageSprLoop",
-   "offset": "9EAB"
-  },
-  "009EC8": {
-   "bank": "00",
-   "name": "StageSprLoopX",
-   "offset": "9EC8"
-  },
-  "009EF5": {
-   "bank": "00",
-   "name": "StageSprLoopY",
-   "offset": "9EF5"
-  },
-  "009F22": {
-   "bank": "00",
-   "name": "StageSprLoopXY",
-   "offset": "9F22"
-  },
-  "009F5F": {
-   "bank": "00",
-   "name": "ProcessAnimFlag",
-   "offset": "9F5F"
-  },
-  "009F8F": {
-   "bank": "00",
-   "name": "SetMetasprite",
-   "offset": "9F8F"
-  },
-  "009FAA": {
-   "bank": "00",
-   "name": "AnimOnce",
-   "offset": "9FAA"
-  },
-  "009FC0": {
-   "bank": "00",
-   "name": "AnimLoop",
-   "offset": "9FC0"
-  },
-  "009FDE": {
-   "bank": "00",
-   "name": "AnimOneFrame",
-   "offset": "9FDE"
-  },
-  "009FF1": {
-   "bank": "00",
-   "name": "WaitForAnimFrame",
-   "offset": "9FF1"
-  },
-  "00A01E": {
-   "bank": "00",
-   "name": "StageSprAndHitbox",
-   "offset": "A01E"
-  },
-  "00A036": {
-   "bank": "00",
-   "name": "SetPlayerSpriteDirect",
-   "offset": "A036"
-  },
-  "00A06B": {
-   "bank": "00",
-   "name": "StagePlayerSpr",
-   "offset": "A06B"
-  },
-  "00A081": {
-   "bank": "00",
-   "name": "StagePlayerSprX",
-   "offset": "A081"
-  },
-  "00A0A7": {
-   "bank": "00",
-   "name": "StagePlayerSprY",
-   "offset": "A0A7"
-  },
-  "00A0CD": {
-   "bank": "00",
-   "name": "StagePlayerSprXY",
-   "offset": "A0CD"
-  },
-  "00A103": {
-   "bank": "00",
-   "name": "RunPlayerAnim",
-   "offset": "A103"
-  },
-  "00A119": {
-   "bank": "00",
-   "name": "StagePlayerSprWall",
-   "offset": "A119"
-  },
-  "00A159": {
-   "bank": "00",
-   "name": "StagePlayerSprFromDP",
-   "offset": "A159"
-  },
-  "00A16E": {
-   "bank": "00",
-   "name": "WallAnimHere",
-   "offset": "A16E"
-  },
-  "00A1B5": {
-   "bank": "00",
-   "name": "WallAnimNorth",
-   "offset": "A1B5"
-  },
-  "00A200": {
-   "bank": "00",
-   "name": "WallAnimSouth",
-   "offset": "A200"
-  },
-  "00A24B": {
-   "bank": "00",
-   "name": "SpawnBefore",
-   "offset": "A24B"
-  },
-  "00A267": {
-   "bank": "00",
-   "name": "SpawnBeforeFlags",
-   "offset": "A267"
-  },
-  "00A28C": {
-   "bank": "00",
-   "name": "SpawnAfter",
-   "offset": "A28C"
-  },
-  "00A2A8": {
-   "bank": "00",
-   "name": "SpawnAfterFlags",
-   "offset": "A2A8"
-  },
-  "00A2CD": {
-   "bank": "00",
-   "name": "SpawnAfterOffset",
-   "offset": "A2CD"
-  },
-  "00A303": {
-   "bank": "00",
-   "name": "SpawnAfterOffsetFlags",
-   "offset": "A303"
-  },
-  "00A342": {
-   "bank": "00",
-   "name": "SpawnAfterAbs",
-   "offset": "A342"
-  },
-  "00A370": {
-   "bank": "00",
-   "name": "SpawnAfterAbsFlags",
-   "offset": "A370"
-  },
-  "00A3A7": {
-   "bank": "00",
-   "name": "SpawnBeforeMarked",
-   "offset": "A3A7"
-  },
-  "00A3D4": {
-   "bank": "00",
-   "name": "SpawnAfterMarked",
-   "offset": "A3D4"
-  },
-  "00A401": {
-   "bank": "00",
-   "name": "SpawnAfterAbsMarked",
-   "offset": "A401"
-  },
-  "00A440": {
-   "bank": "00",
-   "name": "SpawnAfterOffsetMarked",
-   "offset": "A440"
-  },
-  "00A499": {
-   "bank": "00",
-   "name": "SpawnListAppend",
-   "offset": "A499"
-  },
-  "00A533": {
-   "bank": "00",
-   "name": "SpawnListAppendSpr",
-   "offset": "A533"
-  },
-  "00A5DE": {
-   "bank": "00",
-   "name": "MarkDeath",
-   "offset": "A5DE"
-  },
-  "00A5F7": {
-   "bank": "00",
-   "name": "Die",
-   "offset": "A5F7"
-  },
-  "00A608": {
-   "bank": "00",
-   "name": "DieNow_UnlinkChildren",
-   "offset": "A608"
-  },
-  "00A6A1": {
-   "bank": "00",
-   "name": "KillPrev",
-   "offset": "A6A1"
-  },
-  "00A6B1": {
-   "bank": "00",
-   "name": "KillNext",
-   "offset": "A6B1"
-  },
-  "00A6C1": {
-   "bank": "00",
-   "name": "StageMoveX",
-   "offset": "A6C1"
-  },
-  "00A6D7": {
-   "bank": "00",
-   "name": "StageMoveY",
-   "offset": "A6D7"
-  },
-  "00A6ED": {
-   "bank": "00",
-   "name": "StageMoveXY",
-   "offset": "A6ED"
-  },
-  "00A713": {
-   "bank": "00",
-   "name": "ForceDirSW",
-   "offset": "A713"
-  },
-  "00A731": {
-   "bank": "00",
-   "name": "ForceDirNE",
-   "offset": "A731"
-  },
-  "00A74F": {
-   "bank": "00",
-   "name": "ForceDirBoth",
-   "offset": "A74F"
-  },
-  "00A76D": {
-   "bank": "00",
-   "name": "ApplyMoveToChild",
-   "offset": "A76D"
-  },
-  "00A799": {
-   "bank": "00",
-   "name": "ReloadMoveDurations",
-   "offset": "A799"
-  },
-  "00A7B3": {
-   "bank": "00",
-   "name": "SetPriorityMax",
-   "offset": "A7B3"
-  },
-  "00A7BE": {
-   "bank": "00",
-   "name": "SetPriorityMin",
-   "offset": "A7BE"
-  },
-  "00A7C9": {
-   "bank": "00",
-   "name": "ClearPriorityMax",
-   "offset": "A7C9"
-  },
-  "00A7D4": {
-   "bank": "00",
-   "name": "ClearPriorityMin",
-   "offset": "A7D4"
-  },
-  "00A7DF": {
-   "bank": "00",
-   "name": "SetOamPriority",
-   "offset": "A7DF"
-  },
-  "00A7F4": {
-   "bank": "00",
-   "name": "SetOamPalette",
-   "offset": "A7F4"
-  },
-  "00A809": {
-   "bank": "00",
-   "name": "ToggleHMirror",
-   "offset": "A809"
-  },
-  "00A816": {
-   "bank": "00",
-   "name": "ToggleVMirror",
-   "offset": "A816"
-  },
-  "00A823": {
-   "bank": "00",
-   "name": "ClearHMirror",
-   "offset": "A823"
-  },
-  "00A82E": {
-   "bank": "00",
-   "name": "SetHMirror",
-   "offset": "A82E"
-  },
-  "00A839": {
-   "bank": "00",
-   "name": "NudgePosition",
-   "offset": "A839"
-  },
-  "00A867": {
-   "bank": "00",
-   "name": "RunBg3Script",
-   "offset": "A867"
-  },
-  "00A894": {
-   "bank": "00",
-   "name": "DialogueOptions",
-   "offset": "A894"
-  },
-  "00A8FB": {
-   "bank": "00",
-   "name": "PrintWideString",
-   "offset": "A8FB"
-  },
-  "00A958": {
-   "bank": "00",
-   "name": "PrintWideStringAlt",
-   "offset": "A958"
-  },
-  "00A992": {
-   "bank": "00",
-   "name": "InitSpiral",
-   "offset": "A992"
-  },
-  "00A9AE": {
-   "bank": "00",
-   "name": "SpiralStep",
-   "offset": "A9AE"
-  },
-  "00A9EB": {
-   "bank": "00",
-   "name": "SetInteractHandler",
-   "offset": "A9EB"
-  },
-  "00A9FB": {
-   "bank": "00",
-   "name": "SetEntryHere",
-   "offset": "A9FB"
-  },
-  "00AA07": {
-   "bank": "00",
-   "name": "SetEntryHereAndYield",
-   "offset": "AA07"
-  },
-  "00AA13": {
-   "bank": "00",
-   "name": "JumpAfterDelay",
-   "offset": "AA13"
-  },
-  "00AA30": {
-   "bank": "00",
-   "name": "JumpNextFrame",
-   "offset": "AA30"
-  },
-  "00AA47": {
-   "bank": "00",
-   "name": "SetEntryFar",
-   "offset": "AA47"
-  },
-  "00AA60": {
-   "bank": "00",
-   "name": "RestoreSavedPtr",
-   "offset": "AA60"
-  },
-  "00AA74": {
-   "bank": "00",
-   "name": "ReturnWithSignal",
-   "offset": "AA74"
-  },
-  "00AA8B": {
-   "bank": "00",
-   "name": "SetSavedPtr",
-   "offset": "AA8B"
-  },
-  "00AA9B": {
-   "bank": "00",
-   "name": "JumpFar",
-   "offset": "AA9B"
-  },
-  "00AAB6": {
-   "bank": "00",
-   "name": "CallNear",
-   "offset": "AAB6"
-  },
-  "00AAC6": {
-   "bank": "00",
-   "name": "CallNearDeferred",
-   "offset": "AAC6"
-  },
-  "00AAD8": {
-   "bank": "00",
-   "name": "LoopStart",
-   "offset": "AAD8"
-  },
-  "00AB0E": {
-   "bank": "00",
-   "name": "LoopEnd",
-   "offset": "AB0E"
-  },
-  "00AB41": {
-   "bank": "00",
-   "name": "SetFlagByte",
-   "offset": "AB41"
-  },
-  "00AB51": {
-   "bank": "00",
-   "name": "SetFlagWord",
-   "offset": "AB51"
-  },
-  "00AB60": {
-   "bank": "00",
-   "name": "ClearFlagByte",
-   "offset": "AB60"
-  },
-  "00AB70": {
-   "bank": "00",
-   "name": "ClearFlagWord",
-   "offset": "AB70"
-  },
-  "00AB7F": {
-   "bank": "00",
-   "name": "BranchOnFlagByte",
-   "offset": "AB7F"
-  },
-  "00AB8E": {
-   "bank": "00",
-   "name": "BranchOnFlagWord",
-   "offset": "AB8E"
-  },
-  "00ABC2": {
-   "bank": "00",
-   "name": "WaitOnFlagByte",
-   "offset": "ABC2"
-  },
-  "00ABD7": {
-   "bank": "00",
-   "name": "WaitOnFlagWord",
-   "offset": "ABD7"
-  },
-  "00AC05": {
-   "bank": "00",
-   "name": "GiveItem",
-   "offset": "AC05"
-  },
-  "00AC27": {
-   "bank": "00",
-   "name": "RemoveItem",
-   "offset": "AC27"
-  },
-  "00AC38": {
-   "bank": "00",
-   "name": "BranchIfMissingItem",
-   "offset": "AC38"
-  },
-  "00AC5A": {
-   "bank": "00",
-   "name": "BranchIfItemEquipped",
-   "offset": "AC5A"
-  },
-  "00AC82": {
-   "bank": "00",
-   "name": "SetDungeonKillFlag",
-   "offset": "AC82"
-  },
-  "00AC94": {
-   "bank": "00",
-   "name": "SwitchCase",
-   "offset": "AC94"
-  },
-  "00ACC1": {
-   "bank": "00",
-   "name": "WaitByte",
-   "offset": "ACC1"
-  },
-  "00ACD6": {
-   "bank": "00",
-   "name": "WaitWord",
-   "offset": "ACD6"
-  },
-  "00ACDF": {
-   "bank": "00",
-   "name": "CameraPanDown",
-   "offset": "ACDF"
-  },
-  "00AD17": {
-   "bank": "00",
-   "name": "CameraPanUp",
-   "offset": "AD17"
-  },
-  "00AD57": {
-   "bank": "00",
-   "name": "CameraPanRight",
-   "offset": "AD57"
-  },
-  "00AD8F": {
-   "bank": "00",
-   "name": "CameraPanLeft",
-   "offset": "AD8F"
-  },
-  "00ADCF": {
-   "bank": "00",
-   "name": "BuildSineHdmaTable",
-   "offset": "ADCF"
-  },
-  "00AEB8": {
-   "bank": "00",
-   "name": "BuildSineLookupTable",
-   "offset": "AEB8"
-  },
-  "00AF40": {
-   "bank": "00",
-   "name": "UnlinkActor",
-   "offset": "AF40"
-  },
-  "00AF6D": {
-   "bank": "00",
-   "name": "SetActorBody",
-   "offset": "AF6D"
-  },
-  "00AF8F": {
-   "bank": "00",
-   "name": "ParseSignedTileOffset",
-   "offset": "AF8F"
-  },
-  "00AFCE": {
-   "bank": "00",
-   "name": "ComputeDirectionToPlayer",
-   "offset": "AFCE"
-  },
-  "00B05E": {
-   "bank": "00",
-   "name": "TestWramFlag_Offset100",
-   "offset": "B05E"
-  },
-  "00B069": {
-   "bank": "00",
-   "name": "SetWramFlag_Offset100",
-   "offset": "B069"
-  },
-  "00B074": {
-   "bank": "00",
-   "name": "SetWramFlag",
-   "offset": "B074"
-  },
-  "00B095": {
-   "bank": "00",
-   "name": "TestWramFlag",
-   "offset": "B095"
-  },
-  "00B0B7": {
-   "bank": "00",
-   "name": "SetEventFlag",
-   "offset": "B0B7"
-  },
-  "00B0D8": {
-   "bank": "00",
-   "name": "ClearEventFlag",
-   "offset": "B0D8"
-  },
-  "00B0FB": {
-   "bank": "00",
-   "name": "TestEventFlag",
-   "offset": "B0FB"
-  },
-  "00B11D": {
-   "bank": "00",
-   "name": "bitmasks_bit_position",
-   "offset": "B11D"
-  },
-  "00B125": {
-   "bank": "00",
-   "name": "ResolveActorIndex",
-   "offset": "B125"
-  },
-  "00B136": {
-   "bank": "00",
-   "name": "CameraScrollStepLookup",
-   "offset": "B136"
-  },
-  "00B157": {
-   "bank": "00",
-   "name": "AnimFrameLookup",
-   "offset": "B157"
-  },
-  "00B15D": {
-   "bank": "00",
-   "name": "AllocateActorBefore",
-   "offset": "B15D"
-  },
-  "00B189": {
-   "bank": "00",
-   "name": "AllocateActorAfter",
-   "offset": "B189"
-  },
-  "00B1B5": {
-   "bank": "00",
-   "name": "ReturnActorSlot",
-   "offset": "B1B5"
-  },
-  "00B1CB": {
-   "bank": "00",
-   "name": "MarkChildActor",
-   "offset": "B1CB"
-  },
-  "00B1DA": {
-   "bank": "00",
-   "name": "CopyActorState",
-   "offset": "B1DA"
-  },
-  "00B27B": {
-   "bank": "00",
-   "name": "AllocateSpecialActor",
-   "offset": "B27B"
-  },
-  "00B29F": {
-   "bank": "00",
-   "name": "MarkCollisionRect",
-   "offset": "B29F"
-  },
-  "00B32B": {
-   "bank": "00",
-   "name": "AdvanceMapY",
-   "offset": "B32B"
-  },
-  "00B345": {
-   "bank": "00",
-   "name": "ClearCollisionRect",
-   "offset": "B345"
-  },
-  "00B3EF": {
-   "bank": "00",
-   "name": "ClearCollisionRectFull",
-   "offset": "B3EF"
-  },
-  "00B43B": {
-   "bank": "00",
-   "name": "TileCollisionQuery",
-   "offset": "B43B"
-  },
-  "00B481": {
-   "bank": "00",
-   "name": "SetEventFlag_0200",
-   "offset": "B481"
-  },
-  "00B489": {
-   "bank": "00",
-   "name": "TestEventFlag_0200",
-   "offset": "B489"
-  },
-  "00B496": {
-   "bank": "00",
-   "name": "TestFlag_0300",
-   "offset": "B496"
-  },
-  "00B4A1": {
-   "bank": "00",
-   "name": "SetFlag_0300",
-   "offset": "B4A1"
-  },
-  "00B4AC": {
-   "bank": "00",
-   "name": "TestFlag_0510",
-   "offset": "B4AC"
-  },
-  "00B4B7": {
-   "bank": "00",
-   "name": "TestFlagRaw",
-   "offset": "B4B7"
-  },
-  "00B4BE": {
-   "bank": "00",
-   "name": "SetFlagRaw",
-   "offset": "B4BE"
-  },
-  "00B4C5": {
-   "bank": "00",
-   "name": "ClearFlagRaw",
-   "offset": "B4C5"
-  },
-  "00B4CC": {
-   "bank": "00",
-   "name": "ClearAllWramFlags",
-   "offset": "B4CC"
-  },
-  "00B4E0": {
-   "bank": "00",
-   "name": "SetFlag_0100",
-   "offset": "B4E0"
-  },
-  "00B4EB": {
-   "bank": "00",
-   "name": "ClearFlag_0100",
-   "offset": "B4EB"
-  },
-  "00B4F6": {
-   "bank": "00",
-   "name": "TestFlag_0100",
-   "offset": "B4F6"
-  },
-  "00B501": {
-   "bank": "00",
-   "name": "ActorPoolAllocator",
-   "offset": "B501"
-  },
-  "00B519": {
-   "bank": "00",
-   "name": "PaletteResetAndKillThinker",
-   "offset": "B519"
-  },
-  "00D088": {
-   "bank": "00",
-   "name": "LockPlayerForClimb",
-   "offset": "D088"
-  },
-  "00D0AE": {
-   "bank": "00",
-   "name": "UnlockPlayerAfterClimb",
-   "offset": "D0AE"
-  },
-  "00D0D1": {
-   "bank": "00",
-   "name": "StairTriggerSouth",
-   "offset": "D0D1"
-  },
-  "00D119": {
-   "bank": "00",
-   "name": "StairTriggerNorth",
-   "offset": "D119"
-  },
-  "00D161": {
-   "bank": "00",
-   "name": "StairTriggerWestEntry",
-   "offset": "D161"
-  },
-  "00D16A": {
-   "bank": "00",
-   "name": "StairTriggerWest",
-   "offset": "D16A"
-  },
-  "00D1B5": {
-   "bank": "00",
-   "name": "StairTriggerEast",
-   "offset": "D1B5"
-  },
-  "00D204": {
-   "bank": "00",
-   "name": "CheckMoveState",
-   "offset": "D204"
-  },
-  "00D218": {
-   "bank": "00",
-   "name": "ClimbSouth",
-   "offset": "D218"
-  },
-  "00D246": {
-   "bank": "00",
-   "name": "ClimbNorth",
-   "offset": "D246"
-  },
-  "00D274": {
-   "bank": "00",
-   "name": "ClimbWest",
-   "offset": "D274"
-  },
-  "00D2A2": {
-   "bank": "00",
-   "name": "ClimbEast",
-   "offset": "D2A2"
-  },
-  "00D2D0": {
-   "bank": "00",
-   "name": "ramp_east",
-   "offset": "D2D0"
-  },
-  "00D348": {
-   "bank": "00",
-   "name": "ramp_west",
-   "offset": "D348"
-  },
-  "00D3BA": {
-   "bank": "00",
-   "name": "ramp_north",
-   "offset": "D3BA"
-  },
-  "00D428": {
-   "bank": "00",
-   "name": "ramp_south",
-   "offset": "D428"
-  },
-  "00D531": {
-   "bank": "00",
-   "name": "loc_00D531",
-   "offset": "D531"
-  },
-  "00D56B": {
-   "bank": "00",
-   "name": "loc_00D56B",
-   "offset": "D56B"
-  },
-  "00D58A": {
-   "bank": "00",
-   "name": "RestorePlayerControl",
-   "offset": "D58A"
-  },
-  "00D5F1": {
-   "bank": "00",
-   "name": "loc_00D5F1",
-   "offset": "D5F1"
-  },
-  "00E683": {
-   "bank": "00",
-   "name": "CopySiblingFollowState",
-   "offset": "E683"
-  },
-  "00E6A6": {
-   "bank": "00",
-   "name": "InitFollowAndChase",
-   "offset": "E6A6"
-  },
-  "00E87E": {
-   "bank": "00",
-   "name": "ApplyFollowMovement",
-   "offset": "E87E"
-  },
-  "00E8BA": {
-   "bank": "00",
-   "name": "SelectFallbackDirection",
-   "offset": "E8BA"
-  },
-  "00E8C7": {
-   "bank": "00",
-   "name": "follow_fallback_table",
-   "offset": "E8C7"
-  },
-  "00E94D": {
-   "bank": "00",
-   "name": "ScrollCameraInit",
-   "offset": "E94D"
-  },
-  "00EA96": {
-   "bank": "00",
-   "name": "ScrollCameraTrack",
-   "offset": "EA96"
-  },
-  "00EAA7": {
-   "bank": "00",
-   "name": "ScrollCameraVertical",
-   "offset": "EAA7"
-  },
-  "00EAC3": {
-   "bank": "00",
-   "name": "ScrollCameraAccumulate",
-   "offset": "EAC3"
-  },
-  "00EB9B": {
-   "bank": "00",
-   "name": "ForcedWalkSouth",
-   "offset": "EB9B"
-  },
-  "00EBEF": {
-   "bank": "00",
-   "name": "ForcedWalkNorth",
-   "offset": "EBEF"
-  },
-  "00EC43": {
-   "bank": "00",
-   "name": "ForcedWalkWest",
-   "offset": "EC43"
-  },
-  "00EC97": {
-   "bank": "00",
-   "name": "ForcedWalkEast",
-   "offset": "EC97"
-  },
-  "00ECEB": {
-   "bank": "00",
-   "name": "TileAlignCoord",
-   "offset": "ECEB"
-  },
-  "00ECF8": {
-   "bank": "00",
-   "name": "TileAlignPosition",
-   "offset": "ECF8"
-  },
-  "00ED0B": {
-   "bank": "00",
-   "name": "ComputeScrollDeltas",
-   "offset": "ED0B"
-  },
-  "00ED28": {
-   "bank": "00",
-   "name": "ReadDirSprite_YVelocity",
-   "offset": "ED28"
-  },
-  "00ED48": {
-   "bank": "00",
-   "name": "ReadDirSprite_XVelocity",
-   "offset": "ED48"
-  },
-  "00ED68": {
-   "bank": "00",
-   "name": "ApplyScrollOffset",
-   "offset": "ED68"
-  },
-  "00ED84": {
-   "bank": "00",
-   "name": "SyncPlayerToCamera",
-   "offset": "ED84"
-  },
-  "00EDA8": {
-   "bank": "00",
-   "name": "ComputeFollowAngle",
-   "offset": "EDA8"
-  },
-  "00EDC3": {
-   "bank": "00",
-   "name": "ComputeFollowAngleAlt",
-   "offset": "EDC3"
-  },
-  "00EE1C": {
-   "bank": "00",
-   "name": "ComputeFollowStep",
-   "offset": "EE1C"
-  },
-  "00EE7C": {
-   "bank": "00",
-   "name": "ResolveFollowDirection",
-   "offset": "EE7C"
-  },
-  "00EE8C": {
-   "bank": "00",
-   "name": "ResolveFollowDirectionAlt",
-   "offset": "EE8C"
-  },
-  "00EF72": {
-   "bank": "00",
-   "name": "FollowDirectionTable",
-   "offset": "EF72"
-  },
-  "00F193": {
-   "bank": "00",
-   "name": "SmoothFollowLookup",
-   "offset": "F193"
-  },
-  "02C1A3": {
-   "bank": "02",
-   "name": "loc_02C1A3",
-   "offset": "C1A3"
-  },
-  "02E8CD": {
-   "bank": "02",
-   "name": "loc_02E8CD",
-   "offset": "E8CD"
-  },
-  "04844F": {
-   "bank": "04",
-   "name": "e_sc01_pot",
-   "offset": "844F"
-  },
-  "04C61A": {
-   "bank": "04",
-   "name": "ec0A_throne_guard1",
-   "offset": "C61A"
-  },
-  "04C69F": {
-   "bank": "04",
-   "name": "ec0A_throne_guard2",
-   "offset": "C69F"
-  },
-  "05F356": {
-   "bank": "05",
-   "name": "sg4C_spirit1",
-   "offset": "F356"
-  },
-  "05F3AE": {
-   "bank": "05",
-   "name": "sg4C_spirit2",
-   "offset": "F3AE"
-  },
-  "05F453": {
-   "bank": "05",
-   "name": "sg4C_spirit3",
-   "offset": "F453"
-  },
-  "05F504": {
-   "bank": "05",
-   "name": "sg4C_platform1",
-   "offset": "F504"
-  },
-  "05F533": {
-   "bank": "05",
-   "name": "sg4C_platform2",
-   "offset": "F533"
-  },
-  "05F571": {
-   "bank": "05",
-   "name": "sg4C_platform3",
-   "offset": "F571"
-  },
-  "05F5A0": {
-   "bank": "05",
-   "name": "sg4C_platform4",
-   "offset": "F5A0"
-  },
-  "05FB16": {
-   "bank": "05",
-   "name": "crF7_thinker_05FB16",
-   "offset": "FB16"
-  },
-  "068380": {
-   "bank": "06",
-   "name": "sp58_actor_068380",
-   "offset": "8380"
-  },
-  "06838D": {
-   "bank": "06",
-   "name": "sp58_monologue",
-   "offset": "838D"
-  },
-  "06994D": {
-   "bank": "06",
-   "name": "mu62_hope_statue2",
-   "offset": "994D"
-  },
-  "06D139": {
-   "bank": "06",
-   "name": "av6C_portrait2",
-   "offset": "D139"
-  },
-  "06D141": {
-   "bank": "06",
-   "name": "av6C_portrait3",
-   "offset": "D141"
-  },
-  "07C276": {
-   "bank": "07",
-   "name": "eu91_crate2",
-   "offset": "C276"
-  },
-  "07C2B5": {
-   "bank": "07",
-   "name": "eu91_merchant2",
-   "offset": "C2B5"
-  },
-  "07C375": {
-   "bank": "07",
-   "name": "eu91_merchant3",
-   "offset": "C375"
-  },
-  "07C3B9": {
-   "bank": "07",
-   "name": "eu91_merchant4",
-   "offset": "C3B9"
-  },
-  "08B79D": {
-   "bank": "08",
-   "name": "pyCD_flame_statue2",
-   "offset": "B79D"
-  },
-  "08C57F": {
-   "bank": "08",
-   "name": "pyD7_actor_08C57F",
-   "offset": "C57F"
-  },
-  "08D6A9": {
-   "bank": "08",
-   "name": "dark_space2",
-   "offset": "D6A9"
-  },
-  "09B802": {
-   "bank": "09",
-   "name": "loc_09B802",
-   "offset": "B802"
-  },
-  "09D153": {
-   "bank": "09",
-   "name": "it1A_moon_tribe2",
-   "offset": "D153"
-  },
-  "09D173": {
-   "bank": "09",
-   "name": "it1A_moon_tribe3",
-   "offset": "D173"
-  },
-  "09D193": {
-   "bank": "09",
-   "name": "it1A_moon_tribe4",
-   "offset": "D193"
-  },
-  "09D1B3": {
-   "bank": "09",
-   "name": "it1A_moon_tribe5",
-   "offset": "D1B3"
-  },
-  "0A8669": {
-   "bank": "0A",
-   "name": "ec0F_sub_bat1",
-   "offset": "8669"
-  },
-  "0A869A": {
-   "bank": "0A",
-   "name": "ec0F_sub_bat2",
-   "offset": "869A"
-  },
-  "0A86CB": {
-   "bank": "0A",
-   "name": "ec0F_sub_bat3",
-   "offset": "86CB"
-  },
-  "0A86FF": {
-   "bank": "0A",
-   "name": "ec0F_sub_bat4",
-   "offset": "86FF"
-  },
-  "0A87CE": {
-   "bank": "0A",
-   "name": "ec0F_spear2",
-   "offset": "87CE"
-  },
-  "0A8A0F": {
-   "bank": "0A",
-   "name": "ec0E_barrier2",
-   "offset": "8A0F"
-  },
-  "0A8A46": {
-   "bank": "0A",
-   "name": "ec0E_barrier3",
-   "offset": "8A46"
-  },
-  "0A8A7D": {
-   "bank": "0A",
-   "name": "ec0E_barrier4",
-   "offset": "8A7D"
-  },
-  "0A95B8": {
-   "bank": "0A",
-   "name": "ir1F_stone_lord2",
-   "offset": "95B8"
-  },
-  "0A95BD": {
-   "bank": "0A",
-   "name": "ir1F_stone_lord3",
-   "offset": "95BD"
-  },
-  "0A95C2": {
-   "bank": "0A",
-   "name": "ir1F_stone_lord4",
-   "offset": "95C2"
-  },
-  "0A9653": {
-   "bank": "0A",
-   "name": "ir1F_stone_lord5",
-   "offset": "9653"
-  },
-  "0AA4F5": {
-   "bank": "0A",
-   "name": "dm41_actor_0AA4F5",
-   "offset": "A4F5"
-  },
-  "0AA50C": {
-   "bank": "0A",
-   "name": "dm41_actor_0AA50C",
-   "offset": "A50C"
-  },
-  "0AA678": {
-   "bank": "0A",
-   "name": "dm43_elevator_stop_y",
-   "offset": "A678"
-  },
-  "0AA699": {
-   "bank": "0A",
-   "name": "dm43_elevator_stop_x",
-   "offset": "A699"
-  },
-  "0AAA8A": {
-   "bank": "0A",
-   "name": "dm3D_flayzer2",
-   "offset": "AA8A"
-  },
-  "0AAACA": {
-   "bank": "0A",
-   "name": "dm3D_flayzer3",
-   "offset": "AACA"
-  },
-  "0AB0D8": {
-   "bank": "0A",
-   "name": "sE9_eye_stalker2",
-   "offset": "B0D8"
-  },
-  "0AB103": {
-   "bank": "0A",
-   "name": "dm3D_eye_stalker3",
-   "offset": "B103"
-  },
-  "0AB8B0": {
-   "bank": "0A",
-   "name": "sg4D_red_cyber",
-   "offset": "B8B0"
-  },
-  "0AC150": {
-   "bank": "0A",
-   "name": "sg4F_knight_armor2",
-   "offset": "C150"
-  },
-  "0AC3B3": {
-   "bank": "0A",
-   "name": "sg4F_knight_armor3",
-   "offset": "C3B3"
-  },
-  "0AC409": {
-   "bank": "0A",
-   "name": "sg4F_knight_armor4",
-   "offset": "C409"
-  },
-  "0AC533": {
-   "bank": "0A",
-   "name": "sg4D_dynapede2",
-   "offset": "C533"
-  },
-  "0ACCD4": {
-   "bank": "0A",
-   "name": "sg51_plasma_snake1",
-   "offset": "CCD4"
-  },
-  "0ACCF1": {
-   "bank": "0A",
-   "name": "sg4E_plasma_snake2",
-   "offset": "CCF1"
-  },
-  "0AD0D5": {
-   "bank": "0A",
-   "name": "btF3_neo_viper",
-   "offset": "D0D5"
-  },
-  "0AD16F": {
-   "bank": "0A",
-   "name": "sg55_viper",
-   "offset": "D16F"
-  },
-  "0ADE07": {
-   "bank": "0A",
-   "name": "mu5F_cyclops2",
-   "offset": "DE07"
-  },
-  "0AE6F4": {
-   "bank": "0A",
-   "name": "sp5C_ceiling_skuddle",
-   "offset": "E6F4"
-  },
-  "0B815C": {
-   "bank": "0B",
-   "name": "gw8A_sand_fanger",
-   "offset": "815C"
-  },
-  "0B8618": {
-   "bank": "0B",
-   "name": "loc_0B8618",
-   "offset": "8618"
-  },
-  "0B8EF2": {
-   "bank": "0B",
-   "name": "gw83_stone_archer1",
-   "offset": "8EF2"
-  },
-  "0B8EF7": {
-   "bank": "0B",
-   "name": "gw83_stone_archer2",
-   "offset": "8EF7"
-  },
-  "0B8EFE": {
-   "bank": "0B",
-   "name": "gw83_stone_archer3",
-   "offset": "8EFE"
-  },
-  "0B8F4F": {
-   "bank": "0B",
-   "name": "gw83_stone_archer4",
-   "offset": "8F4F"
-  },
-  "0B8F72": {
-   "bank": "0B",
-   "name": "gw87_statue_archer",
-   "offset": "8F72"
-  },
-  "0B9155": {
-   "bank": "0B",
-   "name": "gw82_archer1",
-   "offset": "9155"
-  },
-  "0B9165": {
-   "bank": "0B",
-   "name": "gw82_archer2",
-   "offset": "9165"
-  },
-  "0B9177": {
-   "bank": "0B",
-   "name": "gw82_archer3",
-   "offset": "9177"
-  },
-  "0BA6B6": {
-   "bank": "0B",
-   "name": "pyDD_mummy_queen",
-   "offset": "A6B6"
-  },
-  "0BAC7F": {
-   "bank": "0B",
-   "name": "loc_0BAC7F",
-   "offset": "AC7F"
-  },
-  "0BADCC": {
-   "bank": "0B",
-   "name": "pyDD_teleporter_right",
-   "offset": "ADCC"
-  },
-  "0BB1D7": {
-   "bank": "0B",
-   "name": "awB0_shrubber2",
-   "offset": "B1D7"
-  },
-  "0BB825": {
-   "bank": "0B",
-   "name": "awB1_gorgon2",
-   "offset": "B825"
-  },
-  "0BBB66": {
-   "bank": "0B",
-   "name": "awB1_wall_walker2",
-   "offset": "BB66"
-  },
-  "0BBFD0": {
-   "bank": "0B",
-   "name": "awB1_wall_walker4",
-   "offset": "BFD0"
-  },
-  "0BC1A7": {
-   "bank": "0B",
-   "name": "pyD5_haunt2",
-   "offset": "C1A7"
-  },
-  "0BC5FC": {
-   "bank": "0B",
-   "name": "pyCC_mystic_ball2",
-   "offset": "C5FC"
-  },
-  "0BC65F": {
-   "bank": "0B",
-   "name": "pyCC_mystic_ball3",
-   "offset": "C65F"
-  },
-  "0BC9BD": {
-   "bank": "0B",
-   "name": "sFC_actor_0BC9BD",
-   "offset": "C9BD"
-  },
-  "0CF47E": {
-   "bank": "0C",
-   "name": "loc_0CF47E",
-   "offset": "F47E"
-  },
-  "0CF4FF": {
-   "bank": "0C",
-   "name": "loc_0CF4FF",
-   "offset": "F4FF"
-  }
- },
- "scenes": {
-  "adequacy-manor": {
-   "description": "Freejia - Adequacy Manor",
-   "group": "freejia",
-   "index": 56
-  },
-  "adrift": {
-   "description": "Adrift",
-   "group": "freejia",
-   "index": 47
-  },
-  "angel-annex": {
-   "description": "Angel Village - Guest Annex",
-   "group": "angel-village",
-   "index": 106
-  },
-  "angel-entrance": {
-   "description": "Angel Village - Entrance",
-   "group": "angel-village",
-   "index": 105
-  },
-  "angel-rooms": {
-   "description": "Angel Village - Rooms",
-   "group": "angel-village",
-   "index": 108
-  },
-  "angel-tunnel-dark": {
-   "description": "Angel Village - Dark Tunnel",
-   "group": "angel-village",
-   "index": 111
-  },
-  "angel-tunnel-draco": {
-   "description": "Angel Village - Draco Tunnel",
-   "group": "angel-village",
-   "index": 110
-  },
-  "angel-tunnel-entrance": {
-   "description": "Angel Village - Entrance Tunnel",
-   "group": "angel-village",
-   "index": 109
-  },
-  "angel-tunnel-river": {
-   "description": "Angel Village - River Tunnel",
-   "group": "angel-village",
-   "index": 112
-  },
-  "angel-tunnel-rooms": {
-   "description": "Angel Village - Tunnel Rooms",
-   "group": "angel-village",
-   "index": 116
-  },
-  "angel-tunnel-statue": {
-   "description": "Angel Village - Statue Tunnel",
-   "group": "angel-village",
-   "index": 114
-  },
-  "angel-tunnel-test": {
-   "description": "Angel Village - Ishtar's Test",
-   "group": "angel-village",
-   "index": 117
-  },
-  "angel-tunnel-waterfall": {
-   "description": "Angel Village - Waterfall Tunnel",
-   "group": "angel-village",
-   "index": 115
-  },
-  "angel-tunnel-wind": {
-   "description": "Angel Village - Windy Tunnel",
-   "group": "angel-village",
-   "index": 113
-  },
-  "angel-village": {
-   "description": "Angel Village",
-   "group": "angel-village",
-   "index": 107
-  },
-  "angkor-courtyard": {
-   "description": "Angkor Wat - Outer Courtyard",
-   "group": "angkor-wat",
-   "index": 182
-  },
-  "angkor-entrance": {
-   "description": "Angkor Wat - Entrance",
-   "group": "angkor-wat",
-   "index": 176
-  },
-  "angkor-inner-east": {
-   "description": "Angkor Wat - Inner East",
-   "group": "angkor-wat",
-   "index": 184
-  },
-  "angkor-inner-gate": {
-   "description": "Angkor Wat - Inner Gate",
-   "group": "angkor-wat",
-   "index": 183
-  },
-  "angkor-inner-path": {
-   "description": "Angkor Wat - Inner Courtyard",
-   "group": "angkor-wat",
-   "index": 186
-  },
-  "angkor-inner-west": {
-   "description": "Angkor Wat - Inner West",
-   "group": "angkor-wat",
-   "index": 185
-  },
-  "angkor-outer-east": {
-   "description": "Mt. Temple - Outer East",
-   "group": "angkor-wat",
-   "index": 178
-  },
-  "angkor-outer-gate": {
-   "description": "Angkor Wat - Outer Gate",
-   "group": "angkor-wat",
-   "index": 177
-  },
-  "angkor-outer-north": {
-   "description": "Angkor Wat - Outer North",
-   "group": "angkor-wat",
-   "index": 179
-  },
-  "angkor-outer-west": {
-   "description": "Angkor Wat - Outer West",
-   "group": "angkor-wat",
-   "index": 181
-  },
-  "angkor-pinnacle": {
-   "description": "Angkor Wat - Pinnacle",
-   "group": "angkor-wat",
-   "index": 191
-  },
-  "angkor-shrine-crystal": {
-   "description": "Angkor Wat - Crystal Room",
-   "group": "angkor-wat",
-   "index": 188
-  },
-  "angkor-shrine-dejavu": {
-   "description": "Angkor Wat - Deja Vu",
-   "group": "angkor-wat",
-   "index": 189
-  },
-  "angkor-shrine-main": {
-   "description": "Angkor Wat - Main Shrine",
-   "group": "angkor-wat",
-   "index": 187
-  },
-  "angkor-shrine-upper": {
-   "description": "Angkor Wat - Upper Shrine",
-   "group": "angkor-wat",
-   "index": 190
-  },
-  "aqueduct-back": {
-   "description": "Aqueduct - Back",
-   "group": "edward-castle",
-   "index": 18
-  },
-  "aqueduct-doorway": {
-   "description": "Aqueduct - Doorway",
-   "group": "edward-castle",
-   "index": 17
-  },
-  "aqueduct-entrance": {
-   "description": "Aqueduct - Entrance",
-   "group": "edward-castle",
-   "index": 12
-  },
-  "aqueduct-exit": {
-   "description": "Aqueduct - Exit",
-   "group": "edward-castle",
-   "index": 19
-  },
-  "aqueduct-hall": {
-   "description": "Aqueduct - Hall",
-   "group": "edward-castle",
-   "index": 15
-  },
-  "aqueduct-lockway": {
-   "description": "Aqueduct - Lockway",
-   "group": "edward-castle",
-   "index": 14
-  },
-  "aqueduct-main": {
-   "description": "Aqueduct - Main",
-   "group": "edward-castle",
-   "index": 13
-  },
-  "aqueduct-treasure": {
-   "description": "Aqueduct - Treasure Room",
-   "group": "edward-castle",
-   "index": 16
-  },
-  "babel-entrance": {
-   "description": "Babel Tower - Entrance",
-   "group": "babel-tower",
-   "index": 222
-  },
-  "babel-exterior": {
-   "description": "Babel Tower - Exterior",
-   "group": "babel-tower",
-   "index": 226
-  },
-  "babel-flight": {
-   "description": "Babel Tower - Flight",
-   "group": "babel-tower",
-   "index": 220
-  },
-  "babel-light-elevator": {
-   "description": "Babel Tower - Light Elevator",
-   "group": "babel-tower",
-   "index": 225
-  },
-  "babel-lower-floors": {
-   "description": "Babel Tower - Lower Floors",
-   "group": "babel-tower",
-   "index": 223
-  },
-  "babel-middle-floors": {
-   "description": "Babel Tower - Middle Floors",
-   "group": "babel-tower",
-   "index": 224
-  },
-  "babel-rooftop": {
-   "description": "Babel Tower - Rooftop",
-   "group": "babel-tower",
-   "index": 228
-  },
-  "babel-upper-floors": {
-   "description": "Babel Tower - Upper Floors",
-   "group": "babel-tower",
-   "index": 227
-  },
-  "baggage-house": {
-   "description": "Euro - Baggage House",
-   "group": "euro",
-   "index": 152
-  },
-  "boot-logos": {
-   "description": "Boot Logos",
-   "group": "system",
-   "index": 251
-  },
-  "castle-prison": {
-   "description": "Castle Prison",
-   "group": "edward-castle",
-   "index": 11
-  },
-  "castoth-lair": {
-   "description": "Incan Ruins - Castoth's Lair",
-   "group": "incan-ruins",
-   "index": 41
-  },
-  "ceiling-trap-room": {
-   "description": "Incan Ruins - Ceiling Trap Room",
-   "group": "incan-ruins",
-   "index": 40
-  },
-  "chefs-house": {
-   "description": "Chef's House",
-   "group": "south-cape",
-   "index": 7
-  },
-  "church": {
-   "description": "Church",
-   "group": "south-cape",
-   "index": 8
-  },
-  "coastal-cave": {
-   "description": "Coastal Cave",
-   "group": "south-cape",
-   "index": 2
-  },
-  "comet-lair": {
-   "description": "Comet - Final Lair",
-   "group": "babel-tower",
-   "index": 232
-  },
-  "dao": {
-   "description": "Dao",
-   "group": "dao",
-   "index": 195
-  },
-  "dao-dorm": {
-   "description": "Dao - Dorm",
-   "group": "dao",
-   "index": 200
-  },
-  "dao-hotel": {
-   "description": "Dao - Hotel",
-   "group": "dao",
-   "index": 196
-  },
-  "dark-castoth-lair": {
-   "description": "Babel Tower - Dark Castoth's Lair",
-   "group": "babel-tower",
-   "index": 242
-  },
-  "dark-chapel": {
-   "description": "Euro - Dark Chapel",
-   "group": "euro",
-   "index": 157
-  },
-  "dark-fanger-lair": {
-   "description": "Babel Tower - Dark Fanger's Lair",
-   "group": "babel-tower",
-   "index": 245
-  },
-  "dark-queen-lair": {
-   "description": "Babel Tower - Dark Queen's Lair",
-   "group": "babel-tower",
-   "index": 246
-  },
-  "dark-space": {
-   "description": "Dark Space",
-   "group": "system",
-   "index": 230
-  },
-  "dark-vampire-lair": {
-   "description": "Babel Tower - Dark Vampire's Lair",
-   "group": "babel-tower",
-   "index": 244
-  },
-  "dark-viper-lair": {
-   "description": "Babel Tower - Dark Viper's Lair",
-   "group": "babel-tower",
-   "index": 243
-  },
-  "desert-explorers": {
-   "description": "Dao - Explorer's House",
-   "group": "dao",
-   "index": 199
-  },
-  "diary-menu": {
-   "description": "Diary Menu",
-   "group": "system",
-   "index": 250
-  },
-  "dream": {
-   "description": "Will's Dream",
-   "group": "gold-ship",
-   "index": 42
-  },
-  "edward-castle": {
-   "description": "Edward's Castle",
-   "group": "edward-castle",
-   "index": 10
-  },
-  "ending-changed-world": {
-   "description": "Ending - Changed World",
-   "group": "ending",
-   "index": 144
-  },
-  "ending-class-dismissed": {
-   "description": "Ending - Class Dismissed",
-   "group": "ending",
-   "index": 240
-  },
-  "ending-comet": {
-   "description": "Ending - Comet",
-   "group": "ending",
-   "index": 229
-  },
-  "ending-credits": {
-   "description": "Ending - Credits",
-   "group": "ending",
-   "index": 247
-  },
-  "ending-new-babel": {
-   "description": "Ending - New Babel",
-   "group": "ending",
-   "index": 137
-  },
-  "erics-house": {
-   "description": "Eric's House",
-   "group": "south-cape",
-   "index": 4
-  },
-  "eriks-captivity": {
-   "description": "Freejia - Erik's Captivity Room",
-   "group": "freejia",
-   "index": 51
-  },
-  "euro": {
-   "description": "Euro",
-   "group": "euro",
-   "index": 145
-  },
-  "euro-darkspace-house": {
-   "description": "Euro - Dark Space House",
-   "group": "euro",
-   "index": 153
-  },
-  "flea-market": {
-   "description": "Euro - Rolek Market",
-   "group": "euro",
-   "index": 151
-  },
-  "freejia": {
-   "description": "Freejia",
-   "group": "freejia",
-   "index": 50
-  },
-  "freejia-darkspace": {
-   "description": "Freejia - Dark Space House",
-   "group": "freejia",
-   "index": 52
-  },
-  "freejia-hotel": {
-   "description": "Freejia - Hotel",
-   "group": "freejia",
-   "index": 57
-  },
-  "freejia-labor-camp": {
-   "description": "Freejia - Labor Camp",
-   "group": "freejia",
-   "index": 53
-  },
-  "friezers-house": {
-   "description": "Euro - Friezer's House",
-   "group": "euro",
-   "index": 154
-  },
-  "future-vision": {
-   "description": "Angkor Wat - Future Vision",
-   "group": "angkor-wat",
-   "index": 192
-  },
-  "gambling-house": {
-   "description": "Watermia - Gambling House",
-   "group": "watermia",
-   "index": 123
-  },
-  "garden-crash": {
-   "description": "Sky Garden - Crash",
-   "group": "sky-garden",
-   "index": 89
-  },
-  "garden-descent": {
-   "description": "Sky Garden - Descent",
-   "group": "sky-garden",
-   "index": 88
-  },
-  "garden-east": {
-   "description": "Sky Garden - East",
-   "group": "sky-garden",
-   "index": 77
-  },
-  "garden-east-underside": {
-   "description": "Sky Garden - East (Underside)",
-   "group": "sky-garden",
-   "index": 78
-  },
-  "garden-interior": {
-   "description": "Sky Garden - Interior",
-   "group": "sky-garden",
-   "index": 86
-  },
-  "garden-main": {
-   "description": "Sky Garden - Main",
-   "group": "sky-garden",
-   "index": 76
-  },
-  "garden-southeast": {
-   "description": "Sky Garden - Southeast",
-   "group": "sky-garden",
-   "index": 79
-  },
-  "garden-southeast-underside": {
-   "description": "Sky Garden - Southeast (Underside)",
-   "group": "sky-garden",
-   "index": 80
-  },
-  "garden-southwest": {
-   "description": "Sky Garden - Southwest",
-   "group": "sky-garden",
-   "index": 81
-  },
-  "garden-southwest-underside": {
-   "description": "Sky Garden - Southwest (Underside)",
-   "group": "sky-garden",
-   "index": 82
-  },
-  "garden-west": {
-   "description": "Sky Garden - West",
-   "group": "sky-garden",
-   "index": 83
-  },
-  "garden-west-underside": {
-   "description": "Sky Garden - West (Underside)",
-   "group": "sky-garden",
-   "index": 84
-  },
-  "geezer-central": {
-   "description": "Euro - Geezer Central",
-   "group": "euro",
-   "index": 146
-  },
-  "gems-house": {
-   "description": "Euro - Gem's House",
-   "group": "euro",
-   "index": 155
-  },
-  "glass-players-house": {
-   "description": "Watermia - Glass Player's House",
-   "group": "watermia",
-   "index": 125
-  },
-  "gorgon-hut": {
-   "description": "Native Village - Gorgon Hut",
-   "group": "native-village",
-   "index": 174
-  },
-  "guest-room": {
-   "description": "Euro - Guest Room",
-   "group": "euro",
-   "index": 150
-  },
-  "harborer-house": {
-   "description": "Freejia - Harborer's House",
-   "group": "freejia",
-   "index": 58
-  },
-  "heiroglyph-room": {
-   "description": "Pyramid - Hieroglyph Room",
-   "group": "pyramid",
-   "index": 218
-  },
-  "inca-entryway": {
-   "description": "Incan Ruins - Entryway",
-   "group": "incan-ruins",
-   "index": 37
-  },
-  "inca-guarded-gap": {
-   "description": "Incan Ruins - Guarded Gap",
-   "group": "incan-ruins",
-   "index": 35
-  },
-  "inca-plate-room": {
-   "description": "Incan Ruins - Plate Room",
-   "group": "incan-ruins",
-   "index": 36
-  },
-  "inca-river-crossing": {
-   "description": "Incan Ruins - River Crossing",
-   "group": "incan-ruins",
-   "index": 33
-  },
-  "inca-river-detour": {
-   "description": "Incan Ruins - River Detour",
-   "group": "incan-ruins",
-   "index": 34
-  },
-  "inca-secret-hallway": {
-   "description": "Incan Ruins - Secret Hallway",
-   "group": "incan-ruins",
-   "index": 32
-  },
-  "inca-side-passage": {
-   "description": "Incan Ruins - Side Passage",
-   "group": "incan-ruins",
-   "index": 39
-  },
-  "inca-treasure-room": {
-   "description": "Incan Ruins - Treasure Room",
-   "group": "incan-ruins",
-   "index": 38
-  },
-  "incan-ruins-entrance": {
-   "description": "Incan Ruins - Entrance",
-   "group": "incan-ruins",
-   "index": 28
-  },
-  "indecision-room": {
-   "description": "Dao - Indecision Room",
-   "group": "dao",
-   "index": 201
-  },
-  "inventory": {
-   "description": "Inventory",
-   "group": "system",
-   "index": 255
-  },
-  "itory-cave": {
-   "description": "Itory - Cave",
-   "group": "itory",
-   "index": 25
-  },
-  "itory-couple-house": {
-   "description": "Itory - Couple's House",
-   "group": "itory",
-   "index": 24
-  },
-  "itory-legend-house": {
-   "description": "Itory - Legend House",
-   "group": "itory",
-   "index": 22
-  },
-  "itory-village": {
-   "description": "Itory Village",
-   "group": "itory",
-   "index": 21
-  },
-  "kress-circuit": {
-   "description": "Mt. Temple - Broken Vines",
-   "group": "mountain-temple",
-   "index": 165
-  },
-  "kress-crossroads": {
-   "description": "Mt. Temple - Crossroads",
-   "group": "mountain-temple",
-   "index": 162
-  },
-  "kress-detour": {
-   "description": "Mt. Temple - Detour",
-   "group": "mountain-temple",
-   "index": 168
-  },
-  "kress-entrance": {
-   "description": "Mt. Temple - Entrance",
-   "group": "mountain-temple",
-   "index": 160
-  },
-  "kress-gauntlet": {
-   "description": "Mt. Temple - Treasure Gauntlet",
-   "group": "mountain-temple",
-   "index": 163
-  },
-  "kress-loop": {
-   "description": "Mt. Temple - Western Loop",
-   "group": "mountain-temple",
-   "index": 164
-  },
-  "kress-maze": {
-   "description": "Mt. Temple - Vine Maze",
-   "group": "mountain-temple",
-   "index": 167
-  },
-  "kress-mushrooms": {
-   "description": "Mt. Temple - Mushroom Field",
-   "group": "mountain-temple",
-   "index": 166
-  },
-  "kress-summit": {
-   "description": "Mt. Temple - Summit",
-   "group": "mountain-temple",
-   "index": 169
-  },
-  "kress-twisted": {
-   "description": "Mt. Temple - Twisted Paths",
-   "group": "mountain-temple",
-   "index": 161
-  },
-  "lance-lily-exchange": {
-   "description": "Watermia - Lance & Lily's Exchange",
-   "group": "watermia",
-   "index": 127
-  },
-  "lances-fathers-house": {
-   "description": "Watermia - Lance's Father's House",
-   "group": "watermia",
-   "index": 122
-  },
-  "lances-house": {
-   "description": "Lance's House",
-   "group": "south-cape",
-   "index": 3
-  },
-  "larai-cliff": {
-   "description": "Larai Cliff",
-   "group": "incan-ruins",
-   "index": 29
-  },
-  "larai-cliff-back": {
-   "description": "Larai Cliff - Back",
-   "group": "incan-ruins",
-   "index": 30
-  },
-  "lilys-house": {
-   "description": "Itory - Lily's House",
-   "group": "itory",
-   "index": 23
-  },
-  "lukes-house": {
-   "description": "Watermia - Luke's House",
-   "group": "watermia",
-   "index": 121
-  },
-  "mansion": {
-   "description": "Mansion",
-   "group": "mansion",
-   "index": 233
-  },
-  "messy-house": {
-   "description": "Freejia - Messy House",
-   "group": "freejia",
-   "index": 59
-  },
-  "mine-collapsed-tunnel": {
-   "description": "Diamond Mine - Collapsed Tunnel",
-   "group": "diamond-mine",
-   "index": 64
-  },
-  "mine-elevator": {
-   "description": "Diamond Mine - Elevator",
-   "group": "diamond-mine",
-   "index": 67
-  },
-  "mine-elevator-passage": {
-   "description": "Diamond Mine - Elevator Passage",
-   "group": "diamond-mine",
-   "index": 66
-  },
-  "mine-entrance": {
-   "description": "Diamond Mine - Entrance",
-   "group": "diamond-mine",
-   "index": 62
-  },
-  "mine-foyer": {
-   "description": "Diamond Mine - Sub Foyer",
-   "group": "diamond-mine",
-   "index": 68
-  },
-  "mine-inner": {
-   "description": "Diamond Mine - Inner Chamber",
-   "group": "diamond-mine",
-   "index": 71
-  },
-  "mine-main": {
-   "description": "Diamond Mine - Main Chamber",
-   "group": "diamond-mine",
-   "index": 63
-  },
-  "mine-morgue": {
-   "description": "Diamond Mine - Morgue",
-   "group": "diamond-mine",
-   "index": 69
-  },
-  "mine-nest": {
-   "description": "Diamond Mine - Monster Nest",
-   "group": "diamond-mine",
-   "index": 70
-  },
-  "mine-promise-passage": {
-   "description": "Diamond Mine - Promise Passage",
-   "group": "diamond-mine",
-   "index": 61
-  },
-  "mine-zigzag": {
-   "description": "Diamond Mine - Zigzag Passage",
-   "group": "diamond-mine",
-   "index": 65
-  },
-  "moon-tribe-camp": {
-   "description": "Moon Tribe - Camp",
-   "group": "itory",
-   "index": 26
-  },
-  "moon-tribe-cave": {
-   "description": "Moon Tribe - Cave",
-   "group": "itory",
-   "index": 27
-  },
-  "mothers-house": {
-   "description": "Freejia - Mother's House",
-   "group": "freejia",
-   "index": 54
-  },
-  "mu-altar-room": {
-   "description": "Mu - Altar Room",
-   "group": "mu",
-   "index": 102
-  },
-  "mu-connector": {
-   "description": "Mu - Connector",
-   "group": "mu",
-   "index": 100
-  },
-  "mu-east": {
-   "description": "Mu - East",
-   "group": "mu",
-   "index": 96
-  },
-  "mu-entrance": {
-   "description": "Mu - Entrance",
-   "group": "mu",
-   "index": 95
-  },
-  "mu-maze": {
-   "description": "Mu - Maze",
-   "group": "mu",
-   "index": 101
-  },
-  "mu-prayer-room": {
-   "description": "Mu - Prayer Room",
-   "group": "mu",
-   "index": 99
-  },
-  "mu-south": {
-   "description": "Mu - South",
-   "group": "mu",
-   "index": 97
-  },
-  "mu-vampire-lair": {
-   "description": "Mu - Vampire Lair",
-   "group": "mu",
-   "index": 103
-  },
-  "mu-west": {
-   "description": "Mu - West",
-   "group": "mu",
-   "index": 98
-  },
-  "mummy-queen-lair": {
-   "description": "Pyramid - Mummy Queen's Lair",
-   "group": "pyramid",
-   "index": 221
-  },
-  "mushroom-twins": {
-   "description": "Euro - Mushroom Twins House",
-   "group": "euro",
-   "index": 156
-  },
-  "native-village": {
-   "description": "Native Village",
-   "group": "native-village",
-   "index": 172
-  },
-  "nazca": {
-   "description": "Nazca Plain",
-   "group": "nazca",
-   "index": 75
-  },
-  "neils-cottage": {
-   "description": "Neil's Cottage",
-   "group": "nazca",
-   "index": 73
-  },
-  "oakton": {
-   "description": "Oakton House",
-   "group": "freejia",
-   "index": 48
-  },
-  "oakton-interior": {
-   "description": "Oakton House - Interior",
-   "group": "freejia",
-   "index": 49
-  },
-  "palace-coffins": {
-   "description": "Seabed Palace - Coffins",
-   "group": "seaside-palace",
-   "index": 92
-  },
-  "palace-fountain": {
-   "description": "Seabed Palace - Fountain",
-   "group": "seaside-palace",
-   "index": 93
-  },
-  "palace-main": {
-   "description": "Seabed Palace - Main",
-   "group": "seaside-palace",
-   "index": 90
-  },
-  "palace-passageway": {
-   "description": "Seabed Palace - Mu Passageway",
-   "group": "seaside-palace",
-   "index": 94
-  },
-  "palace-rooms": {
-   "description": "Seabed Palace - Rooms",
-   "group": "seaside-palace",
-   "index": 91
-  },
-  "panic-room": {
-   "description": "Dao - Snake Panic",
-   "group": "dao",
-   "index": 198
-  },
-  "power-house": {
-   "description": "Euro - Power House",
-   "group": "euro",
-   "index": 147
-  },
-  "prologue-legends": {
-   "description": "Prologue - Legends",
-   "group": "prologue",
-   "index": 141
-  },
-  "prologue-mishap": {
-   "description": "Prologue - Mishap",
-   "group": "prologue",
-   "index": 143
-  },
-  "prologue-missing": {
-   "description": "Prologue - Missing",
-   "group": "prologue",
-   "index": 142
-  },
-  "prologue-prophecy": {
-   "description": "Prologue - Prophecy",
-   "group": "prologue",
-   "index": 140
-  },
-  "puzzle-room": {
-   "description": "Pyramid - Puzzle Room",
-   "group": "pyramid",
-   "index": 205
-  },
-  "pyramid-dangerslide-a": {
-   "description": "Pyramid - Dangerslide A",
-   "group": "pyramid",
-   "index": 216
-  },
-  "pyramid-dangerslide-b": {
-   "description": "Pyramid - Dangerslide B",
-   "group": "pyramid",
-   "index": 217
-  },
-  "pyramid-dangerslide-c": {
-   "description": "Pyramid - Dangerslide C",
-   "group": "pyramid",
-   "index": 219
-  },
-  "pyramid-focus-a": {
-   "description": "Pyramid - Focus A",
-   "group": "pyramid",
-   "index": 210
-  },
-  "pyramid-focus-b": {
-   "description": "Pyramid - Focus B",
-   "group": "pyramid",
-   "index": 211
-  },
-  "pyramid-main": {
-   "description": "Pyramid - Main Chamber",
-   "group": "pyramid",
-   "index": 204
-  },
-  "pyramid-meltdown-a": {
-   "description": "Pyramid - Meltdown A",
-   "group": "pyramid",
-   "index": 208
-  },
-  "pyramid-meltdown-b": {
-   "description": "Pyramid - Meltdown B",
-   "group": "pyramid",
-   "index": 209
-  },
-  "pyramid-ramptastic-a": {
-   "description": "Pyramid - Ramptastic A",
-   "group": "pyramid",
-   "index": 206
-  },
-  "pyramid-ramptastic-b": {
-   "description": "Pyramid - Ramptastic B",
-   "group": "pyramid",
-   "index": 207
-  },
-  "pyramid-trickle-a": {
-   "description": "Pyramid - Trickle A",
-   "group": "pyramid",
-   "index": 212
-  },
-  "pyramid-trickle-b": {
-   "description": "Pyramid - Trickle B",
-   "group": "pyramid",
-   "index": 213
-  },
-  "pyramid-vader-a": {
-   "description": "Pyramid - Vader A",
-   "group": "pyramid",
-   "index": 214
-  },
-  "pyramid-vader-b": {
-   "description": "Pyramid - Vader B",
-   "group": "pyramid",
-   "index": 215
-  },
-  "rolek-mansion": {
-   "description": "Euro - Rolek Mansion",
-   "group": "euro",
-   "index": 149
-  },
-  "rolek-office": {
-   "description": "Euro - Rolek Office",
-   "group": "euro",
-   "index": 148
-  },
-  "rumor-house": {
-   "description": "Watermia - Rumor House",
-   "group": "watermia",
-   "index": 126
-  },
-  "sand-fanger-lair": {
-   "description": "Great Wall - Sand Fanger Lair",
-   "group": "great-wall",
-   "index": 138
-  },
-  "seths-house": {
-   "description": "Seth's House",
-   "group": "south-cape",
-   "index": 5
-  },
-  "ship-gold": {
-   "description": "Gold Ship - Exterior",
-   "group": "gold-ship",
-   "index": 44
-  },
-  "ship-gold-interior": {
-   "description": "Gold Ship - Interior",
-   "group": "gold-ship",
-   "index": 46
-  },
-  "ship-wreck": {
-   "description": "Wrecked Ship - Exterior",
-   "group": "gold-ship",
-   "index": 43
-  },
-  "ship-wreck-interior": {
-   "description": "Wrecked Ship - Interior",
-   "group": "gold-ship",
-   "index": 45
-  },
-  "slave-market": {
-   "description": "Freejia - Slave Market",
-   "group": "freejia",
-   "index": 60
-  },
-  "snake-pit": {
-   "description": "Angkor Wat - Snake Pit",
-   "group": "angkor-wat",
-   "index": 180
-  },
-  "solid-arm-lair": {
-   "description": "Mansion - Solid Arm's Lair",
-   "group": "mansion",
-   "index": 234
-  },
-  "south-cape": {
-   "description": "South Cape",
-   "group": "south-cape",
-   "index": 1
-  },
-  "space-flight": {
-   "description": "Comet - Space Flight",
-   "group": "babel-tower",
-   "index": 231
-  },
-  "statue-inventory": {
-   "description": "Statue Inventory",
-   "group": "system",
-   "index": 253
-  },
-  "stone-lord-plates": {
-   "description": "Incan Runis - Stone Lord Pressure Plates",
-   "group": "incan-ruins",
-   "index": 31
-  },
-  "sweatshop": {
-   "description": "Dao - Sweatshop",
-   "group": "dao",
-   "index": 197
-  },
-  "thorn-tower": {
-   "description": "Freejia - Thorn Tower",
-   "group": "freejia",
-   "index": 55
-  },
-  "title-screen": {
-   "description": "Title Screen",
-   "group": "system",
-   "index": 252
-  },
-  "undersea-tunnel": {
-   "description": "Undersea Tunnel",
-   "group": "angel-village",
-   "index": 104
-  },
-  "vacant-hut": {
-   "description": "Native Village - Vacant Hut",
-   "group": "native-village",
-   "index": 173
-  },
-  "viper-lair": {
-   "description": "Sky Garden - Viper's Lair",
-   "group": "sky-garden",
-   "index": 85
-  },
-  "wall-blind-pit": {
-   "description": "Great Wall - Blind Pit",
-   "group": "great-wall",
-   "index": 134
-  },
-  "wall-dive": {
-   "description": "Great Wall - Long Dive",
-   "group": "great-wall",
-   "index": 131
-  },
-  "wall-entrance": {
-   "description": "Great Wall - Entrance",
-   "group": "great-wall",
-   "index": 130
-  },
-  "wall-inner": {
-   "description": "Great Wall - Inner Chamber",
-   "group": "great-wall",
-   "index": 139
-  },
-  "wall-rampway": {
-   "description": "Great Wall - Rampway",
-   "group": "great-wall",
-   "index": 133
-  },
-  "wall-switchback": {
-   "description": "Great Wall - Switchback",
-   "group": "great-wall",
-   "index": 135
-  },
-  "wall-tomb": {
-   "description": "Great Wall - Tomb",
-   "group": "great-wall",
-   "index": 136
-  },
-  "watermia": {
-   "description": "Watermia",
-   "group": "watermia",
-   "index": 120
-  },
-  "watermia-darkspace": {
-   "description": "Watermia - Dark Space House",
-   "group": "watermia",
-   "index": 124
-  },
-  "wills-house": {
-   "description": "Will's House",
-   "group": "south-cape",
-   "index": 6
-  },
-  "world-map": {
-   "description": "World Map",
-   "group": "system",
-   "index": 254
-  }
+ "function_notes": {
+  "CacheSlotIndices": "Pre-initialized 4-entry cache slot index array (values: 0, 1, 2, 3). Used by the graphics tile cache system to track VRAM cache slot assignments.",
+  "CameraFullRefresh": "Full tilemap refresh \u2014 redraws the entire visible screen.\n\nClamps camera target positions to map bounds using bitmask clamping (AND with bounds\u22121). Copies clamped positions to the BG scroll registers ($068A+X for horizontal, $068E+X for vertical) and aligns to the 16px tile grid for rendering origin.\n\nSets up VRAM DMA registers: VMAIN=$81 (word-access, column-mode auto-increment), DMAP0=$01 (two-register), BBAD0=$18 (VRAM data port), source bank=$7E.\n\nIterates 32 rows (full screen height in metatiles): for each row, calls RenderScrollRow to build tilemap data in the staging buffer, then immediately DMA-transfers it via DmaHorizontalStrip. After each row, advances the X position by 16px and wraps against map bounds.\n\nAfter all rows are rendered, clears the four staging buffer VRAM address words to prevent re-triggering, then calls UploadCgramPalette to sync the color palette.\n\nCalled during scene loading and major camera repositioning where the entire tilemap must be rebuilt.",
+  "CameraSmoothScroll": "Per-frame incremental smooth scrolling for both BG layers.\n\nThree modes based on flags:\n1. Direct mode (scrollModeFlags bit 3): Copies camera targets directly to scroll registers without any smoothing or delta clamping.\n2. Layer 1 priority mode (X\u22600 and layerPriorityFlag bit $0400): Copies camera deltas directly to the secondary layer scroll registers (bg1ScrollV and savedCameraDelta).\n3. Normal smooth scroll: For each axis (X then Y):\n   a. Computes delta = target \u2212 current scroll position\n   b. Clamps delta to \u00b116px maximum per frame for smooth motion\n   c. Stores clamped delta (scrollDeltaXClamped/scrollDeltaYClamped)\n   d. Applies delta to update the scroll position\n   e. XORs old and new positions and tests bit 4 \u2014 if this bit changed, the camera crossed a 16px tile boundary\n   f. On boundary crossing: calls UpdateScrollColumn (for X) or UpdateScrollRow (for Y) to render the newly-visible tile strip into the staging buffer\n\nThe XOR boundary detection is elegant: bit 4 represents the 16px tile grid alignment, so any change in this bit means a new column or row of tiles has scrolled into view.",
+  "ComputeScrollDeltas": "Computes scroll velocity for both axes using the hardware multiply/divide unit.\n\nFor each axis: loads the speed parameter ($14 for X, $16 for Y) and camera target position (cameraTargetX $06BE or cameraTargetY $06C2), then calls hardware_math.MulDivide via JSL. The result is stored to cameraDeltaX ($06C0) or cameraDeltaY ($06C4).\n\nIf a speed parameter is zero, the corresponding MulDivide call and delta store are skipped entirely (the axis remains at its previous value). This allows selective axis computation \u2014 e.g., ScrollCameraVertical only sets $16 nonzero.",
+  "CopVector": "COP software interrupt vector. Jumps to the COP dispatch handler which implements the game's scripting command system.",
+  "DmaFixedByteFill": "DMA utility that fills a WRAM region with a fixed zero byte.\n\nUses DMA mode $08 (fixed source address) to repeatedly write a zero byte from ROM to WRAM via the WRAM data port ($2180). The byte count is passed in Y. Called by InitSystemVariables to bulk-clear WRAM during boot.",
+  "DmaHorizontalStrip": "Transfers one horizontal tilemap strip (row) from the staging buffer to VRAM via DMA.\n\nThe staging buffer layout for each strip: [VRAM_addr:u16, data:64_bytes, VRAM_addr:u16, data:64_bytes]. Each half represents one 32\u00d732 nametable.\n\nFirst DMA: Sets VMADDL to the first VRAM address (from Y parameter), sets A1T0L to the staging data pointer (X+2), transfers $40 bytes (64 bytes = 32 tilemap entries = one metatile row).\n\nSecond DMA: Advances the source pointer by $40 bytes to the second nametable half, reads its VRAM address, and transfers another $40 bytes.\n\nThe two transfers cover both nametable halves of a horizontal row.",
+  "DmaVerticalStrip": "Transfers one vertical tilemap strip (column) from the staging buffer to VRAM via DMA.\n\nSimilar structure to DmaHorizontalStrip but transfers $80 bytes (128 bytes = 64 tilemap entries) per nametable half. The larger size covers a full column height (32 rows \u00d7 2 entries per metatile row = 64 entries).\n\nVMAIN must be set to $80 (word-access, increment by 1) by the caller \u2014 unlike horizontal strips which use column-mode increment. The second nametable half is at source+$80.",
+  "ExecuteVramDma": "Executes a single VRAM DMA transfer using pre-staged parameters.\n\nReads transfer parameters from direct page:\n- $00B2: byte count (0 = skip)\n- $00B0: VRAM destination address\n- $00AC-$00AE: ROM/RAM source address (16-bit + bank)\n\nTriggers DMA channel 0 and clears the byte count to prevent re-triggering.",
+  "FillHorizTilemapSeg": "Inner loop that expands metatile indices into VRAM tilemap entries for a horizontal strip.\n\nReads $0E consecutive metatile index bytes from map data (pointed to by Y=$04). For each byte: masks to 8 bits, multiplies by 8 (ASL \u00d73) to index into the tile definition table at $02+offset. Copies 4 words (8 bytes) from the tile definition \u2014 the four 8\u00d78 tile entries that compose one 16\u00d716 metatile \u2014 into the staging buffer:\n- Words 0,1 \u2192 buffer+$02/+$04 (top-left, top-right)\n- Words 2,3 \u2192 buffer+$42/+$44 (bottom-left, bottom-right)\n\nThe +$42 offset places the bottom row exactly one VRAM tilemap row (32 entries \u00d7 2 bytes = 64 bytes = $40) below the top row. X advances by 4 bytes (2 entries) per metatile.",
+  "FillVertTilemapSeg": "Inner loop that expands metatile indices into VRAM tilemap entries for a vertical strip.\n\nReads $0E consecutive metatile index bytes from map data, advancing the source Y pointer by $10 (16 bytes = one map row) per iteration to traverse vertically through the map.\n\nFor each metatile byte: masks to 8 bits, multiplies by 8 to index the tile definition table. Copies 4 tile entries to the staging buffer in a column-oriented layout:\n- Words 0,2 \u2192 buffer+$02/+$04 (left column, top and bottom)\n- Words 1,3 \u2192 buffer+$44/+$46 (right column, top and bottom)\n\nThe +$44 offset places the right column one VRAM tilemap row plus one entry to the right. X advances by 4 bytes per metatile vertically.",
+  "FillWramBlock": "Fills the OAM staging buffer at WRAM $0422 with the byte value $E0 via DMA.\n\nUses DMA fixed-source mode ($08) to repeat a single byte across 512 bytes of the OAM buffer. The fill value $E0 sets all sprite Y positions to 224 (off the bottom of the visible 224-line display), effectively hiding all OAM entries before sprite composition begins each frame.\n\nTarget: WRAM data port ($2180), size: $0200 (512 bytes = 128 OAM entries \u00d7 4 bytes).",
+  "FlushDirtyTilemapStrips": "V-Blank routine that DMA-transfers all staged tilemap strips to VRAM.\n\nCalled during the NMI handler after scroll updates have been computed. Sets up common DMA registers: VMAIN=$81 (word-access, 32-word increment for column-mode), DMAP0=$01 (two-register), source bank=$7E.\n\nProcesses four staging buffer slots in order:\n1. Horizontal strip 0 ($06B2): DMA via DmaHorizontalStrip \u2014 row update for layer 0\n2. Horizontal strip 1 ($06B4): DMA via DmaHorizontalStrip \u2014 row update for layer 1\n3. Vertical strip 0 ($06B6): DMA via DmaVerticalStrip \u2014 column update for layer 0 (VMAIN switched to $80 for sequential access)\n4. Vertical strip 1 ($06B8): DMA via DmaVerticalStrip \u2014 column update for layer 1\n\nEach slot is skipped (BEQ) if its VRAM address word is zero (no pending update). After all transfers, clears all four staging buffer VRAM address words and the related staging areas to prevent re-triggering.",
+  "InitHardwareRegisters": "Table-driven initialization of PPU and CPU I/O registers.\n\nIterates the ppu_register_init_table, reading 3-byte entries: [register_addr:u16, value:u8]. Writes each value to the corresponding hardware register. Table is terminated by a negative address sentinel.\n\nCovers all PPU registers ($2100-$2133): display brightness, OBJ settings, BG mode, tilemap/charset addresses, window masks, color math, and screen designation. Also initializes CPU I/O registers ($4200-$420D): NMI/IRQ enables, H/V timer, DMA/HDMA channels.",
+  "InitSystemVariables": "Zeroes all 128KB of WRAM then loads initial values from a constant table.\n\nWRAM clear sequence:\n1. Fill $0100 bytes from $0000 (direct page area)\n2. Skip $0100-$01FF (stack \u2014 must not be zeroed while in use)\n3. Fill $FF00 bytes from $0200 (first WRAM bank remainder)\n4. Fill $FF00 bytes (second WRAM bank)\nTotal: $1FF00 bytes = 128KB minus 256-byte stack area.\n\nThen iterates the system_init_constants table, loading each 4-byte entry (destination address + 16-bit value) and storing to WRAM until a negative address sentinel is reached.",
+  "IrqHandler": "IRQ handler stub. Returns immediately via RTI since no hardware IRQ sources are enabled.",
+  "IrqVector": "Hardware IRQ vector. Jumps to IrqHandler (currently a stub \u2014 hardware IRQs are unused).",
+  "NmiHandler": "V-Blank interrupt handler \u2014 the critical per-frame DMA orchestration routine.\n\nExecution order during V-Blank:\n1. Save registers and set data bank to $81\n2. Disable HDMA to prevent bus conflicts\n3. Upload scroll registers to PPU\n4. DMA tilemap strip updates (dirty column/row data)\n5. DMA CGRAM palette (512 bytes from $7F0A00)\n6. DMA OAM table (544 bytes from $0422)\n7. DMA sprite VRAM tiles\n8. Configure VRAM DMA mode ($80 word-access, $18 target, $01 two-reg)\n9. Conditional: full tilemap DMA or skip based on displayModeFlags bit 3\n10. Execute queued VRAM writes and pending DMA\n11. Re-enable HDMA channels\n12. Poll joypad (spin-wait for auto-read completion)\n13. Handle music transition state (run full frame update if fading)\n14. Send audio commands to SPC on alternate frames\n15. Increment frame parity counter and restore registers",
+  "NmiVector": "NMI (V-Blank) interrupt vector. Jumps to the NMI handler for per-frame DMA transfers and display updates.",
+  "PpuRegisterInitTable": "Hardware register initialization table for system boot.\n\nEach 3-byte entry contains: [register_address:u16, value:u8]. Covers:\n- PPU registers $2100-$2133: display mode, BG configuration, window masks, color math, mosaic, scroll initial values\n- CPU I/O registers $4200-$420D: interrupt enables, H/V count targets, DMA channel defaults\n\nTerminated by a negative address sentinel. Total: 76 entries.",
+  "RenderScrollColumn": "Renders a horizontal row of metatiles into the tilemap staging buffer for V-Blank DMA.\n\nComputes the map tile offset from Y position ($1C) using the map row stride and tilemap base address via SignedMultiply. Determines the VRAM tilemap address from the Y-aligned position, accounting for which 32\u00d732 nametable half the position falls in.\n\nSplits rendering into two passes when the row crosses the nametable boundary (X bit 8): assigns VRAM addresses to the staging buffer slots at $06B6+X, placing them in the correct nametable order.\n\nEach pass calls FillHorizTilemapSeg to expand 16 metatile indices into VRAM-format 2\u00d72 tile entries. After the first 16 tiles, advances the map index by one map row, wraps via WrapMapIndex, and renders the second half.\n\nOperates in bank $7E (data bank set via PHB) for direct access to the map and staging buffers.",
+  "RenderScrollRow": "Renders a vertical column of metatiles into the tilemap staging buffer for V-Blank DMA.\n\nThe most complex rendering routine. Computes the map data offset from tile coordinates using SignedMultiply for the Y component and shift/add for the X component. Handles left/right nametable halves (BIT $0020 on the tile X index) with different VRAM address assignments at $06B2+X staging slots.\n\nFor each nametable half, splits the column into two vertical segments when it crosses the map Y boundary:\n1. First segment: from current Y position to either the bottom of the map or 16 tiles, whichever comes first\n2. Second segment: wraps around to the top of the map for the remaining tiles\n\nEach segment calls FillVertTilemapSeg to expand metatile indices into VRAM-format entries. After both nametable halves, handles the edge case of the last metatile row (checks for map wrapping on the final row boundary).\n\nThe staging buffer entries at $06B2+X contain VRAM destination addresses followed by tilemap data. The staging buffer uses two slots per layer for the two nametable halves.",
+  "ResetVector": "CPU reset entry point. Disables interrupts, clears carry, switches from 65816 emulation mode to native mode via XCE, then jumps long to SystemInit.",
+  "ScrollCameraAccumulate": "Accumulative scroll actor that adds running offsets to computed deltas.\n\nSets the camera-active flag and initializes accumulator registers at DP $24 (X accumulator) and $26 (Y accumulator) to zero. Aligns position to the tile grid.\n\nEach frame after SetEntryContinue, computes both scroll deltas via ComputeScrollDeltas, then adds the accumulated offsets: cameraDeltaX += $24 and cameraDeltaY += $26. The accumulators can be set externally by other actors to apply additional camera drift or offset on top of the base scroll tracking.\n\nUsed for scenes with layered camera effects where additional motion is blended with standard tracking.",
+  "ScrollCameraInit": "Camera initialization scroll actor.\n\nSets bit 12 ($1000) in actor status as a camera-active flag. Subtracts centering offsets (\u22128px X, \u221216px Y) from position parameters and aligns both axes to the 16\u00d716 tile grid via TileAlignCoord.\n\nRuns a 3-iteration ramp-up loop (COP LoopInit with count 3) that computes scroll deltas each iteration via ComputeScrollDeltas. After the loop, saves the final Y delta to savedCameraDelta ($0690).\n\nThen sets the actor entry point (COP SetEntryContinue) for per-frame execution, computes deltas one more time, and forces the X scroll by writing cameraDeltaX with bit 15 set to forcedScrollOverride ($06C8). The normal cameraDeltaX is zeroed since the forced override takes precedence.\n\nUsed during scene transitions where the camera needs to snap to a position, ramp up smoothly, then maintain a forced horizontal scroll.",
+  "ScrollCameraTrack": "Simple continuous camera tracking actor.\n\nSets the camera-active flag, aligns position parameters to the tile grid via TileAlignPosition, then enters a per-frame loop (COP SetEntryContinue). Each frame, both X and Y scroll deltas are recomputed by ComputeScrollDeltas using the current camera targets and speed parameters.\n\nThe simplest scroll mode \u2014 used when the camera should smoothly follow the player with no special behavior.",
+  "ScrollCameraVertical": "Vertical-only camera tracking actor.\n\nSets the camera-active flag and aligns position, then enters a per-frame loop. Each frame, only the Y axis delta is computed via MulDivide: cameraDeltaY = cameraTargetY \u00d7 speed parameter $16 / scale. The X delta is left unchanged (whatever was set by a previous scroll actor or zero).\n\nThe Y speed parameter at DP $16 is checked first \u2014 if zero, the MulDivide call is skipped entirely. Used for cutscenes or areas where only vertical camera movement is needed.",
+  "SpriteVramDma": "Transfers sprite tile graphics from WRAM to VRAM during V-Blank.\n\nFirst checks $09ED bit 7 \u2014 if set, sprite DMA is globally suppressed (returns immediately). Then checks displayModeFlags ($09EC) for bits $31 \u2014 if none are set, no sprite update is needed.\n\nThree transfer modes based on flag bits:\n1. Bit 0 (full update): Transfers $0800 bytes (2048 = 128 complete 8\u00d78 tiles) from WRAM $7F0200 to VRAM $7800. Used for character form changes (Will \u2192 Freedan \u2192 Shadow).\n2. Bits 4-5 (partial update): Transfers $0140 bytes (320 = 40 tiles) from WRAM $7F0280 to VRAM $7840. Used for animation frame updates. If bit 5 is set, it's a single-shot transfer \u2014 the flag is cleared after DMA.\n\nAfter transfer, clears the request flags (bits 0,4,5 via TRB with $31) to prevent re-triggering. Sets VMAIN=$80, DMAP0=$01, BBAD0=$18, source bank=$7F, then triggers DMA channel 0.",
+  "SystemInit": "Full system boot sequence and main game loop.\n\nBoot phase:\n1. Sets native 65816 mode with 16-bit registers\n2. Initializes direct page ($0000), stack ($01FF), data bank ($81)\n3. Enables FastROM access speed\n4. Calls hardware register init, system variable init, SPC engine load\n5. Enables display and sets world-ready flag\n6. Checks warmboot signature at $000100 for scene selection\n7. Initializes gameplay defaults: movement speeds, defense, HP, slope curves, ability slots\n8. Sets starting scene to $FB (title screen)\n\nMain loop (infinite):\n1. VBlank wait and joypad read\n2. Scene management and warp/chest checks\n3. Actor AI processing and sprite composition\n4. Camera scrolling for both BG layers\n5. HUD update and display list flush\n6. Enable NMI and loop",
+  "SystemInitConstants": "Initialization constant table loaded during system boot.\n\nEach 4-byte entry: [destination_addr:u16, value:u16]. Terminated by a negative address.\n\nSets up critical system variables including: VRAM layout addresses, BG tilemap/charset pointers, DMA channel defaults, actor system base addresses, scene metadata pointer, input configuration, and various engine parameters.",
+  "TileAlignCoord": "Converts a pixel coordinate to a tile-grid-aligned value.\n\nSwitches to 8-bit accumulator, shifts right 4 times (divides by 16 \u2014 the metatile width), then restores 16-bit mode and masks with $0F0F to isolate valid 4-bit tile indices in both the high and low bytes. The result is transferred to Y for the caller to store.\n\nThe 8-bit shift is key: by operating in 8-bit mode, the LSR operations independently divide the high and low bytes of the 16-bit value, producing two separate 4-bit tile indices packed into a word.",
+  "TileAlignPosition": "Applies tile-grid alignment to both camera position parameters.\n\nSubtracts 8 pixels from the X position ($14) to center the camera horizontally on the player sprite midpoint before aligning. The Y position ($16) is aligned without any centering offset.\n\nBoth axes are processed through TileAlignCoord, and the aligned results (in Y register) are stored back to their respective DP locations.",
+  "UpdateFrameCounters": "Per-frame timer maintenance subroutine (called via JSR from main loop).\n\nDecrements the invincibility timer if it's non-negative (bit 15 clear = active). Increments the global frame timer, capping it at $0100 to prevent overflow. Both operations use 16-bit mode.",
+  "UpdateFrameDialogue": "Lightweight frame update called during dialogue and text display.\n\nSaves and restores full register context (B, A, X, Y, D) for safe re-entrant calling from within COP script handlers. Runs actor rendering (func_03CCFF variant), OAM termination, sprite composition, camera scrolling, HDMA updates, display sync, and scene tick \u2014 but skips the full actor AI pass and warp/chest checks that the main loop performs.\n\nClears bit 3 of displayModeFlags after rendering to signal dialogue frame completion.",
+  "UpdateFrameFull": "Complete single-frame update used during music transitions.\n\nRuns all subsystems including VBlank partial wait, scene tick, actor AI (func_03CD6E variant), OAM termination, sprite composition, camera scrolling for both BG layers, HDMA updates, and display list processing. Called from within the NMI handler when musicTransitionState is positive, allowing visual animation to continue during music fade sequences.",
+  "UpdateFrameRender": "Minimal frame update for render-only contexts such as menus and screen transitions.\n\nSaves full register context. Runs only sprite composition, palette/display processing, HDMA updates, HUD update, VBlank sync, and scene tick. Does not run actor AI, camera scrolling, or OAM termination \u2014 assumes those are handled by the caller's context.",
+  "UpdateHUD": "Manages the in-game heads-up display for HP, gems, and enemy health.\n\nFirst checks $09ED bit 6 (HUD suppression flag) \u2014 returns immediately if set.\n\nHP recovery animation:\n- Skipped if secondary lock ($09AF bit 1) is set or not on an 8-frame boundary\n- Decrements damageFlashTimer and increments displayed HP (playerHp) toward max (playerMaxHp)\n- Plays sound effect $0D on each recovery tick\n- Stops when current HP equals max HP\n\nStat display update:\n- Compares current HP, max HP, and gem count against cached values\n- If any changed: sets VRAM dirty flag (bit 4), converts gem count to decimal via repeated /100, redraws stat counters via BG3 script\n\nEnemy health display:\n- When enemyHpPending is nonzero, sets display timer and redraws\n- Timer chain: 25 frames (display) \u2192 60 frames (hold) \u2192 30 frames (fadeout) \u2192 clear\n\nFinally caches all stat values for next-frame dirty detection and restores the original status bar visibility flag.",
+  "UpdateScrollColumn": "Determines which vertical column to render when horizontal scrolling crosses a tile boundary.\n\nComputes the X position of the newly-visible column based on scroll direction: if scrolling left (negative delta), uses offset 0 (left screen edge); if scrolling right (positive delta), uses +256 ($0100, one nametable width for the right edge).\n\nSets $18 = computed X position, $1C = current vertical scroll, then calls RenderScrollRow to render that column of tiles into the staging buffer.",
+  "UpdateScrollRow": "Determines which horizontal row to render when vertical scrolling crosses a tile boundary.\n\nSets $18 to the current horizontal scroll (full X extent for the row). Computes the Y position of the newly-visible row based on scroll direction: if scrolling up (negative delta), uses \u221216 to get the top screen edge; if scrolling down (positive delta), uses +224 ($00E0) to get the bottom edge (14 tiles \u00d7 16px).\n\nThe Y position is added to the current vertical scroll and then wrapped against mapBoundsY via a subtraction loop to handle maps that wrap vertically.\n\nFinally calls RenderScrollColumn to render that row of tiles into the staging buffer for V-Blank DMA.",
+  "UploadCgramPalette": "Transfers the full 256-color palette from WRAM buffer to CGRAM via DMA.\n\nDMA setup: CGADD=0 (start at palette 0), source=$7F0A00, size=512 bytes, target=CGRAM data register ($2122), mode=single-register increment.\n\nAfter the bulk DMA, separately writes the three backdrop color components from $7F0C00-$7F0C02 to the COLDATA fixed-color register ($2132). These control the backdrop/screen color used by the SNES color math hardware for subscreen blending.",
+  "UploadOamTable": "Transfers the 544-byte OAM staging buffer to the PPU's Object Attribute Memory via DMA.\n\nDMA setup: OAM address=0 (first entry), source=$0422, size=$0220 (544 bytes: 512 main table + 32 high-table bytes), target=OAM data register ($2104), mode=single-register increment.",
+  "UploadScrollRegisters": "Writes BG1 and BG2 scroll positions to PPU hardware registers.\n\nTwo modes based on scrollModeFlags bit 3:\n- Normal mode: Uses WriteBgScroll with indexed layer data. Respects layerPriorityFlag \u2014 when negative, swaps the order BG1/BG2 are written to handle layer priority changes.\n- Direct mode (bit 3 set): Writes bg1ScrollH/bg2ScrollH directly to BG1HOFS/BG1VOFS registers, masking high bytes to 7 bits.",
+  "WramFillConstant": "Single-byte constant ($E0) used as the fixed DMA source for OAM buffer clearing. Value $E0 = 224 decimal places sprites at the bottom screen edge (offscreen in 224-line mode).",
+  "WrapMapIndex": "Wraps a map data index back within valid tilemap bounds.\n\nSubtracts the tilemap base address ($069E+X) and row stride ($069A+X) from the current index. If the result is still positive (carry set), the index has overflowed past the end of the map data \u2014 the base is re-added and the check repeats in a loop until the index normalizes.\n\nStores the wrapped index to DP $04 and Y register. Called by both RenderScrollColumn and RenderScrollRow whenever map access indices might exceed the allocated tilemap region.",
+  "WriteBgScroll": "Writes horizontal and vertical scroll values for one background layer.\n\nX index selects the scroll data source (0=BG1, 2=BG2). Y index selects the PPU register target.\n\nFor each axis (H and V), checks an override flag at $06C7+X / $06CB+X:\n- If negative (bit 7 set): uses the scroll override value instead of normal scroll\n- If positive: uses the standard scroll position\n\nHigh bytes are masked to 2 bits (10-bit scroll position for Mode 1 backgrounds)."
  },
  "wram_variables": {
+  "2048 flags": {
+   "address": "0x0A00",
+   "address_end": "0x0AFF",
+   "description": "`eventFlags`",
+   "primary_users": "**Persistent scene/world state** \u2014 chests opened, bosses defeated, switches flipped, red jewel collection. Survives scene transitions. Accessed via `SetEventFlag`, `ClearEventFlag`, `TestEventFlag` and offset wrappers (`+$0100`, `+$0200`, `+$0300`, `+$0510`).",
+   "size": "256 B"
+  },
+  "256 flags": {
+   "address": "0x0A80",
+   "address_end": "0x0A9F",
+   "description": "`wramFlags`",
+   "primary_users": "**Scene-local scratch flags** \u2014 dungeon kill tracking, puzzle state, per-room logic. Cleared by `ClearAllWramFlags` at scene boundaries. Accessed via `SetWramFlag`, `TestWramFlag`.",
+   "size": "32 B"
+  },
   "A1B0": {
    "wram_offset": 17156,
    "wram_offset_hex": "0x4304"
@@ -3501,6 +353,13 @@
    "wram_offset": 8498,
    "wram_offset_hex": "0x2132"
   },
+  "CPU stack": {
+   "address": "0x0101",
+   "address_end": "0x01FF",
+   "description": "Hardware stack (`SP` initialized to `$01FF` at reset)",
+   "primary_users": "All code",
+   "size": "255"
+  },
   "DAS0H": {
    "wram_offset": 17158,
    "wram_offset_hex": "0x4306"
@@ -3689,6 +548,13 @@
    "wram_offset": 16407,
    "wram_offset_hex": "0x4017"
   },
+  "Joypad state defaults": {
+   "address": "0x005E",
+   "address_end": "0x0062",
+   "description": "Initialized to `$0000/$0081/$0000` at cold start",
+   "primary_users": "`InitSystemVariables`",
+   "size": "5"
+  },
   "M7A": {
    "wram_offset": 8475,
    "wram_offset_hex": "0x211B"
@@ -3741,6 +607,20 @@
    "wram_offset": 8501,
    "wram_offset_hex": "0x2135"
   },
+  "Map origin/extent helpers": {
+   "address": "0x069A",
+   "address_end": "0x069D",
+   "description": "Map wrap calculations",
+   "primary_users": "Camera tilemap",
+   "size": "4"
+  },
+  "Mode 7 matrix params": {
+   "address": "0x00C2",
+   "address_end": "0x00CD",
+   "description": "M7A/M7B/M7C/M7D/M7X/M7Y parameters uploaded during VBlank when `$06EF` bit `$08` is set",
+   "primary_users": "`VBlankWaitAndJoypad`",
+   "size": "12"
+  },
   "NLTR0": {
    "wram_offset": 17162,
    "wram_offset_hex": "0x430A"
@@ -3776,6 +656,13 @@
   "NMITIMEN": {
    "wram_offset": 16896,
    "wram_offset_hex": "0x4200"
+  },
+  "OAM table source": {
+   "address": "0x0422",
+   "address_end": "0x0621",
+   "description": "OAM sprite table uploaded to PPU via DMA. Also target of the unused `FillWramBlock`",
+   "primary_users": "`UploadOamTable`, DMA",
+   "size": "512"
   },
   "OAMADDH": {
    "wram_offset": 8451,
@@ -3845,6 +732,20 @@
    "wram_offset": 8511,
    "wram_offset_hex": "0x213F"
   },
+  "Saved scroll values": {
+   "address": "0x00BE",
+   "address_end": "0x00C0",
+   "description": "Written during Mode 7 VBlank upload (`$BE \u2192 $CE`, `$C0 \u2192 $D0`)",
+   "primary_users": "`VBlankWaitAndJoypad`",
+   "size": "4"
+  },
+  "Scratch": {
+   "address": "0x0000",
+   "address_end": "0x0004",
+   "description": "Map cell index, alignment offset, tile scratch",
+   "primary_users": "Movement physics, collision",
+   "size": "5"
+  },
   "TIMEUP": {
    "wram_offset": 16913,
    "wram_offset_hex": "0x4211"
@@ -3884,6 +785,27 @@
   "VMDATALREAD": {
    "wram_offset": 8505,
    "wram_offset_hex": "0x2139"
+  },
+  "VRAM content cache slots": {
+   "address": "0x0084",
+   "address_end": "0x008F",
+   "description": "4 slots \u00d7 3 bytes (addr+bank) for tile-strip content caching",
+   "primary_users": "`GraphicsCacheLookup`, `GraphicsCacheStore`",
+   "size": "12"
+  },
+  "VRAM layout addresses": {
+   "address": "0x06AE",
+   "address_end": "0x06BD",
+   "description": "Hardcoded RAM addresses of RAM\u2192VRAM mapping and staging tables",
+   "primary_users": "Tile strip DMA, camera tilemap",
+   "size": "16"
+  },
+  "VRAM nametable bases": {
+   "address": "0x06BA",
+   "address_end": "0x06BC",
+   "description": "VRAM nametable base address for queued tile writes",
+   "primary_users": "Dirty-strip DMA system",
+   "size": "3"
   },
   "VTIMEH": {
    "wram_offset": 16906,
@@ -3977,6 +899,153 @@
    "wram_offset": 8493,
    "wram_offset_hex": "0x212D"
   },
+  "abilityBitmask": {
+   "address": "0x0AA2",
+   "address_end": null,
+   "description": "Ability availability bitmask \u2014 bits select which abilities are unlocked",
+   "primary_users": "Player character, attack system",
+   "size": "2"
+  },
+  "activeAbilityGfx": {
+   "address": "0x00EA",
+   "address_end": null,
+   "description": "Active special ability type for graphics reload",
+   "primary_users": "Player character, attack system",
+   "size": "1"
+  },
+  "actorLimitThreshold": {
+   "address": "0x00E4",
+   "address_end": null,
+   "description": "Actor limit for `HaltIfActorLimitHit` COP",
+   "primary_users": "Actor management",
+   "size": "2"
+  },
+  "actorListFirst": {
+   "address": "0x0056",
+   "address_end": "0x0057",
+   "description": "Base address of first actor in doubly-linked list",
+   "primary_users": "`AllocateActorBefore`, `UnlinkActor`",
+   "size": "2"
+  },
+  "actorListLast": {
+   "address": "0x0058",
+   "address_end": "0x0059",
+   "description": "Base address of last actor in actor list",
+   "primary_users": "`AllocateActorAfter`, `UnlinkActor`",
+   "size": "2"
+  },
+  "actorPoolPtr": {
+   "address": "0x004E",
+   "address_end": "0x0051",
+   "description": "Long pointer to next free RAM address for new actors",
+   "primary_users": "`ActorPoolAllocator`, `ReturnActorSlot`",
+   "size": "4"
+  },
+  "bg1ConfigMode": {
+   "address": "0x0AE6",
+   "address_end": null,
+   "description": "BG1 scroll/config mode; also serves as overlay exit poll flag",
+   "primary_users": "Inventory overlay, tab handlers",
+   "size": "2"
+  },
+  "bg1ScrollHv": {
+   "address": "0x068A",
+   "address_end": "0x068D",
+   "description": "BG1 horizontal (H) and vertical (V) scroll positions (16-bit each)",
+   "primary_users": "`UploadScrollRegisters`, `WriteBgScroll`, `CameraSmoothScroll`",
+   "size": "4"
+  },
+  "bg2ScrollHv": {
+   "address": "0x068E",
+   "address_end": "0x068F",
+   "description": "BG2 scroll values (low bytes; extended via `$06C6`+ overrides)",
+   "primary_users": "`UploadScrollRegisters`",
+   "size": "2"
+  },
+  "cacheRingIndex": {
+   "address": "0x0094",
+   "address_end": null,
+   "description": "Round-robin slot index for VRAM cache ring buffer",
+   "primary_users": "`ComputeRingBufferAddr`",
+   "size": "2"
+  },
+  "cachedPrevGems": {
+   "address": "0x0ADA",
+   "address_end": null,
+   "description": "Previous gem count for change detection",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "cachedPrevHp": {
+   "address": "0x0AD0",
+   "address_end": null,
+   "description": "Previous HP value for HUD change detection",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "cachedPrevMaxHp": {
+   "address": "0x0ACC",
+   "address_end": null,
+   "description": "Previous max HP value for HUD change detection",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "cameraBoundsX": {
+   "address": "0x06DA",
+   "address_end": null,
+   "description": "Right edge of active map window (max scroll X)",
+   "primary_users": "`camera_scroll_controller`",
+   "size": "2"
+  },
+  "cameraDeltaX": {
+   "address": "0x06C0",
+   "address_end": null,
+   "description": "Per-frame camera scroll delta X",
+   "primary_users": "Scroll actors, forced walks",
+   "size": "2"
+  },
+  "cameraDeltaY": {
+   "address": "0x06C4",
+   "address_end": null,
+   "description": "Per-frame camera scroll delta Y",
+   "primary_users": "Scroll actors, `ScrollCameraVertical`",
+   "size": "2"
+  },
+  "cameraLowerYBound": {
+   "address": "0x06DE",
+   "address_end": null,
+   "description": "Camera lower Y boundary for collision probes",
+   "primary_users": "`TileCollisionQuery`",
+   "size": "2"
+  },
+  "cameraOffsetX": {
+   "address": "0x06D6",
+   "address_end": null,
+   "description": "Left edge of active map window (min scroll X)",
+   "primary_users": "`camera_scroll_controller`",
+   "size": "2"
+  },
+  "cameraOffsetY": {
+   "address": "0x06D8",
+   "address_end": null,
+   "description": "Top edge of active map window (min scroll Y)",
+   "primary_users": "`camera_scroll_controller`",
+   "size": "2"
+  },
+  "cameraTargetX": {
+   "address": "0x06BE",
+   "address_end": null,
+   "description": "Camera target X position (follows player with dead zone)",
+   "primary_users": "Camera pan COPs, `ComputeScrollDeltas`, `camera_scroll_controller`",
+   "size": "2"
+  },
+  "cameraTargetY": {
+   "address": "0x06C2",
+   "address_end": null,
+   "description": "Camera target Y position",
+   "primary_users": "Camera pan COPs, `ComputeScrollDeltas`",
+   "size": "2"
+  },
   "camera_bounds_x": {
    "wram_offset": 1754,
    "wram_offset_hex": "0x06DA"
@@ -4009,6 +1078,97 @@
    "wram_offset": 1753,
    "wram_offset_hex": "0x06D9"
   },
+  "characterForm": {
+   "address": "0x0AD4",
+   "address_end": null,
+   "description": "Current character form: 0 = Will, 1 = Freedan, 2 = Shadow",
+   "primary_users": "`SetActorBody`, body swap COPs, `dark_space_palette`",
+   "size": "2"
+  },
+  "climbStateData": {
+   "address": "0x09E0",
+   "address_end": null,
+   "description": "Cleared by `UnlockPlayerAfterClimb` after stair/climb completion",
+   "primary_users": "Stair/climb system",
+   "size": "2"
+  },
+  "collisionLayerBase": {
+   "address": "0x0080",
+   "address_end": "0x0082",
+   "description": "Base RAM address of CollisionLayer (hardcoded `$7FC000`)",
+   "primary_users": "Collision routines, `MarkCollisionRect`",
+   "size": "3"
+  },
+  "damageFlashTimer": {
+   "address": "0x0B22",
+   "address_end": null,
+   "description": "Non-zero triggers DEF display animation every 8 frames",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "deathFlag": {
+   "address": "0x0200",
+   "address_end": null,
+   "description": "Set by `StopPlayerOnDeathAssign` when player HP reaches 0",
+   "primary_users": "Game over sequence",
+   "size": "2"
+  },
+  "decelCurvePtr": {
+   "address": "0x09C2",
+   "address_end": null,
+   "description": "Pointer to flat-ground deceleration speed table",
+   "primary_users": "`slope_ramp_physics`",
+   "size": "2"
+  },
+  "decelStepCounter": {
+   "address": "0x09B8",
+   "address_end": null,
+   "description": "Deceleration step counter",
+   "primary_users": "`slope_ramp_physics`",
+   "size": "2"
+  },
+  "displayModeFlags": {
+   "address": "0x09EC",
+   "address_end": null,
+   "description": "Scene display mode \u2014 bit `$0008` = special BG3; bit `$0010` = stat refresh; bit `$0080` = music sequence; bit `$08` = dialogue display",
+   "primary_users": "HUD, NMI, dialogue, sine precompute",
+   "size": "2"
+  },
+  "dmaSkipFlag": {
+   "address": "0x0800",
+   "address_end": null,
+   "description": "Non-zero \u2192 skip tilemap DMA path in NMI",
+   "primary_users": "`NmiHandler` step 11",
+   "size": "1"
+  },
+  "dmaSourceAddr": {
+   "address": "0x00AC",
+   "address_end": "0x00AE",
+   "description": "DMA source address (16-bit) + bank byte",
+   "primary_users": "`ExecuteVramDma`, `AdhocVramDma` COP",
+   "size": "3"
+  },
+  "dmaTransferSize": {
+   "address": "0x00B2",
+   "address_end": null,
+   "description": "DMA transfer size in bytes (0 = skip)",
+   "primary_users": "`ExecuteVramDma`",
+   "size": "2"
+  },
+  "effectDeltaX": {
+   "address": "0x06E4",
+   "address_end": null,
+   "description": "Scroll delta X fed to visual effect pipeline",
+   "primary_users": "`camera_scroll_controller` \u2192 `effect_velocity_init`",
+   "size": "2"
+  },
+  "effectDeltaY": {
+   "address": "0x06E6",
+   "address_end": null,
+   "description": "Scroll delta Y fed to visual effect pipeline",
+   "primary_users": "`camera_scroll_controller` \u2192 `effect_position_update`",
+   "size": "2"
+  },
   "effect_bounds_x": {
    "wram_offset": 1684,
    "wram_offset_hex": "0x0694"
@@ -4016,6 +1176,139 @@
   "effect_bounds_y": {
    "wram_offset": 1688,
    "wram_offset_hex": "0x0698"
+  },
+  "enemyHealthTimer": {
+   "address": "0x0AE4",
+   "address_end": null,
+   "description": "Enemy health bar display countdown (`$001E` frames \u2192 0)",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "enemyHpPending": {
+   "address": "0x09EA",
+   "address_end": null,
+   "description": "Non-zero triggers enemy health bar update in HUD",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "enemyHpValues": {
+   "address": "0x09E4",
+   "address_end": "0x09E6",
+   "description": "Enemy HP display values (current + max) for boss health bar",
+   "primary_users": "HUD enemy health display",
+   "size": "4"
+  },
+  "extVelocityX": {
+   "address": "0x0408",
+   "address_end": null,
+   "description": "External velocity accumulator X (knockback, conveyors)",
+   "primary_users": "Player movement, hit stagger",
+   "size": "2"
+  },
+  "extVelocityY": {
+   "address": "0x040A",
+   "address_end": null,
+   "description": "External velocity accumulator Y",
+   "primary_users": "Player movement, hit stagger",
+   "size": "2"
+  },
+  "forcedScrollOverride": {
+   "address": "0x06C8",
+   "address_end": null,
+   "description": "Forced scroll override value",
+   "primary_users": "`ScrollCameraInit`, `effect_velocity_init`",
+   "size": "2"
+  },
+  "frameCounter": {
+   "address": "0x0036",
+   "address_end": null,
+   "description": "Parity counter \u2014 incremented each NMI; used for timing, sine HDMA double-buffer select, HUD flash timing",
+   "primary_users": "`NmiHandler`, `UpdateHUD`, sine HDMA thinkers",
+   "size": "2"
+  },
+  "gemCount": {
+   "address": "0x0AD6",
+   "address_end": null,
+   "description": "Current gem count",
+   "primary_users": "HUD gem display",
+   "size": "2"
+  },
+  "gemHundredsDigit": {
+   "address": "0x0AD8",
+   "address_end": null,
+   "description": "Gem count \u00f7 100 for three-digit display",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "gfxCacheIdxA": {
+   "address": "0x0648",
+   "address_end": null,
+   "description": "Graphics cache slot index A (init `$0404`)",
+   "primary_users": "Scene graphics cache",
+   "size": "2"
+  },
+  "gfxCacheIdxB": {
+   "address": "0x064A",
+   "address_end": null,
+   "description": "Graphics cache slot index B (init `$0001`)",
+   "primary_users": "Scene graphics cache",
+   "size": "2"
+  },
+  "gfxLoadParams": {
+   "address": "0x0664",
+   "address_end": "0x066A",
+   "description": "Scene graphics loading scratch (source pointers, cache flags, layer bits)",
+   "primary_users": "Scene script commands",
+   "size": "7"
+  },
+  "globalFrameTimer": {
+   "address": "0x040E",
+   "address_end": null,
+   "description": "Incremented each frame; saturates at `$0100`",
+   "primary_users": "`UpdateFrameCounters`",
+   "size": "2"
+  },
+  "hdmaEnableMask": {
+   "address": "0x0066",
+   "address_end": "0x0067",
+   "description": "Bitwise flags: HDMA channels queued for enable; written to `$HDMAEN` during NMI",
+   "primary_users": "`NmiHandler`, HDMA COPs, `func_03E146`",
+   "size": "2"
+  },
+  "hudDisableFlag": {
+   "address": "0x09ED",
+   "address_end": null,
+   "description": "Bit `$40` set \u2192 HUD globally disabled (title screen, cutscenes)",
+   "primary_users": "`UpdateHUD` early exit",
+   "size": "1"
+  },
+  "inventoryEquippedIdx": {
+   "address": "0x0AC4",
+   "address_end": null,
+   "description": "Equipped item slot index (`$FFFF` = none)",
+   "primary_users": "Inventory use tab, equip cursor",
+   "size": "2"
+  },
+  "inventoryEquippedType": {
+   "address": "0x0AC6",
+   "address_end": null,
+   "description": "Equipped item type ID",
+   "primary_users": "Use confirm, HUD",
+   "size": "2"
+  },
+  "inventorySlots": {
+   "address": "0x0AB4",
+   "address_end": "0x0AD2",
+   "description": "16 item words \u2014 low byte = item ID (0 = empty)",
+   "primary_users": "All inventory tabs",
+   "size": "31"
+  },
+  "inventoryTabIndex": {
+   "address": "0x0AFA",
+   "address_end": null,
+   "description": "Tab index (0\u20133: Use, Arrange, Discard, Status); also slot spawn counter during init",
+   "primary_users": "Inventory menu, statue display",
+   "size": "2"
   },
   "inventory_equipped_index": {
    "wram_offset": 2756,
@@ -4029,9 +1322,79 @@
    "wram_offset": 2740,
    "wram_offset_hex": "0x0AB4"
   },
+  "invincibilityTimer": {
+   "address": "0x040C",
+   "address_end": null,
+   "description": "Decremented each frame; `$FFFF` = inactive. Controls hit-blink immunity",
+   "primary_users": "`UpdateFrameCounters`",
+   "size": "2"
+  },
+  "itemAbilityIndex": {
+   "address": "0x0AE8",
+   "address_end": null,
+   "description": "Item/ability index for BG3 description strings",
+   "primary_users": "Inventory use, discard, status",
+   "size": "2"
+  },
   "jewels_collected": {
    "wram_offset": 2736,
    "wram_offset_hex": "0x0AB0"
+  },
+  "joypadCurrent": {
+   "address": "0x0656",
+   "address_end": null,
+   "description": "Current-frame filtered joypad bits (after remapping + auto-repeat)",
+   "primary_users": "Button COPs, `global_ambient_dispatcher`, all input checks",
+   "size": "2"
+  },
+  "joypadHeld": {
+   "address": "0x0658",
+   "address_end": null,
+   "description": "Held-button auto-repeat mask; bits cleared after 12 frames",
+   "primary_users": "`VBlankWaitAndJoypad`",
+   "size": "2"
+  },
+  "joypadInject": {
+   "address": "0x09AC",
+   "address_end": null,
+   "description": "Injected joypad override \u2014 non-zero replaces `$0656` and skips hardware read",
+   "primary_users": "`VBlankWaitAndJoypad` (forced-walk scripts)",
+   "size": "2"
+  },
+  "joypadMaskInv": {
+   "address": "0x065C",
+   "address_end": null,
+   "description": "Inverted joypad mask for auto-repeat logic",
+   "primary_users": "Overlay, `VBlankWaitAndJoypad`",
+   "size": "2"
+  },
+  "joypadMaskStd": {
+   "address": "0x065A",
+   "address_end": null,
+   "description": "Standard joypad suppression mask \u2014 `TRB $0656` each frame",
+   "primary_users": "Overlay, dialogue, music wait",
+   "size": "2"
+  },
+  "joypadRaw": {
+   "address": "0x0660",
+   "address_end": null,
+   "description": "Raw hardware joypad state from `$JOY1L` \u2014 sampled in NMI",
+   "primary_users": "`NmiHandler`, `VBlankWaitAndJoypad`",
+   "size": "2"
+  },
+  "joypadRemapped": {
+   "address": "0x065E",
+   "address_end": null,
+   "description": "Remapped button accumulator (scratch during `VBlankWaitAndJoypad`)",
+   "primary_users": "`VBlankWaitAndJoypad`",
+   "size": "2"
+  },
+  "joypadRepeatCounter": {
+   "address": "0x0662",
+   "address_end": null,
+   "description": "Auto-repeat frame counter (threshold `$000C` = 12 frames)",
+   "primary_users": "`VBlankWaitAndJoypad`",
+   "size": "2"
   },
   "joypad_mask_inv": {
    "wram_offset": 1628,
@@ -4041,6 +1404,48 @@
    "wram_offset": 1626,
    "wram_offset_hex": "0x065A"
   },
+  "layerPriorityFlag": {
+   "address": "0x06EE",
+   "address_end": null,
+   "description": "Layer draw priority (sign = BG2 first); bit `$0200` = freeze camera",
+   "primary_users": "`UploadScrollRegisters`, `camera_scroll_controller`",
+   "size": "1"
+  },
+  "mapBoundsX": {
+   "address": "0x0692",
+   "address_end": null,
+   "description": "Map width in pixels",
+   "primary_users": "Camera bounds clamping",
+   "size": "2"
+  },
+  "mapBoundsY": {
+   "address": "0x0696",
+   "address_end": null,
+   "description": "Map height in pixels",
+   "primary_users": "Camera bounds clamping",
+   "size": "2"
+  },
+  "mapRowStrideL0": {
+   "address": "0x0693",
+   "address_end": null,
+   "description": "Map row width in columns (layer 0) \u2014 byte stride for index math",
+   "primary_users": "`AdvanceMapY`, collision iterators, `map_coords.asm`",
+   "size": "1"
+  },
+  "mapRowStrideL1": {
+   "address": "0x0695",
+   "address_end": null,
+   "description": "Map row width for layer 1",
+   "primary_users": "Dual-layer tilemap routines",
+   "size": "1"
+  },
+  "mapTilemapBases": {
+   "address": "0x069E",
+   "address_end": "0x06A1",
+   "description": "MapLayer/EffectLayer base RAM addresses in bank `$7E` (hardcoded `$A000`, `$C000`)",
+   "primary_users": "Scene loading, tilemap DMA",
+   "size": "4"
+  },
   "map_bounds_x": {
    "wram_offset": 1682,
    "wram_offset_hex": "0x0692"
@@ -4049,9 +1454,142 @@
    "wram_offset": 1686,
    "wram_offset_hex": "0x0696"
   },
+  "maxSpeedEw": {
+   "address": "0x09C8",
+   "address_end": null,
+   "description": "Maximum speed clamp for East-West movement",
+   "primary_users": "Movement physics",
+   "size": "2"
+  },
+  "maxSpeedNs": {
+   "address": "0x09CA",
+   "address_end": null,
+   "description": "Maximum speed clamp for North-South movement",
+   "primary_users": "Movement physics",
+   "size": "2"
+  },
   "meta_addr": {
    "wram_offset": 58,
    "wram_offset_hex": "0x003A"
+  },
+  "musicParentActor": {
+   "address": "0x06F2",
+   "address_end": null,
+   "description": "Music parent actor ID (saved by `MusicPlaybackActor`)",
+   "primary_users": "`MusicPlaybackActor`",
+   "size": "2"
+  },
+  "musicRoomGroup": {
+   "address": "0x06F6",
+   "address_end": null,
+   "description": "Room group ID for music continuity; non-zero prevents re-triggering",
+   "primary_users": "Scene script `$11` command",
+   "size": "2"
+  },
+  "musicTransitionState": {
+   "address": "0x06FA",
+   "address_end": null,
+   "description": "Active music track transition ID; `$FFFF` = idle. Non-zero triggers `UpdateFrame_Full` from NMI",
+   "primary_users": "`NmiHandler`, `MusicPlaybackActor`",
+   "size": "2"
+  },
+  "oamWriteOffset": {
+   "address": "0x00D8",
+   "address_end": null,
+   "description": "Current OAM buffer write index; sentinel written at `$7F3100 + $00D8`",
+   "primary_users": "Main loop, frame updates",
+   "size": "2"
+  },
+  "playerActor": {
+   "address": "0x09AA",
+   "address_end": null,
+   "description": "Player actor slot index (e.g. `$1FC0`)",
+   "primary_users": "All player-referencing code",
+   "size": "2"
+  },
+  "playerActorDp": {
+   "address": "0x09F4",
+   "address_end": null,
+   "description": "Player actor direct page base for camera reads",
+   "primary_users": "`camera_scroll_controller`",
+   "size": "2"
+  },
+  "playerDef": {
+   "address": "0x0ADC",
+   "address_end": null,
+   "description": "Player's defense stat value",
+   "primary_users": "HUD, stat reward actors",
+   "size": "2"
+  },
+  "playerFlags": {
+   "address": "0x09AE",
+   "address_end": null,
+   "description": "Player state bitmask (see below)",
+   "primary_users": "Player character, attack system, slope physics, camera",
+   "size": "2"
+  },
+  "playerHp": {
+   "address": "0x0ACE",
+   "address_end": null,
+   "description": "Player's current HP (decreases from damage, recovers toward max)",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "playerMaxHp": {
+   "address": "0x0ACA",
+   "address_end": null,
+   "description": "Player's maximum HP \u2014 ceiling for HP recovery animation",
+   "primary_users": "`UpdateHUD`",
+   "size": "2"
+  },
+  "playerSpeedEw": {
+   "address": "0x09B2",
+   "address_end": null,
+   "description": "East-West speed (written by slope physics, read by move controller)",
+   "primary_users": "`player_move_controller`, `slope_ramp_physics`",
+   "size": "2"
+  },
+  "playerSpeedNs": {
+   "address": "0x09B4",
+   "address_end": null,
+   "description": "North-South speed",
+   "primary_users": "`player_move_controller`, `slope_ramp_physics`",
+   "size": "2"
+  },
+  "playerStateByte": {
+   "address": "0x09AF",
+   "address_end": null,
+   "description": "Player state high byte \u2014 bit `$08` = stair entry; `$8F` = walking state",
+   "primary_users": "`CheckMoveState`, stair triggers",
+   "size": "1"
+  },
+  "playerStr": {
+   "address": "0x0ADE",
+   "address_end": null,
+   "description": "Player's strength stat value",
+   "primary_users": "HUD, stat reward actors",
+   "size": "2"
+  },
+  "playerWallType": {
+   "address": "0x09B0",
+   "address_end": null,
+   "description": "Wall type for player animation gating",
+   "primary_users": "Player wall-gated animation COPs",
+   "size": "2"
+  },
+  "playerXPos": {
+   "address": "0x09A2",
+   "address_end": null,
+   "description": "Player pixel X position (sprite-adjusted)",
+   "primary_users": "`camera_scroll_controller`, movement physics",
+   "size": "2"
+  },
+  "playerYPos": {
+   "address": "0x09A4",
+   "address_end": null,
+   "description": "Player pixel Y position (sprite-adjusted)",
+   "primary_users": "`camera_scroll_controller`, movement physics",
+   "size": "2"
   },
   "player_actor": {
    "wram_offset": 2474,
@@ -4085,6 +1623,125 @@
    "wram_offset": 2472,
    "wram_offset_hex": "0x09A8"
   },
+  "remapA": {
+   "address": "0x0DAC",
+   "address_end": null,
+   "description": "A (`$0080`)",
+   "primary_users": "`$0080`",
+   "size": "2"
+  },
+  "remapB": {
+   "address": "0x0DAA",
+   "address_end": null,
+   "description": "B (`$8000`)",
+   "primary_users": "`$8000`",
+   "size": "2"
+  },
+  "remapL": {
+   "address": "0x0DB2",
+   "address_end": null,
+   "description": "L (`$1000`)",
+   "primary_users": "`$1000`",
+   "size": "2"
+  },
+  "remapR": {
+   "address": "0x0DB4",
+   "address_end": null,
+   "description": "R (`$2000`)",
+   "primary_users": "`$2000`",
+   "size": "2"
+  },
+  "remapSelect": {
+   "address": "0x0DA6",
+   "address_end": null,
+   "description": "Select (`$0010`)",
+   "primary_users": "`$0010`",
+   "size": "2"
+  },
+  "remapStart": {
+   "address": "0x0DB0",
+   "address_end": null,
+   "description": "Start (`$0040`)",
+   "primary_users": "`$0040`",
+   "size": "2"
+  },
+  "remapX": {
+   "address": "0x0DA8",
+   "address_end": null,
+   "description": "X (`$0020`)",
+   "primary_users": "`$0020`",
+   "size": "2"
+  },
+  "remapY": {
+   "address": "0x0DAE",
+   "address_end": null,
+   "description": "Y (`$4000`)",
+   "primary_users": "`$4000`",
+   "size": "2"
+  },
+  "rngModuloResult": {
+   "address": "0x0420",
+   "address_end": null,
+   "description": "Last `RngMod` COP result",
+   "primary_users": "`RngMod` COP",
+   "size": "2"
+  },
+  "rngState": {
+   "address": "0x040F",
+   "address_end": "0x041E",
+   "description": "Random number generator state bytes",
+   "primary_users": "`RngByte` COP handler",
+   "size": "16"
+  },
+  "saveWarpMetadata": {
+   "address": "0x0B28",
+   "address_end": "0x0B32",
+   "description": "Save and warp state metadata",
+   "primary_users": "System init",
+   "size": "11"
+  },
+  "savedCameraDelta": {
+   "address": "0x0690",
+   "address_end": null,
+   "description": "Saved camera delta for `ScrollCameraInit`",
+   "primary_users": "`ScrollCameraInit`",
+   "size": "2"
+  },
+  "sceneCurrent": {
+   "address": "0x0644",
+   "address_end": null,
+   "description": "Currently loaded scene ID",
+   "primary_users": "Scene engine, warps, inventory overlay",
+   "size": "2"
+  },
+  "sceneMetaPtr": {
+   "address": "0x003A",
+   "address_end": "0x003D",
+   "description": "Long pointer to scene metadata table (hardcoded `$8D8000`)",
+   "primary_users": "`InitSystemVariables`, scene loading",
+   "size": "4"
+  },
+  "sceneNext": {
+   "address": "0x0642",
+   "address_end": null,
+   "description": "Scene ID to transition to (written by warp triggers)",
+   "primary_users": "Scene loading, `SystemInit`",
+   "size": "2"
+  },
+  "sceneSaveData": {
+   "address": "0x0AF0",
+   "address_end": "0x0AF8",
+   "description": "Scene save data for game-over reload",
+   "primary_users": "`GameOverSequence`",
+   "size": "9"
+  },
+  "sceneStateHelper": {
+   "address": "0x099F",
+   "address_end": null,
+   "description": "Scene/state helper variable",
+   "primary_users": "`SystemInit`",
+   "size": "2"
+  },
   "scene_current": {
    "wram_offset": 1604,
    "wram_offset_hex": "0x0644"
@@ -4092,6 +1749,146 @@
   "scene_next": {
    "wram_offset": 1602,
    "wram_offset_hex": "0x0642"
+  },
+  "scrollDeltaXClamped": {
+   "address": "0x06CE",
+   "address_end": null,
+   "description": "Per-frame scroll delta X (clamped \u00b116 px)",
+   "primary_users": "`CameraSmoothScroll`",
+   "size": "2"
+  },
+  "scrollDeltaYClamped": {
+   "address": "0x06D2",
+   "address_end": null,
+   "description": "Per-frame scroll delta Y (clamped \u00b116 px)",
+   "primary_users": "`CameraSmoothScroll`",
+   "size": "2"
+  },
+  "scrollModeFlags": {
+   "address": "0x06EF",
+   "address_end": null,
+   "description": "Bit 3 = locked scroll mode; bit `$08` = Mode 7 active; bit `$01` = BG2 active",
+   "primary_users": "`UploadScrollRegisters`, `VBlankWaitAndJoypad`",
+   "size": "1"
+  },
+  "scrollOverrideH": {
+   "address": "0x06C6",
+   "address_end": "0x06C7",
+   "description": "Override horizontal scroll value + flag (bit 15 = active)",
+   "primary_users": "`WriteBgScroll`, camera pan COPs",
+   "size": "2"
+  },
+  "scrollOverrideV": {
+   "address": "0x06CA",
+   "address_end": "0x06CB",
+   "description": "Override vertical scroll value + flag",
+   "primary_users": "`WriteBgScroll`, camera pan COPs",
+   "size": "2"
+  },
+  "scrollStepIndex": {
+   "address": "0x06E2",
+   "address_end": null,
+   "description": "Current index into scroll step table",
+   "primary_users": "`CameraScrollStepLookup`",
+   "size": "2"
+  },
+  "scrollStepTableBase": {
+   "address": "0x06E0",
+   "address_end": null,
+   "description": "Base address for scroll step lookup table",
+   "primary_users": "`CameraScrollStepLookup`, forced walks",
+   "size": "2"
+  },
+  "sfxQueueCh1": {
+   "address": "0x06F8",
+   "address_end": null,
+   "description": "SFX channel 1 queue; sent to `$APUIO2` on even frames during NMI",
+   "primary_users": "`PlaySoundCh1` COP, `NmiHandler`",
+   "size": "2"
+  },
+  "sfxQueueCh2": {
+   "address": "0x06F9",
+   "address_end": null,
+   "description": "SFX channel 2 queue",
+   "primary_users": "`PlaySoundCh2` COP",
+   "size": "1"
+  },
+  "slopeCurvePtrs": {
+   "address": "0x09BA",
+   "address_end": "0x09BC",
+   "description": "Pointers to slope speed delta tables (ascending/descending)",
+   "primary_users": "`slope_ramp_physics`, `SystemInit`",
+   "size": "4"
+  },
+  "slopeFracAccum": {
+   "address": "0x09C6",
+   "address_end": null,
+   "description": "Slope fractional accumulator for sub-pixel Y correction",
+   "primary_users": "`slope_ramp_physics`, tile types `$03`/`$0C`",
+   "size": "2"
+  },
+  "slopeStepCounter": {
+   "address": "0x09B6",
+   "address_end": null,
+   "description": "Slope step counter \u2014 indexes into speed curve tables",
+   "primary_users": "`slope_ramp_physics`",
+   "size": "2"
+  },
+  "sramMagicByte": {
+   "address": "0x0100",
+   "address_end": null,
+   "description": "Save validity marker \u2014 `$83` indicates a valid save exists",
+   "primary_users": "`SystemInit` cold-start check",
+   "size": "1"
+  },
+  "thinkerListFirst": {
+   "address": "0x005A",
+   "address_end": "0x005B",
+   "description": "Base address of first thinker in thinker list",
+   "primary_users": "`KillThinker`",
+   "size": "2"
+  },
+  "thinkerListLast": {
+   "address": "0x005C",
+   "address_end": "0x005D",
+   "description": "Base address of last thinker in thinker list",
+   "primary_users": "`AllocateSpecialActor`",
+   "size": "2"
+  },
+  "thinkerPoolPtr": {
+   "address": "0x0052",
+   "address_end": "0x0055",
+   "description": "Long pointer to next free RAM address for new thinkers",
+   "primary_users": "`KillThinker` COP, thinker allocation",
+   "size": "4"
+  },
+  "tileGraphicsEntries": {
+   "address": "0x0904",
+   "address_end": "0x090C",
+   "description": "Tile graphics entries resolved by `ResolveTileData`",
+   "primary_users": "Tile/map helpers",
+   "size": "8"
+  },
+  "tileQueryResult": {
+   "address": "0x0902",
+   "address_end": null,
+   "description": "Tile query result / VRAM address from metatile helpers; `\u2260 0` = query pending",
+   "primary_users": "`TileQueryGate`, `ResolveTileData`",
+   "size": "2"
+  },
+  "vramDestAddr": {
+   "address": "0x00B0",
+   "address_end": null,
+   "description": "VRAM destination word address",
+   "primary_users": "`ExecuteVramDma`",
+   "size": "2"
+  },
+  "worldReadyFlag": {
+   "address": "0x0654",
+   "address_end": null,
+   "description": "World initialization status; gates dialogue when `\u2260 $000F`",
+   "primary_users": "`SystemInit`, dialogue engine",
+   "size": "2"
   }
  }
 }

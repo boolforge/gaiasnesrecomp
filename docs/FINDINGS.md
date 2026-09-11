@@ -955,3 +955,44 @@ two -- adopted as the new baseline going forward, not reverted to
 the higher-looking figure. Regression-checked against SMW again
 (unaffected -- this change is to the bridge's own extraction, not
 the snesrecomp patch).
+
+## Major upstream update: db-us/ replaces us/, plus real new documentation
+
+Re-synced per request. `gaia-iog-baserom` restructured significantly:
+`us/` -> `db-us/` (+`db-jp/` for the Japanese ROM), new
+`extracted/`+`extracted-jp/` (13MB/11MB, scene-organized real asm,
+git-tracked rather than only in the toolkit release zip), and several
+genuinely new docs: `wram-memory-map.md` (657 lines, author-stated as
+cross-validated against DataCrystal's independent RAM map),
+`db-us/partNotes.json` (45 paragraph-length function descriptions),
+`db-us/comments.json` (341 inline annotations), `structs-reference.md`,
+`actor-organization-analysis.md`.
+
+Mined the two most directly actionable pieces this round:
+
+1. **WRAM naming, merged not replaced:** 137 richly-described
+   variables from `wram-memory-map.md` merged with the existing 221
+   from `fixups.json` (some overlap, not identical coverage) ->
+   **358 total WRAM variables** in `symbols.json`, most now with a
+   real description and "primary users" instead of just a bare name.
+   Also folded in the 45 `partNotes.json` function descriptions
+   (`function_notes` in `symbols.json`) -- e.g. `ScrollCameraInit`'s
+   full purpose, COP calls, and usage context, not just its address.
+
+2. **6 explicit, human-written CPU-width statements** found in
+   `comments.json` via a narrow regex (checked against false
+   positives first -- "X=0 selects layer" does NOT match; only real
+   mode-switch statements like "Switch to 8-bit A" do). Added as
+   `entry_mx_at` facts. Regression-checked (SMW, unaffected).
+   Honest effect on the two affected banks: AOT-eligible actually
+   *dropped slightly* (1,828 -> 1,770) as more precise width facts
+   eliminated some previously-explored but incorrect variant paths.
+   New whole-ROM total: **6,105/8,181 = 74.6%**, effectively
+   unchanged from 74.7% (within noise) -- included anyway because
+   they're genuinely verified, not because they moved the number.
+
+Not yet compared: whether the new git-tracked `extracted/` corpus
+differs meaningfully from the toolkit-release zip this bridge has
+been using, or mined `structs-reference.md`/
+`actor-organization-analysis.md`. Real next-round items, not done
+today for time.
